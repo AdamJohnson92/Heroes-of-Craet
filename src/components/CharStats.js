@@ -1,11 +1,6 @@
-import valeStatic from '../assets/vale-static.png'
-import slickStatic from '../assets/slick-static.png'
-import orbynStatic from '../assets/orbyn-static.png'
-
 import React from "react";
 
 export default function CharStats({chosenCharacter}) {
-    console.log(chosenCharacter)
     return(
         <div className="card" id="character-card">
                 <div id="character-avatar-div">
