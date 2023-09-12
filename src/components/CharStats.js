@@ -1,14 +1,16 @@
 import React from "react";
 
-export default function CharStats() {
+export default function CharStats(chosenCharacter) {
+    console.log(chosenCharacter)
+    console.log(chosenCharacter.charClass)
     return(
         <div className="card" id="character-card">
                 <div id="character-avatar-div">
-                    <h2 id="char-name">
+                    <h2 id="char-name"> {chosenCharacter.name}
                         </h2>
                         <img id="character-img-div"/>
                 </div>
-                <h3 className="card-header">Class: </h3>
+                <h3 className="card-header">Class: {}</h3>
                 <p className="card-item">Hitpoints: </p>
                 <p className="card-item">Strength: </p>
                 <p className="card-item">Dexterity: </p>
