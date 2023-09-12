@@ -1,3 +1,7 @@
+import valeStatic from '../assets/vale-static.png'
+import slickStatic from '../assets/slick-static.png'
+import orbynStatic from '../assets/orbyn-static.png'
+
 // import { valeGreatsword, slickDoubleDaggers, unarmed } from "./weapons.js";
 import { plateArmor, leatherArmor, tunic } from "./armor.js";
 
@@ -118,54 +122,26 @@ class Monk extends Character {
 
 }
 
-new Knight("Vale", 20, 20, 3, 1, 0, 12,
-    '// valeGreatsword',
+const valeChar = new Knight("Vale", 20, 20, 3, 1, 0, 12,
+    // valeGreatsword,
     'GreatSword',
     plateArmor,
-    `Tank`, "./assets/vale-static.png", './assets/vale-attack.png', 2, 1, 1, 0)
+    `Tank`, valeStatic, './assets/vale-attack.png', 2, 1, 1, 0)
 
-new Rogue("Slick", 15, 15, 1, 3, 0, 14,
+const slickChar = new Rogue("Slick", 15, 15, 1, 3, 0, 14,
     // slickDoubleDaggers, 
     'Double Daggers',
     leatherArmor,
     "Agile",
-    "./assets/slick-static.png", "./assets/slick-attack.png", 3, 1, 1, 0)
+    slickStatic, "./assets/slick-attack.png", 3, 1, 1, 0)
 
-new Monk('Orbyn', 15, 15, 2, 1, 1, 15,
+const orbynChar = new Monk('Orbyn', 15, 15, 2, 1, 1, 15,
     // unarmed, 
     'Unarmed',
     tunic,
-    "Mindful", "./assets/orbyn-static.png", './assets/orbyn-attack.png', 3, 2, 2, 0)
+    "Mindful", orbynStatic, './assets/orbyn-attack.png', 3, 2, 2, 0)
 
 
-// const characterRoster = [valeChar, slickChar, orbynChar]
-const characterRoster = [new Knight("Vale", 20, 20, 3, 1, 0, 12,
-//valeGreatsword
-'GreatSword',
-plateArmor, 
-`Tank`, "./assets/vale-static.png", './assets/vale-attack.png', 2, 1, 1, 0), new Rogue("Slick", 15, 15, 1, 3, 0, 14, 
-// slickDoubleDaggers, 
-'Double Daggers',
-leatherArmor, 
-"Agile",
-    "./assets/slick-static.png", "./assets/slick-attack.png", 3, 1, 1, 0), new Monk ('Orbyn', 15, 15, 2, 1, 1, 15, 
-// unarmed, 
-'Unarmed',
-tunic, 
-"Mindful", "./assets/orbyn-static.png", './assets/orbyn-attack.png', 3, 2, 2, 0), ]
+const characterRoster = [valeChar, slickChar, orbynChar]
 
-// const characterRoster = [
-//     {
-//         name: 'Vale',
-//         charClass: 'Knight'
-//     },
-//     {
-//         name: 'Slick',
-//         charClass: 'Rogue'
-//     },
-//     {
-//         name: 'Orbyn',
-//         charClass: 'Monk'
-//     }
-// ]
 export { characterRoster }
