@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import SelectCharBtns from "./SelectCharBtns"
 
 
 
 export default function SelectChar({ characterRoster, chosenCharacter, handleChooseCharacter }) {
 
+    console.log(chosenCharacter)
     return (
         <div className="container" id="character-selection-div">
             <h1 id="char-select-header">Select Your Character</h1>

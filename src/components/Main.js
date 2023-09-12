@@ -7,9 +7,9 @@ import SelectChar from "./SelectChar";
 
 
 export default function Main() {
-
+   
     const [chosenCharacter, setChosenCharacter] = useState('')
-
+ 
     const handleChooseCharacter = (event) => {
         for (let i = 0; i < characterRoster.length; i++) {
             if (event.target.matches(`#${characterRoster[i].name}`)) {
@@ -18,11 +18,12 @@ export default function Main() {
             }
         }
     }
+    console.log(chosenCharacter)
     return (
         <main>
             <div className="container" id='char-container'>
                 <CharStats chosenCharacter={chosenCharacter} />
-                <CharEquip />
+                <CharEquip chosenCharacter={chosenCharacter}/>
             </div>
             <SelectChar characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
 

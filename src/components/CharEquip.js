@@ -1,7 +1,8 @@
 import React from "react";
 import goldImg from "../assets/gold-stack.png"
 
-export default function CharEquip() {
+export default function CharEquip(chosenCharacter) {
+    console.log(chosenCharacter)
     return(
         <div className="card" id="equipment-card">
         <h3>Equipment <img id="gold-img" src={goldImg}/>

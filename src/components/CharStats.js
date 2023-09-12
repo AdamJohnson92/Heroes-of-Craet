@@ -2,7 +2,6 @@ import React from "react";
 
 export default function CharStats(chosenCharacter) {
     console.log(chosenCharacter)
-    console.log(chosenCharacter.charClass)
     return(
         <div className="card" id="character-card">
                 <div id="character-avatar-div">
