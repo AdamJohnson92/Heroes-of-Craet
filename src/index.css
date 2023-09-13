@@ -18,7 +18,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Yatra One',-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,7 +32,7 @@ body {
     background-image: linear-gradient(var(--brown) 0%, black 100%);
     background-size: cover;
 
-    /* font-family: 'Yatra One', cursive; */
+    /* font-family: , cursive; */
 }
 
 .displayed {
@@ -336,6 +336,8 @@ a:hover{
   margin-top: 0px;
   background-color: transparent;
   padding: 0px;
+  margin:-10px;
+  margin-bottom: 20px;
 }
 
 #turn-display {
