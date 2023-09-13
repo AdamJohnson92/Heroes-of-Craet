@@ -1,6 +1,7 @@
 import ArenaHero from "./ArenaHero"
+import ArenaMonster from "./ArenaMonster"
 
-export default function CombatDiv({combatDisplay, chosenCharacter}) {
+export default function CombatDiv({combatDisplay, chosenCharacter, monster}) {
     return(
         <div className={combatDisplay} id="combat-div">
             <div className="container" id="arena-banner">
@@ -9,6 +10,7 @@ export default function CombatDiv({combatDisplay, chosenCharacter}) {
             <div id='arena'>
                 <div className="background-img"></div>
                 <ArenaHero chosenCharacter={chosenCharacter}/>
+                <ArenaMonster monster={monster}/>
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">

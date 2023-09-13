@@ -4,9 +4,8 @@ import goblinStatic from '../assets/goblin-static.png'
 import goblinAttack from '../assets/goblin-attack.png'
 import badFrogStatic from '../assets/bad-frog-static.png'
 
-import { monDmgAnimation, combatLog } from "../combatUtil.js";
+// import { monDmgAnimation, combatLog } from "../combatUtil.js";
 
-import { charHpDiv } from "../playerCharacter.js";
 
 //MONSTER CLASS CONSTRUCTORS
 //-----------------------------------
@@ -33,21 +32,21 @@ class Undead extends Monster {
 
         if (naturalRoll >= targetHit) {
             let damage = Math.floor(Math.random() * (7 - 2) + 2);
-            monDmgAnimation('./assets/damage.png')
+            // monDmgAnimation('./assets/damage.png')
             let dmgLessArmor = damage - targetArmor
             if ((dmgLessArmor) < 0) {
                 dmgLessArmor = 0;
             }
-            combatLog.textContent = `The ${this.name} hits you for ${dmgLessArmor} damage`
-            charHpDiv.textContent = `${(targetHp - dmgLessArmor)}`
+            // combatLog.textContent = `The ${this.name} hits you for ${dmgLessArmor} damage`
+
             if ((targetHp - dmgLessArmor) < 1) {
-                heroHealthJuice.style.width = '0%'
-                loser()
+                // heroHealthJuice.style.width = '0%'
+                // loser()
             }
             return targetHp - dmgLessArmor;
         } else {
-            monDmgAnimation('./assets/miss.png')
-            combatLog.textContent = `The ${this.name} missed!`
+            // monDmgAnimation('./assets/miss.png')
+            // combatLog.textContent = `The ${this.name} missed!`
             return targetHp;
         }
 
@@ -63,20 +62,20 @@ class Goblin extends Monster {
 
         if (naturalRoll >= targetHit) {
             let damage = Math.floor(Math.random() * (9 - 2) + 2);
-            monDmgAnimation('./assets/damage.png')
+            // monDmgAnimation('./assets/damage.png')
             let dmgLessArmor = damage - targetArmor
             if ((dmgLessArmor) < 0) {
                 dmgLessArmor = 0;
             }
-            combatLog.textContent = `The ${this.name} hits you for ${dmgLessArmor} damage`
-            charHpDiv.textContent = `${(targetHp - dmgLessArmor)}`
+            // combatLog.textContent = `The ${this.name} hits you for ${dmgLessArmor} damage`
+            // charHpDiv.textContent = `${(targetHp - dmgLessArmor)}`
             if ((targetHp - dmgLessArmor) < 1) {
-                loser()
+                // loser()
             }
             return targetHp - dmgLessArmor;
         } else {
-            monDmgAnimation('./assets/miss.png')
-            combatLog.textContent = `The ${this.name} missed!`
+            // monDmgAnimation('./assets/miss.png')
+            // combatLog.textContent = `The ${this.name} missed!`
             return targetHp;
         }
 
