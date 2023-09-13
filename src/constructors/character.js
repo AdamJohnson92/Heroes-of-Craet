@@ -2,7 +2,7 @@ import valeStatic from '../assets/vale-static.png'
 import slickStatic from '../assets/slick-static.png'
 import orbynStatic from '../assets/orbyn-static.png'
 
-// import { valeGreatsword, slickDoubleDaggers, unarmed } from "./weapons.js";
+import { valeGreatsword, slickDoubleDaggers, unarmed } from "./weapons.js";
 import { plateArmor, leatherArmor, tunic } from "./armor.js";
 
 class Character {
@@ -123,25 +123,26 @@ class Monk extends Character {
 }
 
 const valeChar = new Knight("Vale", 20, 20, 3, 1, 0, 12,
-    // valeGreatsword,
-    'GreatSword',
+    
+    valeGreatsword,
+    // 'GreatSword',
     plateArmor,
     `Tank`, valeStatic, './assets/vale-attack.png', 2, 1, 1, 0)
 
 const slickChar = new Rogue("Slick", 15, 15, 1, 3, 0, 14,
-    // slickDoubleDaggers, 
-    'Double Daggers',
+    slickDoubleDaggers, 
+    // 'Double Daggers',
     leatherArmor,
     "Agile",
     slickStatic, "./assets/slick-attack.png", 3, 1, 1, 0)
 
 const orbynChar = new Monk('Orbyn', 15, 15, 2, 1, 1, 15,
-    // unarmed, 
-    'Unarmed',
+    unarmed, 
+    // 'Unarmed',
     tunic,
     "Mindful", orbynStatic, './assets/orbyn-attack.png', 3, 2, 2, 0)
 
 
 const characterRoster = [valeChar, slickChar, orbynChar]
 
-export { characterRoster }
+export { characterRoster, valeChar }

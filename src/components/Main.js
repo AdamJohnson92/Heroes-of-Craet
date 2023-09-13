@@ -4,20 +4,22 @@ import CharEquip from "./CharEquip";
 import { characterRoster } from "../constructors/character";
 import SelectChar from "./SelectChar";
 
-
+let character = {}
 
 export default function Main() {
 
-    const [chosenCharacter, setChosenCharacter] = useState('')
+    const [chosenCharacter, setChosenCharacter] = useState(characterRoster[0])
 
     const handleChooseCharacter = (event) => {
         for (let i = 0; i < characterRoster.length; i++) {
             if (event.target.matches(`#${characterRoster[i].name}`)) {
+                character = characterRoster[i]
                 setChosenCharacter(characterRoster[i])
             }
         }
     }
     console.log(chosenCharacter)
+    console.log(character)
     return (
         <main>
 
@@ -30,3 +32,5 @@ export default function Main() {
         </main>
     )
 }
+
+export {character} 
