@@ -1,6 +1,6 @@
 import React from "react";
 import goldImg from "../assets/gold-stack.png"
-import { characterRoster } from "../constructors/character";
+
 
 export default function CharEquip({chosenCharacter}) {
     
@@ -12,7 +12,7 @@ export default function CharEquip({chosenCharacter}) {
        
         <h4 className="card-header" id="weapon-name">{chosenCharacter.weapon.name}</h4>
         <p className="card-item"> Type: {chosenCharacter.weapon.name} </p>
-        <p className="card-item">Weight:{chosenCharacter.weapon.weight} </p>
+        <p className="card-item">Weight: {chosenCharacter.weapon.weight} </p>
         <p className="card-item"> Attack 1: {chosenCharacter.weapon.attack1}</p>
         <p className="card-item"> Attack 2: {chosenCharacter.weapon.attack2}</p>
         <h4 className="card-header" id="armor-name">{chosenCharacter.armor.name}</h4>

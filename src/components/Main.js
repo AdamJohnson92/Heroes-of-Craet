@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CharStats from "./CharStats";
 import CharEquip from "./CharEquip";
 import { characterRoster } from "../constructors/character";
 import SelectChar from "./SelectChar";
+import RightDiv from "./RightDiv";
+
+ 
 
 let character = {}
+
+
 
 export default function Main() {
 
@@ -18,8 +23,7 @@ export default function Main() {
             }
         }
     }
-    console.log(chosenCharacter)
-    console.log(character)
+
     return (
         <main>
 
@@ -27,10 +31,21 @@ export default function Main() {
                 <CharStats chosenCharacter={chosenCharacter} />
                 <CharEquip chosenCharacter={chosenCharacter} />
             </div>
-            <SelectChar characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
+            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
+            {/* <DamageTest chosenCharacter={chosenCharacter} /> */}
+            
 
         </main>
     )
 }
+
+// function DamageTest ({chosenCharacter}){
+//     useEffect(()=>{
+//         chosenCharacter.currentHp = chosenCharacter.currentHp - 1
+//     })
+//     console.log(chosenCharacter)
+// }
+
+
 
 export {character} 

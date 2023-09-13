@@ -18,6 +18,8 @@ function riskyRoll(){
     return risky
 }
 
+
+//UTILO
 function dmgAnimation(src) {
     setTimeout(dmgSlashAppear, 10, src)
     setTimeout(dmgSlashDisappear, 300)

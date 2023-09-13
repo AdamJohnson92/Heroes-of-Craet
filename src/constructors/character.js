@@ -1,6 +1,9 @@
 import valeStatic from '../assets/vale-static.png'
+import valeAttack from '../assets/vale-attack.png'
 import slickStatic from '../assets/slick-static.png'
+import slickAttack from '../assets/slick-attack.png'
 import orbynStatic from '../assets/orbyn-static.png'
+import orbynAttack from '../assets/orbyn-attack.png'
 
 import { valeGreatsword, slickDoubleDaggers, unarmed } from "./weapons.js";
 import { plateArmor, leatherArmor, tunic } from "./armor.js";
@@ -127,20 +130,20 @@ const valeChar = new Knight("Vale", 20, 20, 3, 1, 0, 12,
     valeGreatsword,
     // 'GreatSword',
     plateArmor,
-    `Tank`, valeStatic, './assets/vale-attack.png', 2, 1, 1, 0)
+    `Tank`, valeStatic, valeAttack, 2, 1, 1, 0)
 
 const slickChar = new Rogue("Slick", 15, 15, 1, 3, 0, 14,
     slickDoubleDaggers, 
     // 'Double Daggers',
     leatherArmor,
     "Agile",
-    slickStatic, "./assets/slick-attack.png", 3, 1, 1, 0)
+    slickStatic, slickAttack, 3, 1, 1, 0)
 
 const orbynChar = new Monk('Orbyn', 15, 15, 2, 1, 1, 15,
     unarmed, 
     // 'Unarmed',
     tunic,
-    "Mindful", orbynStatic, './assets/orbyn-attack.png', 3, 2, 2, 0)
+    "Mindful", orbynStatic, orbynAttack, 3, 2, 2, 0)
 
 
 const characterRoster = [valeChar, slickChar, orbynChar]
