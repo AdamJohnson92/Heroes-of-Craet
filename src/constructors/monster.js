@@ -1,3 +1,9 @@
+import undeadStatic from '../assets/undead-static.png'
+import undeadAttack from '../assets/undead-attack.png'
+import goblinStatic from '../assets/goblin-static.png'
+import goblinAttack from '../assets/goblin-attack.png'
+import badFrogStatic from '../assets/bad-frog-static.png'
+
 import { monDmgAnimation, combatLog } from "../combatUtil.js";
 
 import { charHpDiv } from "../playerCharacter.js";
@@ -81,11 +87,11 @@ class Goblin extends Monster {
 //-----------------------------------
 
 
-const undead = new Undead('Undead', 23, 23, 12, './assets/undead-static.png','./assets/undead-attack.png', 1)
+const undead = new Undead('Undead', 23, 23, 12, undeadStatic, undeadAttack, 1)
 
-const goblin = new Goblin('Goblin', 35, 35, 13, './assets/goblin-static.png', './assets/goblin-attack.png', 1)
+const goblin = new Goblin('Goblin', 35, 35, 13, goblinStatic, goblinAttack, 1)
 
-const badFrog = new Goblin('Bad Frog', 40, 40, 10,'./assets/bad-frog-static.png','./assets/bad-frog-static.png', 1)
+const badFrog = new Goblin('Bad Frog', 40, 40, 10, badFrogStatic,badFrogStatic, 1)
 
 const monsterRoster = [goblin, undead, badFrog]
 
