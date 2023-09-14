@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function ArenaHero({ chosenCharacter }) {
 
 
-const stamBarWidth = (chosenCharacter.currentStaminaPoints/chosenCharacter.maxStaminaPoints *100)
+    const stamBarWidth = (chosenCharacter.currentStaminaPoints / chosenCharacter.maxStaminaPoints * 100)
 
     const stamWidthStyle = {
         id: "hero-stam-bar-style",
@@ -11,6 +11,7 @@ const stamBarWidth = (chosenCharacter.currentStaminaPoints/chosenCharacter.maxSt
         width: `${stamBarWidth}%`,
         height: '15px'
     }
+    
     return (
         <div className='arena-placement' id='arena-hero'>
             <div className="health-bar" id="hero-health-bar">

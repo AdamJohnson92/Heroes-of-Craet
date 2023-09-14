@@ -5,17 +5,10 @@ import { characterRoster } from "../constructors/character";
 import SelectChar from "./SelectChar";
 import RightDiv from "./RightDiv";
 
- 
+
 
 let character = {}
 
-
-// function DamageTest ({chosenCharacter}){
-    // useEffect(()=>{
-    //     chosenCharacter.currentHp = chosenCharacter.currentHp - 1
-    // })
-//     console.log(chosenCharacter)
-// }
 
 export default function Main() {
 
@@ -30,21 +23,15 @@ export default function Main() {
         }
     }
 
+
+    const [heroStamPoints, setHeroStamPoints] = useState(chosenCharacter.currentStaminaPoints)
     
-const [heroStamBarWidth, setHeroStamBarWidth] = useState(100)
-console.log(heroStamBarWidth)
-
-function depleteHeroStamBar (){
-    setHeroStamBarWidth((chosenCharacter.currentStaminaPoints/chosenCharacter.maxStaminaPoints * 100))
-}
-
     function StaminaReduce() {
-        chosenCharacter.currentStaminaPoints = chosenCharacter.currentStaminaPoints - 1
-        setChosenCharacter(chosenCharacter)
-        console.log(chosenCharacter)
-        depleteHeroStamBar()
+        chosenCharacter.currentStaminaPoints = (chosenCharacter.currentStaminaPoints - 1)
+
+        setHeroStamPoints(chosenCharacter.currentStaminaPoints)
     }
-    // DamageTest({chosenCharacter})
+
     return (
         <main>
 
@@ -52,11 +39,11 @@ function depleteHeroStamBar (){
                 <CharStats chosenCharacter={chosenCharacter} />
                 <CharEquip chosenCharacter={chosenCharacter} />
             </div>
-            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} 
-            StaminaReduce={StaminaReduce}
-             handleChooseCharacter={handleChooseCharacter} />
+            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter}
+                StaminaReduce={StaminaReduce}
+                handleChooseCharacter={handleChooseCharacter} />
             {/* <DamageTest chosenCharacter={chosenCharacter} /> */}
-            
+
 
         </main>
     )
@@ -66,4 +53,4 @@ function depleteHeroStamBar (){
 // DamageTest()
 
 
-export {character} 
+export { character } 
