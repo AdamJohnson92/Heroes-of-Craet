@@ -10,6 +10,7 @@ export default function CharStats({chosenCharacter}) {
                 </div>
                 <h3 className="card-header">Class: {chosenCharacter.charClass}</h3>
                 <p className="card-item">Hitpoints: {chosenCharacter.currentHp}</p>
+                <p className="card-item">Stamina: {chosenCharacter.currentStaminaPoints}</p>
                 <p className="card-item">Strength: {chosenCharacter.strength}</p>
                 <p className="card-item">Dexterity: {chosenCharacter.dexterity}</p>
                 <p className="card-item">Wisdom: {chosenCharacter.wisdom}</p>

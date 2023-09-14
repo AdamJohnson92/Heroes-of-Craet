@@ -3,6 +3,8 @@ import SelectChar from "./SelectChar"
 import CombatDiv from "./CombatComponents/CombatDiv"
 import { monsterRoster } from "../constructors/monster"
 
+
+
 export default function RightDiv({ characterRoster, chosenCharacter, handleChooseCharacter }) {
 
     const [selectDisplay, setSelectDisplay] = useState('displayed')

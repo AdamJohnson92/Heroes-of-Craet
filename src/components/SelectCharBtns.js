@@ -6,7 +6,7 @@ export default function SelectCharBtns(props) {
     return(
         <>
         {props.characterRoster.map((char)=> (
-            <button className="btn character-btn" id={char.name} onClick={props.handleChooseCharacter}>{char.name} the {char.charClass}
+            <button className="btn character-btn" id={char.name} onClick={props.handleChooseCharacter} key = {char.name}>{char.name} the {char.charClass}
            </button>
         ))}
         </>
