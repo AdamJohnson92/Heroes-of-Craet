@@ -4,6 +4,7 @@ import ArenaMonster from "./ArenaMonster"
 
 
 export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster }) {
+
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
 
     const [heroAttackDisplay, setHeroAttackDisplay] = useState('hidden')
@@ -22,15 +23,14 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
         setHeroStaticDisplay('static-display')
     }
 
-    function attackRoll() {
+    function attackRoll(event) {
 
         attackAnimation()
         StaminaReduce()
-        // if (event.target === attackBtn1) {
-        //     monster.currentHp = chosenCharacter.weapon.attackDam1(monster.hitChanceRate, monster.currentHp, chosenCharacter.weapon.modifyingStat)
-        // } else if (event.target === attackBtn2) {
-        //     monster.currentHp = chosenCharacter.weapon.attackDam2(monster.hitChanceRate, monster.currentHp, chosenCharacter.weapon.modifyingStat)
-        // }
+
+        event.target.matches(`#attack-1`) ? (console.log('attack 1'))
+            : (console.log('attack 2'))
+
 
         // damageMonsterHealthBar(monster.maxHp, monster.currentHp)
 
