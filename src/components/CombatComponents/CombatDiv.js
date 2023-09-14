@@ -27,22 +27,18 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
         attackAnimation()
         StaminaReduce()
+        console.log(monster)
+        if (event.target.matches(`#attack-1`)) {
+            monster.currentHp = monster.currentHp - chosenCharacter.weapon.attackDam1()
+            console.log(monster.currentHp)
+        } else if (event.target.matches('#attack-2')){ console.log('attack 2')}
+        // chosenCharacter.weapon.attackDam1()
 
-        event.target.matches(`#attack-1`) ? (console.log('attack 1'))
-            : (console.log('attack 2'))
 
-
-        // damageMonsterHealthBar(monster.maxHp, monster.currentHp)
-
-        // if (monster.currentHp < 1) {
-        //     winner()
-        // }
-        // if ((heroStaminaCounter.textContent < 1) && (monster.currentHp > 0)) {
-        //     monsterStaminaCounter.textContent = 1
-        //     changeMonsterStaminaBar(monster.staminaPoints, monsterStaminaCounter.textContent)
-
-        //     turnBannerChange()
-        // }
+        // event.target.matches(`#attack-1`) ? (
+        //     console.log('attack 1')
+        //     )
+        //     : (console.log('attack 2'))
     }
 
 

@@ -75,22 +75,10 @@ class Greatsword extends Weapon {
     constructor(name, type, weight, attack1, attack2, modifyingStat) {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
-    attackDam1(targetHit, targetHp) {
-        const naturalRoll = confidentRoll()
-        const totalRoll = naturalRoll + character.strength
-
-        if (totalRoll >= targetHit) {
-            const damage = Math.floor(Math.random() * (9 - 2) + 2);
-            dmgAnimation('./assets/damage.png')
-            const totalDmg = damage + character.strength
-            // combatLog.textContent = `You swing your greatsword in a wide arc for ${totalDmg} damage`
-
-            return targetHp - totalDmg;
-        } else {
-            dmgAnimation('./assets/miss.png')
-            // combatLog.textContent = 'You missed!';
-            return targetHp
-        }
+    attackDam1() {
+    console.log('bababooee')
+    const dmg = 10
+    return dmg
     }
 
     attackDam2(targetHit, targetHp) {
