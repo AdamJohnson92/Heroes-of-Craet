@@ -11,9 +11,9 @@ let character = {}
 
 
 // function DamageTest ({chosenCharacter}){
-//     useEffect(()=>{
-//         chosenCharacter.currentHp = chosenCharacter.currentHp - 1
-//     })
+    // useEffect(()=>{
+    //     chosenCharacter.currentHp = chosenCharacter.currentHp - 1
+    // })
 //     console.log(chosenCharacter)
 // }
 
@@ -39,9 +39,6 @@ function depleteHeroStamBar (){
 }
 
     function StaminaReduce() {
-        // useEffect(()=>{
-        //     chosenCharacter.currentStaminaPoints = chosenCharacter.currentStaminaPoints - 1
-        // })
         chosenCharacter.currentStaminaPoints = chosenCharacter.currentStaminaPoints - 1
         setChosenCharacter(chosenCharacter)
         console.log(chosenCharacter)
@@ -55,7 +52,9 @@ function depleteHeroStamBar (){
                 <CharStats chosenCharacter={chosenCharacter} />
                 <CharEquip chosenCharacter={chosenCharacter} />
             </div>
-            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} StaminaReduce={StaminaReduce} handleChooseCharacter={handleChooseCharacter} />
+            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} 
+            StaminaReduce={StaminaReduce}
+             handleChooseCharacter={handleChooseCharacter} />
             {/* <DamageTest chosenCharacter={chosenCharacter} /> */}
             
 
