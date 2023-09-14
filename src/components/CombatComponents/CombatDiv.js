@@ -1,25 +1,15 @@
 import { useState } from "react"
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
+import styles from './stamBarStyle.module.css'
 
 
 
-export default function CombatDiv({ combatDisplay, chosenCharacter, monster }) {
-
-const [updatedChar, setUpdatedChar] = useState(chosenCharacter.staminaPoints)
-console.log(updatedChar)
+export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster }) {
 
 //function to handle stamina depletion 
-function staminaReduce() {
-    console.log(updatedChar)
-    let newStamPoints = chosenCharacter.staminaPoints - 1
-    setUpdatedChar(newStamPoints)
-}
 
-//     function attackRoll(event) {
-        
 
-//     }
     return (
         <div className={combatDisplay} id="combat-div">
             <div className="container" id="arena-banner">
@@ -35,10 +25,10 @@ function staminaReduce() {
                     <p id='combat-log'> </p>
                 </div>
                 <div id="combat-btn-div"><button className="btn" id='play-again'> Play Again</button>
-                    <button className='btn combat-btn' id="attack-1" onClick={staminaReduce}> {chosenCharacter.weapon.attack1} </button>
-                    <button className='btn combat-btn' id="attack-2">{chosenCharacter.weapon.attack2} </button>
-                    <button className='btn combat-btn' id="special-button-1"> {chosenCharacter.special} </button>
-                    <button className="btn combat-btn" id="potion-button"> Drink Potion </button>
+                    <button className='btn combat-btn' id="attack-1" onClick={StaminaReduce}> {chosenCharacter.weapon.attack1} </button>
+                    <button className='btn combat-btn' id="attack-2" onClick={StaminaReduce}>{chosenCharacter.weapon.attack2} </button>
+                    <button className='btn combat-btn' id="special-button-1" onClick={StaminaReduce}> {chosenCharacter.special} </button>
+                    <button className="btn combat-btn" id="potion-button" onClick={StaminaReduce}> Drink Potion </button>
                 </div>
 
             </div>

@@ -10,6 +10,12 @@ import RightDiv from "./RightDiv";
 let character = {}
 
 
+// function DamageTest ({chosenCharacter}){
+//     useEffect(()=>{
+//         chosenCharacter.currentHp = chosenCharacter.currentHp - 1
+//     })
+//     console.log(chosenCharacter)
+// }
 
 export default function Main() {
 
@@ -24,6 +30,24 @@ export default function Main() {
         }
     }
 
+    
+const [heroStamBarWidth, setHeroStamBarWidth] = useState(100)
+console.log(heroStamBarWidth)
+
+function depleteHeroStamBar (){
+    setHeroStamBarWidth((chosenCharacter.currentStaminaPoints/chosenCharacter.maxStaminaPoints * 100))
+}
+
+    function StaminaReduce() {
+        // useEffect(()=>{
+        //     chosenCharacter.currentStaminaPoints = chosenCharacter.currentStaminaPoints - 1
+        // })
+        chosenCharacter.currentStaminaPoints = chosenCharacter.currentStaminaPoints - 1
+        setChosenCharacter(chosenCharacter)
+        console.log(chosenCharacter)
+        depleteHeroStamBar()
+    }
+    // DamageTest({chosenCharacter})
     return (
         <main>
 
@@ -31,21 +55,16 @@ export default function Main() {
                 <CharStats chosenCharacter={chosenCharacter} />
                 <CharEquip chosenCharacter={chosenCharacter} />
             </div>
-            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
+            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} StaminaReduce={StaminaReduce} handleChooseCharacter={handleChooseCharacter} />
             {/* <DamageTest chosenCharacter={chosenCharacter} /> */}
             
 
         </main>
     )
+
 }
 
-// function DamageTest ({chosenCharacter}){
-//     useEffect(()=>{
-//         chosenCharacter.currentHp = chosenCharacter.currentHp - 1
-//     })
-//     console.log(chosenCharacter)
-// }
-
+// DamageTest()
 
 
 export {character} 
