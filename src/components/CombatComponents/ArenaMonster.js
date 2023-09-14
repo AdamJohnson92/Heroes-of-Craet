@@ -17,7 +17,7 @@ export default function ArenaMonster({monster}) {
                     <div id="potion-juice"></div>
                 </div>
             </div>
-            <img className='arena-img' id="arena-monster-avatar" 
+            <img className='static-display' id="arena-monster-avatar" 
             src={monster.img} 
             />
             <img className='arena-img' id="arena-monster-attack" 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CharStats from "./CharStats";
 import CharEquip from "./CharEquip";
 import { characterRoster } from "../constructors/character";
-import SelectChar from "./SelectChar";
 import RightDiv from "./RightDiv";
 
 

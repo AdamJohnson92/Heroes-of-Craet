@@ -1,13 +1,49 @@
 import { useState } from "react"
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
-import styles from './stamBarStyle.module.css'
-
 
 
 export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster }) {
+    const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
 
-//function to handle stamina depletion 
+    const [heroAttackDisplay, setHeroAttackDisplay] = useState('hidden')
+
+    function attackAnimation() {
+        heroAttackAppear()
+        setTimeout(heroAttackDisappear, 750)
+    }
+
+    function heroAttackAppear() {
+        setHeroAttackDisplay('attack-display')
+        setHeroStaticDisplay('hidden')
+    }
+    function heroAttackDisappear() {
+        setHeroAttackDisplay('hidden')
+        setHeroStaticDisplay('static-display')
+    }
+
+    function attackRoll() {
+
+        attackAnimation()
+        StaminaReduce()
+        // if (event.target === attackBtn1) {
+        //     monster.currentHp = chosenCharacter.weapon.attackDam1(monster.hitChanceRate, monster.currentHp, chosenCharacter.weapon.modifyingStat)
+        // } else if (event.target === attackBtn2) {
+        //     monster.currentHp = chosenCharacter.weapon.attackDam2(monster.hitChanceRate, monster.currentHp, chosenCharacter.weapon.modifyingStat)
+        // }
+
+        // damageMonsterHealthBar(monster.maxHp, monster.currentHp)
+
+        // if (monster.currentHp < 1) {
+        //     winner()
+        // }
+        // if ((heroStaminaCounter.textContent < 1) && (monster.currentHp > 0)) {
+        //     monsterStaminaCounter.textContent = 1
+        //     changeMonsterStaminaBar(monster.staminaPoints, monsterStaminaCounter.textContent)
+
+        //     turnBannerChange()
+        // }
+    }
 
 
     return (
@@ -17,7 +53,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             </div>
             <div id='arena'>
                 <div className="background-img"></div>
-                <ArenaHero chosenCharacter={chosenCharacter} />
+                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} />
                 <ArenaMonster monster={monster} />
             </div>
             <div className="container" id="combat-UI-div">
@@ -25,8 +61,8 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
                     <p id='combat-log'> </p>
                 </div>
                 <div id="combat-btn-div"><button className="btn" id='play-again'> Play Again</button>
-                    <button className='btn combat-btn' id="attack-1" onClick={StaminaReduce}> {chosenCharacter.weapon.attack1} </button>
-                    <button className='btn combat-btn' id="attack-2" onClick={StaminaReduce}>{chosenCharacter.weapon.attack2} </button>
+                    <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
+                    <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
                     <button className='btn combat-btn' id="special-button-1" onClick={StaminaReduce}> {chosenCharacter.special} </button>
                     <button className="btn combat-btn" id="potion-button" onClick={StaminaReduce}> Drink Potion </button>
                 </div>

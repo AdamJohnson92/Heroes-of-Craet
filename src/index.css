@@ -44,6 +44,7 @@ body {
   display:none
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -355,20 +356,25 @@ a:hover{
   display: none;
 }
 
-.arena-img {
+/* .arena-img {
+  
+} */
+
+.static-display{
   width: 150px;
   height: 150px;
   position: absolute;
   bottom: 35px;
 }
 
-#arena-hero-attack {
-  display: none;
+.attack-display{
+  width: 150px;
+  height: 150px;
   position: relative;
   left: 50px;
   top: 25px;
-
 }
+
 
 #arena-monster-attack {
   display: none;

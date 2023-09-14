@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ArenaHero({ chosenCharacter }) {
+export default function ArenaHero({ chosenCharacter, heroStaticDisplay, heroAttackDisplay }) {
 
 
     const stamBarWidth = (chosenCharacter.currentStaminaPoints / chosenCharacter.maxStaminaPoints * 100)
@@ -26,8 +26,8 @@ export default function ArenaHero({ chosenCharacter }) {
                     <div id="potion-juice"></div>
                 </div>
             </div>
-            <img className='arena-img' id="arena-hero-avatar" src={chosenCharacter.img} />
-            <img className='arena-img' id="arena-hero-attack" src={chosenCharacter.attackImg} />
+            <img className={heroStaticDisplay} id="arena-hero-avatar" src={chosenCharacter.img} />
+            <img className= {heroAttackDisplay} id="arena-hero-attack" src={chosenCharacter.attackImg} />
             <img className="dmg-img arena-img" id="hero-dmg" />
         </div>
     )
