@@ -1,12 +1,20 @@
 
 import { useState } from "react";
 
-export default function ArenaMonster({monster}) {
+export default function ArenaMonster({monster, monsterHp}) {
+    const hpBarWidth = (monsterHp / monster.maxHp * 100)
+
+    const hpWidthStyle = {
+        id: "hero-stam-bar-style",
+        backgroundColor: 'red',
+        width: `${hpBarWidth}%`,
+        height: '15px'
+    }
 
     return (
         <div className='arena-placement' id='arena-monster'>
             <div className="health-bar" id="monster-health-bar">
-                <div className="health-juice" id="monster-health-juice"></div>
+                <div className="health-juice" id="monster-health-juice" style={hpWidthStyle}></div>
             </div>
             <div className="stam-bar" id="monster-stam-bar">
                 <div className="stam-juice" id="monster-stam-juice"></div>

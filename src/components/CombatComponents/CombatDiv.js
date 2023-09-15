@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
 
 
-export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster, heroStamPoints }) {
+export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster, heroStamPoints, monsterHp, MonsterHealthReduce }) {
 
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
 
@@ -23,17 +23,28 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
         setHeroStaticDisplay('static-display')
     }
 
-    function attackRoll(event) {
+    // const [monsterHp, setMonsterHp] = useState(monster.maxHp)
+    
+    
+    // function MonsterHealthReduce(attackDmg) {
+    //     console.log(attackDmg)
+    //     setMonsterHp(monsterHp - attackDmg)
+    //     console.log(monster)
+    
+    // }
 
+    function attackRoll(event) {
+        
         attackAnimation()
         StaminaReduce()
-        console.log(heroStamPoints)
+        console.log(chosenCharacter)
         console.log(monster)
-        // if (event.target.matches(`#attack-1`)) {
-        //     monster.currentHp = monster.currentHp - chosenCharacter.weapon.attackDam1()
-        //     console.log(monster.currentHp)
-        // } else if (event.target.matches('#attack-2')){ console.log('attack 2')}
-        // chosenCharacter.weapon.attackDam1()
+        if (event.target.matches(`#attack-1`)) {
+            const attack1Dmg = chosenCharacter.weapon.attackDam1()
+            MonsterHealthReduce(attack1Dmg)
+        } else if (event.target.matches('#attack-2')){ console.log('attack 2')}
+        chosenCharacter.weapon.attackDam1()
+
 
 
         // event.target.matches(`#attack-1`) ? (
@@ -52,7 +63,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
                 <div className="background-img"></div>
                 <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} 
                 heroStamPoints = {heroStamPoints}/>
-                <ArenaMonster monster={monster} />
+                <ArenaMonster monster={monster} monsterHp = {monsterHp} />
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">

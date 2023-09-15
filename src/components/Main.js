@@ -27,10 +27,11 @@ export default function Main() {
     const [heroStamPoints, setHeroStamPoints] = useState(chosenCharacter.currentStaminaPoints)
     
     function StaminaReduce() {
-        // chosenCharacter.currentStaminaPoints = (chosenCharacter.currentStaminaPoints - 1)
+        //This line is purely for updating the object itself
+        chosenCharacter.currentStaminaPoints = chosenCharacter.currentStaminaPoints - 1
 
         setHeroStamPoints(heroStamPoints - 1)
-        console.log(heroStamPoints)
+        
     }
 
     return (

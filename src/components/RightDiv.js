@@ -10,13 +10,29 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
     const [selectDisplay, setSelectDisplay] = useState('displayed')
     const [combatDisplay, setCombatDisplay] = useState('hidden')
 
-    const [monster, setMonster] = useState({})
+    const [monster, setMonster] = useState(monsterRoster[0])
+
+    const [monsterHp, setMonsterHp] = useState(monster.maxHp)
+
+    function MonsterHealthReduce(attackDmg) {
+        monster.currentHp = monster.currentHp - attackDmg
+        console.log(attackDmg)
+        if((monsterHp - attackDmg) < 0){
+            setMonsterHp(0)
+        } else {
+            setMonsterHp(monsterHp - attackDmg)
+        }
+        
+        console.log(monster)
+    
+    }
 
     const generateMonster = () => {
         const randomMonster = monsterRoster[Math.floor(Math.random() * monsterRoster.length)]
         //for testing against goblin
         // return monsterRoster[0]
         setMonster(randomMonster)
+        setMonsterHp(randomMonster.maxHp)
     }
     
     const playGame = () => {
@@ -35,7 +51,7 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
                     {/* <a href="./town.html" className='btn' id="to-town-btn">Go to Town</a> */}
                 </div>
             </div>
-            <CombatDiv combatDisplay={combatDisplay} chosenCharacter={chosenCharacter} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints}/>
+            <CombatDiv combatDisplay={combatDisplay} chosenCharacter={chosenCharacter} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} monsterHp={monsterHp} MonsterHealthReduce ={MonsterHealthReduce}/>
 
         </div>
 
