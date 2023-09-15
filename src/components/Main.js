@@ -26,19 +26,20 @@ export default function Main() {
     const [heroStamPoints, setHeroStamPoints] = useState(chosenCharacter.currentStaminaPoints)
     
     function StaminaReduce() {
-        chosenCharacter.currentStaminaPoints = (chosenCharacter.currentStaminaPoints - 1)
+        // chosenCharacter.currentStaminaPoints = (chosenCharacter.currentStaminaPoints - 1)
 
-        setHeroStamPoints(chosenCharacter.currentStaminaPoints)
+        setHeroStamPoints(heroStamPoints - 1)
+        console.log(heroStamPoints)
     }
 
     return (
         <main>
 
             <div className="container" id='char-container'>
-                <CharStats chosenCharacter={chosenCharacter} />
+                <CharStats chosenCharacter={chosenCharacter} heroStamPoints={heroStamPoints}/>
                 <CharEquip chosenCharacter={chosenCharacter} />
             </div>
-            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter}
+            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} heroStamPoints = {heroStamPoints}
                 StaminaReduce={StaminaReduce}
                 handleChooseCharacter={handleChooseCharacter} />
             {/* <DamageTest chosenCharacter={chosenCharacter} /> */}

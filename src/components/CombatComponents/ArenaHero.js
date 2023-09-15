@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export default function ArenaHero({ chosenCharacter, heroStaticDisplay, heroAttackDisplay }) {
+export default function ArenaHero({ chosenCharacter, heroStaticDisplay, heroAttackDisplay, heroStamPoints }) {
 
 
-    const stamBarWidth = (chosenCharacter.currentStaminaPoints / chosenCharacter.maxStaminaPoints * 100)
+    const stamBarWidth = (heroStamPoints / chosenCharacter.maxStaminaPoints * 100)
 
     const stamWidthStyle = {
         id: "hero-stam-bar-style",

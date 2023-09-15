@@ -5,7 +5,7 @@ import { monsterRoster } from "../constructors/monster"
 
 
 
-export default function RightDiv({ characterRoster, chosenCharacter, StaminaReduce, handleChooseCharacter }) {
+export default function RightDiv({ characterRoster, chosenCharacter, StaminaReduce, handleChooseCharacter, heroStamPoints }) {
 
     const [selectDisplay, setSelectDisplay] = useState('displayed')
     const [combatDisplay, setCombatDisplay] = useState('hidden')
@@ -35,7 +35,7 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
                     {/* <a href="./town.html" className='btn' id="to-town-btn">Go to Town</a> */}
                 </div>
             </div>
-            <CombatDiv combatDisplay={combatDisplay} chosenCharacter={chosenCharacter} monster={monster} StaminaReduce={StaminaReduce} />
+            <CombatDiv combatDisplay={combatDisplay} chosenCharacter={chosenCharacter} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints}/>
 
         </div>
 

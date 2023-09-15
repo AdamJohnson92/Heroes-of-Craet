@@ -3,7 +3,7 @@ import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
 
 
-export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster }) {
+export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster, heroStamPoints }) {
 
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
 
@@ -27,6 +27,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
         attackAnimation()
         StaminaReduce()
+        console.log(heroStamPoints)
         console.log(monster)
         if (event.target.matches(`#attack-1`)) {
             monster.currentHp = monster.currentHp - chosenCharacter.weapon.attackDam1()
@@ -49,7 +50,8 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             </div>
             <div id='arena'>
                 <div className="background-img"></div>
-                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} />
+                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} 
+                heroStamPoints = {heroStamPoints}/>
                 <ArenaMonster monster={monster} />
             </div>
             <div className="container" id="combat-UI-div">
