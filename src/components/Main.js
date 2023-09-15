@@ -18,6 +18,7 @@ export default function Main() {
             if (event.target.matches(`#${characterRoster[i].name}`)) {
                 character = characterRoster[i]
                 setChosenCharacter(characterRoster[i])
+                setHeroStamPoints(characterRoster[i].currentStaminaPoints)
             }
         }
     }

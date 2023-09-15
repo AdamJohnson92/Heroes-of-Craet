@@ -29,10 +29,10 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
         StaminaReduce()
         console.log(heroStamPoints)
         console.log(monster)
-        if (event.target.matches(`#attack-1`)) {
-            monster.currentHp = monster.currentHp - chosenCharacter.weapon.attackDam1()
-            console.log(monster.currentHp)
-        } else if (event.target.matches('#attack-2')){ console.log('attack 2')}
+        // if (event.target.matches(`#attack-1`)) {
+        //     monster.currentHp = monster.currentHp - chosenCharacter.weapon.attackDam1()
+        //     console.log(monster.currentHp)
+        // } else if (event.target.matches('#attack-2')){ console.log('attack 2')}
         // chosenCharacter.weapon.attackDam1()
 
 
