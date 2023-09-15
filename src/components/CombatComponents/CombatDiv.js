@@ -42,15 +42,9 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
         if (event.target.matches(`#attack-1`)) {
             const attack1Dmg = chosenCharacter.weapon.attackDam1()
             MonsterHealthReduce(attack1Dmg)
-        } else if (event.target.matches('#attack-2')){ console.log('attack 2')}
-        chosenCharacter.weapon.attackDam1()
+        } else if (event.target.matches('#attack-2')){ const attack2Dmg = chosenCharacter.weapon.attackDam2()
+            MonsterHealthReduce(attack2Dmg)}
 
-
-
-        // event.target.matches(`#attack-1`) ? (
-        //     console.log('attack 1')
-        //     )
-        //     : (console.log('attack 2'))
     }
 
 

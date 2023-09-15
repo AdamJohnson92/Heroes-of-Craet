@@ -263,7 +263,10 @@ a{
 
 #play-btn {
   background-color: rgb(156, 19, 19);
- 
+}
+
+#play-btn:hover {
+  background-color: rgb(128, 15, 15);
 }
 
 #to-town-btn{
