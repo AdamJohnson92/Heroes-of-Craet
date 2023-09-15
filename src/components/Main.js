@@ -18,17 +18,15 @@ export default function Main() {
             if (event.target.matches(`#${characterRoster[i].name}`)) {
                 character = characterRoster[i]
                 setChosenCharacter(characterRoster[i])
-                setHeroStamPoints(characterRoster[i].currentStaminaPoints)
+                setHeroStamPoints(characterRoster[i].maxStaminaPoints)
             }
         }
     }
 
 
-    const [heroStamPoints, setHeroStamPoints] = useState(chosenCharacter.currentStaminaPoints)
+    const [heroStamPoints, setHeroStamPoints] = useState(chosenCharacter.maxStaminaPoints)
     
     function StaminaReduce() {
-        //This line is purely for updating the object itself
-        chosenCharacter.currentStaminaPoints = chosenCharacter.currentStaminaPoints - 1
 
         setHeroStamPoints(heroStamPoints - 1)
         
