@@ -366,16 +366,33 @@ a:hover{
   display: none;
 }
 
-/* .arena-img {
-  
-} */
 
+@keyframes breath {
+  from {
+    transform: scale (1, 1);
+   transform-origin: center bottom;
+  }
+
+  50% {
+    transform: scale(1, 1.02);
+    /* transform: translateY(0); */
+  }
+
+  to {
+    transform:scale (1, 1);
+    /* transform: translateY(0); */
+  }
+}
 .static-display{
+  animation: breath 1s linear infinite normal none;
   width: 150px;
   height: 150px;
   position: absolute;
   bottom: 35px;
+  
 }
+
+
 
 .attack-display{
   width: 150px;
