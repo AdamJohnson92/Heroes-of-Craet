@@ -739,11 +739,25 @@ footer {
   }
 
   #arena-hero-attack {
-      display: none;
       position: relative;
       left: 50px;
       top: 25px;
 
+  }
+
+  .static-display{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 15px;
+  }
+  
+  .attack-display{
+    display:block;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    top: 25px;
   }
 
   #arena-monster-attack {
