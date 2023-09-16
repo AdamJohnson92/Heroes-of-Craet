@@ -76,15 +76,15 @@ class Greatsword extends Weapon {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
     attackDam1() {
-    console.log('bababooee')
     const dmg = 5
-    return dmg
+    const combatLogText = `You swing your sword in a wide arc and deal ${dmg} damage.`
+    return { dmg, combatLogText}
     }
 
     attackDam2() {
-        console.log('bababooee')
-        const dmg = 7
-        return dmg
+        const dmg = 10
+        const combatLogText = `You thrust forward with your sword and deal ${dmg} damage.`
+        return {dmg, combatLogText}
     }
 }
 

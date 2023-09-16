@@ -24,29 +24,37 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
     }
 
     // const [monsterHp, setMonsterHp] = useState(monster.maxHp)
-    
-    
+
+
     // function MonsterHealthReduce(attackDmg) {
     //     console.log(attackDmg)
     //     setMonsterHp(monsterHp - attackDmg)
     //     console.log(monster)
-    
+
     // }
 
+    const [combatLog, setCombatLog] = useState('Begin!')
+
     function attackRoll(event) {
-        
+
         attackAnimation()
         StaminaReduce()
         console.log(chosenCharacter)
         console.log(monster)
         if (event.target.matches(`#attack-1`)) {
-            const attack1Dmg = chosenCharacter.weapon.attackDam1()
-            MonsterHealthReduce(attack1Dmg)
-        } else if (event.target.matches('#attack-2')){ const attack2Dmg = chosenCharacter.weapon.attackDam2()
-            MonsterHealthReduce(attack2Dmg)}
-
+            const attack1 = chosenCharacter.weapon.attackDam1()
+            let dmg1 = attack1.dmg
+            let combatLogText1 = attack1.combatLogText
+            MonsterHealthReduce(dmg1)
+            setCombatLog(combatLogText1)
+        } else if (event.target.matches('#attack-2')) {
+            const attack2 = chosenCharacter.weapon.attackDam2()
+            let dmg2 = attack2.dmg
+            let combatLogText2 = attack2.combatLogText
+            MonsterHealthReduce(dmg2)
+            setCombatLog(combatLogText2)
+        }
     }
-
 
     return (
         <div className={combatDisplay} id="combat-div">
@@ -55,13 +63,13 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             </div>
             <div id='arena'>
                 <div className="background-img"></div>
-                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} 
-                heroStamPoints = {heroStamPoints}/>
-                <ArenaMonster monster={monster} monsterHp = {monsterHp} />
+                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay}
+                    heroStamPoints={heroStamPoints} />
+                <ArenaMonster monster={monster} monsterHp={monsterHp} />
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">
-                    <p id='combat-log'> </p>
+                    <p id='combat-log'> {combatLog} </p>
                 </div>
                 <div id="combat-btn-div"><button className="btn" id='play-again'> Play Again</button>
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
