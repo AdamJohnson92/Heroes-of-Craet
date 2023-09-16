@@ -15,7 +15,7 @@ export default function SelectChar({ characterRoster, chosenCharacter, handleCho
         <div>
             <h1 id="char-select-header">Select Your Character</h1>
             
-            <div> <SelectCharBtns characterRoster={characterRoster} handleChooseCharacter={handleChooseCharacter} chosenCharacter={chosenCharacter} /></div>
+            <div className="centered"> <SelectCharBtns characterRoster={characterRoster} handleChooseCharacter={handleChooseCharacter} chosenCharacter={chosenCharacter} /></div>
            
 
         </div>

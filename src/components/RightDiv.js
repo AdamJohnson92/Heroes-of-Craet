@@ -7,7 +7,7 @@ import { monsterRoster } from "../constructors/monster"
 
 export default function RightDiv({ characterRoster, chosenCharacter, StaminaReduce, handleChooseCharacter, heroStamPoints }) {
 
-    const [selectDisplay, setSelectDisplay] = useState('displayed')
+    const [selectDisplay, setSelectDisplay] = useState('displayed centered')
     const [combatDisplay, setCombatDisplay] = useState('hidden')
 
     const [monster, setMonster] = useState(monsterRoster[0])
