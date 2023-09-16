@@ -31,7 +31,6 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
         //for testing against goblin
         // return monsterRoster[0]
         setMonster(randomMonster)
-        // setMonsterHp(randomMonster.maxHp)
     }
     
     const playGame = () => {
@@ -51,7 +50,6 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
                 </div>
             </div>
             <CombatDiv combatDisplay={combatDisplay} chosenCharacter={chosenCharacter} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
-            // monsterHp={monsterHp} 
             MonsterHealthReduce ={MonsterHealthReduce}/>
 
         </div>

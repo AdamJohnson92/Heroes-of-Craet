@@ -23,16 +23,6 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
         setHeroStaticDisplay('static-display')
     }
 
-    // const [monsterHp, setMonsterHp] = useState(monster.maxHp)
-
-
-    // function MonsterHealthReduce(attackDmg) {
-    //     console.log(attackDmg)
-    //     setMonsterHp(monsterHp - attackDmg)
-    //     console.log(monster)
-
-    // }
-
     const [combatLog, setCombatLog] = useState('Begin!')
 
     function attackRoll(event) {
@@ -67,9 +57,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             <div id='arena'>
                 <div className="background-img"></div>
                 <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} />
-                <ArenaMonster monster={monster} 
-                // monsterHp={monsterHp} 
-                />
+                <ArenaMonster monster={monster}/>
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">
@@ -81,7 +69,6 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
                     <button className='btn combat-btn' id="special-button-1" onClick={StaminaReduce}> {chosenCharacter.special} </button>
                     <button className="btn combat-btn" id="potion-button" onClick={logMonster}> Drink Potion </button>
                 </div>
-
             </div>
         </div>
     )
