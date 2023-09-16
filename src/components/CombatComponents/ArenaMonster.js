@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function ArenaMonster({monster, monsterHp}) {
-    const hpBarWidth = (monsterHp / monster.maxHp * 100)
+    const hpBarWidth = (monster.currentHp / monster.maxHp * 100)
 
     const hpWidthStyle = {
         id: "hero-stam-bar-style",

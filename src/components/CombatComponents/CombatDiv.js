@@ -3,7 +3,7 @@ import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
 
 
-export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster, monsterHp, MonsterHealthReduce }) {
+export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster, MonsterHealthReduce }) {
 
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
 
@@ -52,6 +52,11 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             MonsterHealthReduce(dmg2)
             setCombatLog(combatLogText2)
         }
+        console.log(monster)
+    }
+
+    function logMonster(){
+        console.log(monster)
     }
 
     return (
@@ -62,7 +67,9 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             <div id='arena'>
                 <div className="background-img"></div>
                 <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} />
-                <ArenaMonster monster={monster} monsterHp={monsterHp} />
+                <ArenaMonster monster={monster} 
+                // monsterHp={monsterHp} 
+                />
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">
@@ -72,7 +79,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
                     <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
                     <button className='btn combat-btn' id="special-button-1" onClick={StaminaReduce}> {chosenCharacter.special} </button>
-                    <button className="btn combat-btn" id="potion-button" onClick={StaminaReduce}> Drink Potion </button>
+                    <button className="btn combat-btn" id="potion-button" onClick={logMonster}> Drink Potion </button>
                 </div>
 
             </div>
