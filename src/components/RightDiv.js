@@ -16,15 +16,11 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
 
     function MonsterHealthReduce(attackDmg) {
         monster.currentHp = monster.currentHp - attackDmg
-        console.log(attackDmg)
         if((monsterHp - attackDmg) < 0){
             setMonsterHp(0)
         } else {
             setMonsterHp(monsterHp - attackDmg)
         }
-        
-        console.log(monster)
-    
     }
 
     const generateMonster = () => {

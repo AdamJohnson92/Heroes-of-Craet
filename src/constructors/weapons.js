@@ -1,4 +1,4 @@
-import { character } from "../components/Main.js";
+import { characterObj } from "../components/Main.js";
 
 
 // ATTACK ROLLS
@@ -94,14 +94,14 @@ class DoubleDaggers extends Weapon {
     }
     attackDam1(targetHit, targetHp) {
         const naturalRoll1 = confidentRoll()
-        const totalRoll1 = naturalRoll1 + character.dexterity
+        const totalRoll1 = naturalRoll1 + characterObj.dexterity
 
         let totalDmg1
         let multiLog1;
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
             dmgAnimation('./assets/damage.png', 1)
-            totalDmg1 = damage1 + character.dexterity
+            totalDmg1 = damage1 + characterObj.dexterity
             multiLog1 = `deals ${totalDmg1} damage`
         } else {
             totalDmg1 = 0
@@ -110,14 +110,14 @@ class DoubleDaggers extends Weapon {
         }
 
         const naturalRoll2 = confidentRoll()
-        const totalRoll2 = naturalRoll2 + character.dexterity
+        const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
         let totalDmg2;
         let multiLog2;
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
             dmgAnimation2('./assets/damage-2.png', 2)
-            totalDmg2 = damage2 + character.dexterity
+            totalDmg2 = damage2 + characterObj.dexterity
             multiLog2 = `deals ${totalDmg2} damage`
         } else {
             totalDmg2 = 0
@@ -131,14 +131,14 @@ class DoubleDaggers extends Weapon {
 
     attackDam2(targetHit, targetHp) {
         const naturalRoll1 = riskyRoll()
-        const totalRoll1 = naturalRoll1 + character.dexterity
+        const totalRoll1 = naturalRoll1 + characterObj.dexterity
 
         let totalDmg1
         let multiLog1;
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (4 - 1) + 1);
             dmgAnimation('./assets/damage.png', 1)
-            totalDmg1 = damage1 + character.dexterity
+            totalDmg1 = damage1 + characterObj.dexterity
             multiLog1 = `deals ${totalDmg1} damage`
         } else {
             totalDmg1 = 0
@@ -147,14 +147,14 @@ class DoubleDaggers extends Weapon {
         }
 
         const naturalRoll2 = riskyRoll()
-        const totalRoll2 = naturalRoll2 + character.dexterity
+        const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
         let totalDmg2;
         let multiLog2;
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (4 - 1) + 1);
             dmgAnimation2('./assets/damage-2.png', 2)
-            totalDmg2 = damage2 + character.dexterity
+            totalDmg2 = damage2 + characterObj.dexterity
             multiLog2 = `deals ${totalDmg2} damage`
         } else {
             totalDmg2 = 0
@@ -174,10 +174,10 @@ class Unarmed extends Weapon {
     attackDam1(targetHit, targetHp) {
         const naturalRoll1 = confidentRoll()
         let totalRoll1;
-        if (character.charClass === 'Monk') {
-            totalRoll1 = naturalRoll1 + character.dexterity + character.strength
+        if (characterObj.charClass === 'Monk') {
+            totalRoll1 = naturalRoll1 + characterObj.dexterity + characterObj.strength
         } else {
-            totalRoll1 = naturalRoll1 + character.dexterity
+            totalRoll1 = naturalRoll1 + characterObj.dexterity
         }
 
 
@@ -186,10 +186,10 @@ class Unarmed extends Weapon {
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
             dmgAnimation('./assets/damage.png', 1)
-            if (character.charClass === 'Monk') {
-                totalDmg1 = damage1 + character.dexterity + character.strength
+            if (characterObj.charClass === 'Monk') {
+                totalDmg1 = damage1 + characterObj.dexterity + characterObj.strength
             } else {
-                totalDmg1 = damage1 + character.dexterity
+                totalDmg1 = damage1 + characterObj.dexterity
             }
             multiLog1 = `deals ${totalDmg1} damage`
         } else {
@@ -200,10 +200,10 @@ class Unarmed extends Weapon {
 
         const naturalRoll2 = confidentRoll()
         let totalRoll2;
-        if (character.charClass === 'Monk') {
-            totalRoll2 = naturalRoll2 + character.dexterity + character.strength
+        if (characterObj.charClass === 'Monk') {
+            totalRoll2 = naturalRoll2 + characterObj.dexterity + characterObj.strength
         } else {
-            totalRoll2 = naturalRoll2 + character.dexterity
+            totalRoll2 = naturalRoll2 + characterObj.dexterity
         }
 
         let totalDmg2;
@@ -211,10 +211,10 @@ class Unarmed extends Weapon {
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
             dmgAnimation2('./assets/damage-2.png')
-            if (character.charClass === 'Monk') {
-                totalDmg2 = damage2 + character.dexterity + character.strength
+            if (characterObj.charClass === 'Monk') {
+                totalDmg2 = damage2 + characterObj.dexterity + characterObj.strength
             } else {
-                totalDmg2 = damage2 + character.dexterity
+                totalDmg2 = damage2 + characterObj.dexterity
             }
 
             multiLog2 = `deals ${totalDmg2} damage`
@@ -226,10 +226,10 @@ class Unarmed extends Weapon {
 
         const naturalRoll3 = confidentRoll()
         let totalRoll3;
-        if (character.charClass === 'Monk') {
-            totalRoll3 = naturalRoll3 + character.dexterity + character.strength
+        if (characterObj.charClass === 'Monk') {
+            totalRoll3 = naturalRoll3 + characterObj.dexterity + characterObj.strength
         } else {
-            totalRoll3 = naturalRoll3 + character.dexterity
+            totalRoll3 = naturalRoll3 + characterObj.dexterity
         }
 
         let totalDmg3;
@@ -238,10 +238,10 @@ class Unarmed extends Weapon {
             const damage3 = Math.floor(Math.random() * (2 - 1) + 1);
             dmgAnimation3('./assets/damage-3.png')
 
-            if (character.charClass === 'Monk') {
-                totalDmg3 = damage3 + character.dexterity + character.strength
+            if (characterObj.charClass === 'Monk') {
+                totalDmg3 = damage3 + characterObj.dexterity + characterObj.strength
             } else {
-                totalDmg3 = damage3 + character.dexterity
+                totalDmg3 = damage3 + characterObj.dexterity
             }
             multiLog3 = `deals ${totalDmg3} damage`
         } else {
@@ -258,23 +258,23 @@ class Unarmed extends Weapon {
     attackDam2(targetHit, targetHp) {
         const naturalRoll1 = confidentRoll()
         let totalRoll1;
-        if (character.charClass === 'Monk') {
-            totalRoll1 = naturalRoll1 + character.dexterity + character.strength
+        if (characterObj.charClass === 'Monk') {
+            totalRoll1 = naturalRoll1 + characterObj.dexterity + characterObj.strength
         } else {
-            totalRoll1 = naturalRoll1 + character.dexterity
+            totalRoll1 = naturalRoll1 + characterObj.dexterity
         }
 
         let totalDmg1
         let multiLog1;
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (4 - 2) + 2);
-            if (character.charClass === 'Monk') {
-                totalDmg1 = damage1 + character.dexterity + character.strength
+            if (characterObj.charClass === 'Monk') {
+                totalDmg1 = damage1 + characterObj.dexterity + characterObj.strength
             } else {
-                totalDmg1 = damage1 + character.dexterity
+                totalDmg1 = damage1 + characterObj.dexterity
             }
             dmgAnimation('./assets/damage.png', 1)
-            totalDmg1 = damage1 + character.strength
+            totalDmg1 = damage1 + characterObj.strength
             multiLog1 = `deals ${totalDmg1} damage`
         } else {
             totalDmg1 = 0
@@ -284,10 +284,10 @@ class Unarmed extends Weapon {
 
         const naturalRoll2 = confidentRoll()
         let totalRoll2;
-        if (character.charClass === 'Monk') {
-            totalRoll2 = naturalRoll2 + character.dexterity + character.strength
+        if (characterObj.charClass === 'Monk') {
+            totalRoll2 = naturalRoll2 + characterObj.dexterity + characterObj.strength
         } else {
-            totalRoll2 = naturalRoll2 + character.dexterity
+            totalRoll2 = naturalRoll2 + characterObj.dexterity
         }
 
         let totalDmg2;
@@ -295,12 +295,12 @@ class Unarmed extends Weapon {
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (4 - 2) + 2);
             dmgAnimation2('./assets/damage-2.png', 2)
-            if (character.charClass === 'Monk') {
-                totalDmg2 = damage2 + character.dexterity + character.strength
+            if (characterObj.charClass === 'Monk') {
+                totalDmg2 = damage2 + characterObj.dexterity + characterObj.strength
             } else {
-                totalDmg2 = damage2 + character.dexterity
+                totalDmg2 = damage2 + characterObj.dexterity
             }
-            totalDmg2 = damage2 + character.strength
+            totalDmg2 = damage2 + characterObj.strength
             multiLog2 = `deals ${totalDmg2} damage`
         } else {
             totalDmg2 = 0

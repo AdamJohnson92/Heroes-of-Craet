@@ -1,6 +1,7 @@
 import React from "react";
+import { characterObj } from "./Main";
 
-export default function CharStats({chosenCharacter, heroStamPoints}) {
+export default function CharStats({chosenCharacter}) {
     return(
         <div className="card" id="character-card">
                 <div id="character-avatar-div">
@@ -10,7 +11,7 @@ export default function CharStats({chosenCharacter, heroStamPoints}) {
                 </div>
                 <h3 className="card-header">Class: {chosenCharacter.charClass}</h3>
                 <p className="card-item">Hitpoints: {chosenCharacter.currentHp}</p>
-                <p className="card-item">Stamina: {heroStamPoints}</p>
+                <p className="card-item">Stamina: {chosenCharacter.currentStamPoints}</p>
                 <p className="card-item">Strength: {chosenCharacter.strength}</p>
                 <p className="card-item">Dexterity: {chosenCharacter.dexterity}</p>
                 <p className="card-item">Wisdom: {chosenCharacter.wisdom}</p>

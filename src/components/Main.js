@@ -6,7 +6,7 @@ import RightDiv from "./RightDiv";
 
 
 
-let character = {}
+let characterObj = characterRoster[0]
 
 
 export default function Main() {
@@ -16,19 +16,21 @@ export default function Main() {
     const handleChooseCharacter = (event) => {
         for (let i = 0; i < characterRoster.length; i++) {
             if (event.target.matches(`#${characterRoster[i].name}`)) {
-                character = characterRoster[i]
+                characterObj = characterRoster[i]
                 setChosenCharacter(characterRoster[i])
-                setHeroStamPoints(characterRoster[i].maxStaminaPoints)
+                
             }
         }
     }
-
-
-    const [heroStamPoints, setHeroStamPoints] = useState(chosenCharacter.maxStaminaPoints)
     
     function StaminaReduce() {
+        characterObj.currentStamPoints = characterObj.currentStamPoints - 1
+        console.log(characterObj)
 
-        setHeroStamPoints(heroStamPoints - 1)
+        setChosenCharacter({
+            ...chosenCharacter,
+            currentStamPoints: characterObj.currentStamPoints
+        })
         
     }
 
@@ -36,10 +38,11 @@ export default function Main() {
         <main>
 
             <div className="container" id='char-container'>
-                <CharStats chosenCharacter={chosenCharacter} heroStamPoints={heroStamPoints}/>
+                <CharStats chosenCharacter={chosenCharacter} 
+                />
                 <CharEquip chosenCharacter={chosenCharacter} />
             </div>
-            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter} heroStamPoints = {heroStamPoints}
+            <RightDiv characterRoster={characterRoster} chosenCharacter={chosenCharacter}
                 StaminaReduce={StaminaReduce}
                 handleChooseCharacter={handleChooseCharacter} />
             {/* <DamageTest chosenCharacter={chosenCharacter} /> */}
@@ -53,4 +56,4 @@ export default function Main() {
 // DamageTest()
 
 
-export { character } 
+export { characterObj } 
