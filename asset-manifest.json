@@ -1,28 +1,31 @@
 {
   "files": {
-    "main.css": "/Heroes-of-Craet/static/css/main.d0dc9e13.css",
-    "main.js": "/Heroes-of-Craet/static/js/main.92f44a9c.js",
+    "main.css": "/Heroes-of-Craet/static/css/main.0c4d1639.css",
+    "main.js": "/Heroes-of-Craet/static/js/main.94bd8589.js",
     "static/js/787.c8924c82.chunk.js": "/Heroes-of-Craet/static/js/787.c8924c82.chunk.js",
     "static/media/leather-background.PNG": "/Heroes-of-Craet/static/media/leather-background.45a47e937ae186993ecf.PNG",
     "static/media/parchment-background.PNG": "/Heroes-of-Craet/static/media/parchment-background.a206d867b8ce8744aecf.PNG",
-    "static/media/vale-attack.png": "/Heroes-of-Craet/static/media/vale-attack.549512f60cceead132c3.png",
+    "static/media/vale-attack.png": "/Heroes-of-Craet/static/media/vale-attack.5a4c5c788af45694bf58.png",
     "static/media/vale-static.png": "/Heroes-of-Craet/static/media/vale-static.8f8b735e0a2d95c13ea0.png",
-    "static/media/goblin-static.png": "/Heroes-of-Craet/static/media/goblin-static.2aeb5da4ec79beb362f4.png",
+    "static/media/goblin-static.png": "/Heroes-of-Craet/static/media/goblin-static.3c461e89b33d4a323cda.png",
     "static/media/goblin-attack.png": "/Heroes-of-Craet/static/media/goblin-attack.3f4977fc89874c39ed65.png",
     "static/media/undead-attack.png": "/Heroes-of-Craet/static/media/undead-attack.2f1134c7593fc0b49a31.png",
-    "static/media/undead-static.png": "/Heroes-of-Craet/static/media/undead-static.e51b26917f7eee2ff746.png",
+    "static/media/undead-static.png": "/Heroes-of-Craet/static/media/undead-static.8276ed20b5f1a4fa8e8f.png",
+    "static/media/vale-retreat.png": "/Heroes-of-Craet/static/media/vale-retreat.c015025caa106f3ae464.png",
     "static/media/slick-attack.png": "/Heroes-of-Craet/static/media/slick-attack.2f2c293bc09a38c04960.png",
-    "static/media/bad-frog-static.png": "/Heroes-of-Craet/static/media/bad-frog-static.78b6df43c3097c82ea50.png",
-    "static/media/orbyn-static.png": "/Heroes-of-Craet/static/media/orbyn-static.b12fd88532a527a2821a.png",
-    "static/media/slick-static.png": "/Heroes-of-Craet/static/media/slick-static.c93abc22ffc5b9b0ee8b.png",
+    "static/media/orbyn-static.png": "/Heroes-of-Craet/static/media/orbyn-static.01e59451611ccc6926f5.png",
+    "static/media/bad-frog-static.png": "/Heroes-of-Craet/static/media/bad-frog-static.942515acada62f80a9a4.png",
+    "static/media/slick-retreat.png": "/Heroes-of-Craet/static/media/slick-retreat.ce4a3a416b9c91498d21.png",
+    "static/media/slick-static.png": "/Heroes-of-Craet/static/media/slick-static.c47bafafc6d1c45ac6b7.png",
+    "static/media/orbyn-retreat.png": "/Heroes-of-Craet/static/media/orbyn-retreat.726c15b1da7142eadbbc.png",
     "static/media/orbyn-attack.png": "/Heroes-of-Craet/static/media/orbyn-attack.dfeeaf5f845c813b66fa.png",
     "index.html": "/Heroes-of-Craet/index.html",
-    "main.d0dc9e13.css.map": "/Heroes-of-Craet/static/css/main.d0dc9e13.css.map",
-    "main.92f44a9c.js.map": "/Heroes-of-Craet/static/js/main.92f44a9c.js.map",
+    "main.0c4d1639.css.map": "/Heroes-of-Craet/static/css/main.0c4d1639.css.map",
+    "main.94bd8589.js.map": "/Heroes-of-Craet/static/js/main.94bd8589.js.map",
     "787.c8924c82.chunk.js.map": "/Heroes-of-Craet/static/js/787.c8924c82.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0dc9e13.css",
-    "static/js/main.92f44a9c.js"
+    "static/css/main.0c4d1639.css",
+    "static/js/main.94bd8589.js"
   ]
 }
