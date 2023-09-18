@@ -404,7 +404,7 @@ to{
     transform: translateX(90px);
   }
 
-50%{
+20%{
   transform: translateX(90px);
 }
 
@@ -433,7 +433,7 @@ to{
 }
 
 .retreat-display{
-  animation: heroRetreatAni .5s linear 1 normal none;
+  animation: heroRetreatAni .4s linear 1 normal none;
   width: 150px;
   height: 150px;
   position: absolute;
@@ -800,12 +800,6 @@ footer {
       top: 40px;
   }
 
-  #arena-hero-attack {
-      position: relative;
-      left: 50px;
-      top: 25px;
-
-  }
 
   .static-display{
     width: 70px;
@@ -819,6 +813,7 @@ footer {
     width: 70px;
     height: 70px;
     position: relative;
+    left: 90px;
     top: 25px;
   }
 

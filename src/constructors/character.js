@@ -3,8 +3,10 @@ import valeAttack from '../assets/vale-attack.png'
 import valeRetreat from '../assets/vale-retreat.png'
 import slickStatic from '../assets/slick-static.png'
 import slickAttack from '../assets/slick-attack.png'
+import slickRetreat from '../assets/slick-retreat.png'
 import orbynStatic from '../assets/orbyn-static.png'
 import orbynAttack from '../assets/orbyn-attack.png'
+import orbynRetreat from '../assets/orbyn-retreat.png'
 
 import { valeGreatsword, slickDoubleDaggers, unarmed } from "./weapons.js";
 import { plateArmor, leatherArmor, tunic } from "./armor.js";
@@ -130,9 +132,9 @@ class Monk extends Character {
 
 const valeChar = new Knight ("Vale", 20, 20, 3, 1, 0, 12, valeGreatsword,plateArmor,`Tank`, valeStatic, valeAttack, valeRetreat, 2, 2, 1, 1, 0)
 
-const slickChar = new Rogue ("Slick", 15, 15, 1, 3, 0, 14,slickDoubleDaggers, leatherArmor,"Agile", slickStatic, slickAttack, slickStatic, 3, 3, 1, 1, 0)
+const slickChar = new Rogue ("Slick", 15, 15, 1, 3, 0, 14,slickDoubleDaggers, leatherArmor,"Agile", slickStatic, slickAttack, slickRetreat, 3, 3, 1, 1, 0)
 
-const orbynChar = new Monk ('Orbyn', 15, 15, 2, 1, 1, 15,unarmed, tunic,"Mindful", orbynStatic, orbynAttack, orbynStatic, 3, 3, 2, 2, 0)
+const orbynChar = new Monk ('Orbyn', 15, 15, 2, 1, 1, 15,unarmed, tunic,"Mindful", orbynStatic, orbynAttack, orbynRetreat, 3, 3, 2, 2, 0)
 
 
 const characterRoster = [valeChar, slickChar, orbynChar]

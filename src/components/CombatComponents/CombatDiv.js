@@ -13,8 +13,8 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
     function attackAnimation() {
         heroAttackAppear()
-        setTimeout(heroAttackDisappear, 750)
-        setTimeout(heroRetreatDisappear, 1250)
+        setTimeout(heroAttackDisappear, 850)
+        setTimeout(heroRetreatDisappear, 1150)
     }
 
     function heroAttackAppear() {
