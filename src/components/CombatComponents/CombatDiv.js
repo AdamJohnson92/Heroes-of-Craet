@@ -11,9 +11,11 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
     const [heroRetreatDisplay, setHeroRetreatDisplay] = useState ('hidden')
 
+
+
     function attackAnimation() {
         heroAttackAppear()
-        setTimeout(heroAttackDisappear, 850)
+        setTimeout(heroAttackDisappear, 650)
         setTimeout(heroRetreatDisappear, 1150)
     }
 
@@ -29,6 +31,14 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
     function heroRetreatDisappear(){
         setHeroRetreatDisplay('hidden')
         setHeroStaticDisplay('static-display')
+    }
+
+
+    const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
+
+    function handleMonSlash(){
+        setTimeout(setMonDmgSlash, 200, 'mon-dmg-1')
+        setTimeout(setMonDmgSlash, 1000, 'mon-dmg-0')
     }
 
     const [combatLog, setCombatLog] = useState('Begin!')
@@ -51,6 +61,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             setCombatLog(combatLogText2)
         }
         console.log(monster)
+        handleMonSlash()
     }
 
     function logMonster(){
@@ -65,7 +76,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             <div id='arena'>
                 <div className="background-img"></div>
                 <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} />
-                <ArenaMonster monster={monster}/>
+                <ArenaMonster monster={monster} monDmgSlash={monDmgSlash}/>
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">

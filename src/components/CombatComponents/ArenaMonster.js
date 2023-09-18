@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-export default function ArenaMonster({monster}) {
+export default function ArenaMonster({monster, monDmgSlash}) {
     const hpBarWidth = (monster.currentHp / monster.maxHp * 100)
 
     const hpWidthStyle = {
@@ -31,7 +31,7 @@ export default function ArenaMonster({monster}) {
             <img className='arena-img' id="arena-monster-attack" 
             // src = {monster.attackImg}
             />
-            <img className="dmg-img arena-img" id="monster-dmg" />
+            <div className={monDmgSlash}></div>
         </div>
     )
 }

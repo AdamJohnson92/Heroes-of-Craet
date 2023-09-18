@@ -1,4 +1,6 @@
 import { characterObj } from "../components/Main.js";
+import damageSlash from '../assets/damage.png'
+import missSlash from '../assets/miss.png'
 
 
 // ATTACK ROLLS
