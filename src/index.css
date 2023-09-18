@@ -415,7 +415,7 @@ to{
 }
 
 .static-display{
-  animation: breath 1s linear infinite normal none;
+  animation: breath 1.5s linear infinite normal none;
   width: 150px;
   height: 150px;
   position: absolute;
@@ -430,6 +430,7 @@ to{
   position: relative;
   left: 120px;
   top: 25px;
+  z-index: 1;
 }
 
 .retreat-display{
