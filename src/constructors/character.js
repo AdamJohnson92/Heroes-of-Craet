@@ -1,5 +1,6 @@
 import valeStatic from '../assets/vale-static.png'
 import valeAttack from '../assets/vale-attack.png'
+import valeRetreat from '../assets/vale-retreat.png'
 import slickStatic from '../assets/slick-static.png'
 import slickAttack from '../assets/slick-attack.png'
 import orbynStatic from '../assets/orbyn-static.png'
@@ -9,7 +10,7 @@ import { valeGreatsword, slickDoubleDaggers, unarmed } from "./weapons.js";
 import { plateArmor, leatherArmor, tunic } from "./armor.js";
 
 class Character {
-    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
+    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, retreatImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
         this.name = name;
         this.maxHp = maxHp;
         this.currentHp = currentHp;
@@ -22,6 +23,7 @@ class Character {
         this.special = special;
         this.img = img;
         this.attackImg = attackImg;
+        this.retreatImg = retreatImg
         this.maxStaminaPoints = maxStaminaPoints; 
         this.currentStamPoints = currentStamPoints
         this.potionMax = potionMax
@@ -45,8 +47,8 @@ class Character {
 }
 
 class Knight extends Character {
-    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
-        super(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold)
+    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, retreatImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
+        super(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, retreatImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold)
         this.charClass = 'Knight'
     }
 
@@ -70,8 +72,8 @@ class Knight extends Character {
 //--------
 
 class Rogue extends Character {
-    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
-        super(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold)
+    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, retreatImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
+        super(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, retreatImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold)
         this.charClass = 'Rogue'
     }
 
@@ -96,8 +98,8 @@ class Rogue extends Character {
 //-------
 
 class Monk extends Character {
-    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
-        super(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold)
+    constructor(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, retreatImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold) {
+        super(name, maxHp, currentHp, strength, dexterity, wisdom, hitChanceRate, weapon, armor, special, img, attackImg, retreatImg, maxStaminaPoints, currentStamPoints, potionMax, potionCount, gold)
         this.charClass = 'Monk'
     }
 
@@ -126,11 +128,11 @@ class Monk extends Character {
 
 }
 
-const valeChar = new Knight ("Vale", 20, 20, 3, 1, 0, 12, valeGreatsword,plateArmor,`Tank`, valeStatic, valeAttack, 2, 2, 1, 1, 0)
+const valeChar = new Knight ("Vale", 20, 20, 3, 1, 0, 12, valeGreatsword,plateArmor,`Tank`, valeStatic, valeAttack, valeRetreat, 2, 2, 1, 1, 0)
 
-const slickChar = new Rogue ("Slick", 15, 15, 1, 3, 0, 14,slickDoubleDaggers, leatherArmor,"Agile", slickStatic, slickAttack, 3, 3, 1, 1, 0)
+const slickChar = new Rogue ("Slick", 15, 15, 1, 3, 0, 14,slickDoubleDaggers, leatherArmor,"Agile", slickStatic, slickAttack, slickStatic, 3, 3, 1, 1, 0)
 
-const orbynChar = new Monk ('Orbyn', 15, 15, 2, 1, 1, 15,unarmed, tunic,"Mindful", orbynStatic, orbynAttack, 3, 3, 2, 2, 0)
+const orbynChar = new Monk ('Orbyn', 15, 15, 2, 1, 1, 15,unarmed, tunic,"Mindful", orbynStatic, orbynAttack, orbynStatic, 3, 3, 2, 2, 0)
 
 
 const characterRoster = [valeChar, slickChar, orbynChar]

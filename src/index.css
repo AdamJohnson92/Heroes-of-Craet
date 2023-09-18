@@ -393,14 +393,27 @@ a:hover{
   transform: translateX(0px);
 }
 
-50%{
+to{
   transform: translateX(0px);
 }
 
-  to{
-    transform: translateX(-100px);
-  }
 }
+
+@keyframes heroRetreatAni {
+  from{
+    transform: translateX(90px);
+  }
+
+50%{
+  transform: translateX(90px);
+}
+
+to{
+  transform: translateX(0px);
+}
+
+}
+
 .static-display{
   animation: breath 1s linear infinite normal none;
   width: 150px;
@@ -419,6 +432,14 @@ a:hover{
   top: 25px;
 }
 
+.retreat-display{
+  animation: heroRetreatAni .5s linear 1 normal none;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  bottom: 35px;
+  
+}
 
 #arena-monster-attack {
   display: none;
@@ -794,6 +815,14 @@ footer {
   }
   
   .attack-display{
+    display:block;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    top: 25px;
+  }
+
+  .retreat-display{
     display:block;
     width: 70px;
     height: 70px;

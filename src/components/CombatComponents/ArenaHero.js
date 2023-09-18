@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ArenaHero({ chosenCharacter, heroStaticDisplay, heroAttackDisplay }) {
+export default function ArenaHero({ chosenCharacter, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay }) {
 
 
     const stamBarWidth = (chosenCharacter.currentStamPoints / chosenCharacter.maxStaminaPoints * 100)
@@ -28,6 +28,7 @@ export default function ArenaHero({ chosenCharacter, heroStaticDisplay, heroAtta
             </div>
             <img className={heroStaticDisplay} id="arena-hero-avatar" src={chosenCharacter.img} />
             <img className= {heroAttackDisplay} id="arena-hero-attack" src={chosenCharacter.attackImg} />
+            <img className= {heroRetreatDisplay} id="arena-hero-retreat" src={chosenCharacter.retreatImg} />
             <img className="dmg-img arena-img" id="hero-dmg" />
         </div>
     )

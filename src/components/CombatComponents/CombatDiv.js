@@ -9,9 +9,12 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
     const [heroAttackDisplay, setHeroAttackDisplay] = useState('hidden')
 
+    const [heroRetreatDisplay, setHeroRetreatDisplay] = useState ('hidden')
+
     function attackAnimation() {
         heroAttackAppear()
         setTimeout(heroAttackDisappear, 750)
+        setTimeout(heroRetreatDisappear, 1250)
     }
 
     function heroAttackAppear() {
@@ -20,6 +23,11 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
     }
     function heroAttackDisappear() {
         setHeroAttackDisplay('hidden')
+        setHeroRetreatDisplay('retreat-display')
+    }
+
+    function heroRetreatDisappear(){
+        setHeroRetreatDisplay('hidden')
         setHeroStaticDisplay('static-display')
     }
 
@@ -56,7 +64,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             </div>
             <div id='arena'>
                 <div className="background-img"></div>
-                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} />
+                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} />
                 <ArenaMonster monster={monster}/>
             </div>
             <div className="container" id="combat-UI-div">
