@@ -472,6 +472,17 @@ a:hover {
   border: none;
 }
 
+.mon-miss-1 {
+  background-image: url('../src/assets/miss.png');
+  background-size:cover;
+  width: 110px;
+  height: 110px;
+  z-index: 1;
+  position: absolute;
+  bottom: 50px;
+  border: none;
+}
+
 
 .arena-placement {
 

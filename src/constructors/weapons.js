@@ -1,21 +1,22 @@
 import { characterObj } from "../components/Main.js";
+import { monsterObj } from "../components/RightDiv.js";
 import damageSlash from '../assets/damage.png'
 import missSlash from '../assets/miss.png'
 
 
 // ATTACK ROLLS
 
-function confidentRoll(){
+function confidentRoll() {
     const confident = Math.floor(Math.random() * (20 - 5) + 5)
     return confident
 }
 
-function measuredRoll(){
+function measuredRoll() {
     const measured = Math.floor(Math.random() * (20 - 3) + 3)
     return measured
 }
 
-function riskyRoll(){
+function riskyRoll() {
     const risky = Math.floor(Math.random() * (18 - 2) + 2)
     return risky
 }
@@ -77,16 +78,31 @@ class Greatsword extends Weapon {
     constructor(name, type, weight, attack1, attack2, modifyingStat) {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
-    attackDam1() {
-    const dmg = 5
-    const combatLogText = `You swing your sword in a wide arc and deal ${dmg} damage.`
-    return { dmg, combatLogText}
+    attackDam1(targetHit) {
+        const naturalRoll = confidentRoll()
+        const totalRoll = naturalRoll + characterObj.strength
+
+        if (totalRoll >= targetHit) {
+            const damage = Math.floor(Math.random() * (8 - 1) + 1);
+            const totalDmg = damage + characterObj.strength
+            const combatLogText = `You swing your sword in a wide arc and deal ${totalDmg} damage.`
+            const slash = 'mon-dmg-1'
+            return { totalDmg, combatLogText, slash }
+        } else {
+            const totalDmg = 0
+            const combatLogText = 'You missed!'
+            const slash = 'mon-miss-1'
+            return {totalDmg, combatLogText, slash}
+        }
+        const dmg = 5
+        const combatLogText = `You swing your sword in a wide arc and deal ${dmg} damage.`
+        return { dmg, combatLogText }
     }
 
     attackDam2() {
         const dmg = 10
         const combatLogText = `You thrust forward with your sword and deal ${dmg} damage.`
-        return {dmg, combatLogText}
+        return { dmg, combatLogText }
     }
 }
 

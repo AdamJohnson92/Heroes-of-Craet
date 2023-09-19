@@ -3,7 +3,7 @@ import SelectChar from "./SelectChar"
 import CombatDiv from "./CombatComponents/CombatDiv"
 import { monsterRoster } from "../constructors/monster"
 
-
+ let monsterObj = {}
 
 export default function RightDiv({ characterRoster, chosenCharacter, StaminaReduce, handleChooseCharacter, heroStamPoints }) {
 
@@ -26,11 +26,14 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
         }
     }
 
+   
+
     const generateMonster = () => {
         const randomMonster = monsterRoster[Math.floor(Math.random() * monsterRoster.length)]
         //for testing against goblin
         // return monsterRoster[0]
         setMonster(randomMonster)
+        monsterObj = randomMonster
     }
     
     const playGame = () => {
@@ -58,5 +61,5 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
     )
 }
 
-
+export {monsterObj}
 

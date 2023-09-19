@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { monsterObj } from "../RightDiv"
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
 
@@ -36,8 +37,8 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
     const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
 
-    function handleMonSlash(){
-        setTimeout(setMonDmgSlash, 200, 'mon-dmg-1')
+    function handleMonSlash(slash){
+        setTimeout(setMonDmgSlash, 200, slash)
         setTimeout(setMonDmgSlash, 1000, 'mon-dmg-0')
     }
 
@@ -45,23 +46,26 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
     function attackRoll(event) {
 
+        let dmg
+        let combatLogText
+        let slash 
+
         attackAnimation()
         StaminaReduce()
         if (event.target.matches(`#attack-1`)) {
-            const attack1 = chosenCharacter.weapon.attackDam1()
-            let dmg1 = attack1.dmg
-            let combatLogText1 = attack1.combatLogText
-            MonsterHealthReduce(dmg1)
-            setCombatLog(combatLogText1)
+            const attack1 = chosenCharacter.weapon.attackDam1(monsterObj.hitChanceRate)
+            dmg = attack1.totalDmg
+            combatLogText = attack1.combatLogText
+            slash = attack1.slash
         } else if (event.target.matches('#attack-2')) {
-            const attack2 = chosenCharacter.weapon.attackDam2()
-            let dmg2 = attack2.dmg
-            let combatLogText2 = attack2.combatLogText
-            MonsterHealthReduce(dmg2)
-            setCombatLog(combatLogText2)
+            const attack2 = chosenCharacter.weapon.attackDam2(monsterObj.hitChanceRate)
+            dmg = attack2.totalDmg
+            combatLogText = attack2.combatLogText
+            slash = attack2.slash
         }
-        console.log(monster)
-        handleMonSlash()
+        MonsterHealthReduce(dmg)
+        setCombatLog(combatLogText)
+        handleMonSlash(slash)
     }
 
     function logMonster(){
