@@ -37,8 +37,10 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
 
     const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
 
-    function handleMonSlash(slash){
+    function handleMonSlash(slash, slash2, slash3){
         setTimeout(setMonDmgSlash, 200, slash)
+        setTimeout(setMonDmgSlash, 400, slash2)
+        setTimeout(setMonDmgSlash, 600, slash3)
         setTimeout(setMonDmgSlash, 1000, 'mon-dmg-0')
     }
 
@@ -49,6 +51,8 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
         let dmg
         let combatLogText
         let slash 
+        let slash2
+        let slash3
 
         attackAnimation()
         StaminaReduce()
@@ -57,6 +61,9 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             dmg = attack1.totalDmg
             combatLogText = attack1.combatLogText
             slash = attack1.slash
+            slash2 =attack1.slash2
+            slash3 =attack1.slash3
+            console.log(slash2)
         } else if (event.target.matches('#attack-2')) {
             const attack2 = chosenCharacter.weapon.attackDam2(monsterObj.hitChanceRate)
             dmg = attack2.totalDmg
@@ -65,7 +72,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
         }
         MonsterHealthReduce(dmg)
         setCombatLog(combatLogText)
-        handleMonSlash(slash)
+        handleMonSlash(slash, slash2, slash3)
     }
 
     function logMonster(){

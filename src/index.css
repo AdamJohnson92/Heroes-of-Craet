@@ -472,8 +472,52 @@ a:hover {
   border: none;
 }
 
+.mon-dmg-2 {
+  background-image: url('../src/assets/damage-2.png');
+  background-size:cover;
+  width: 110px;
+  height: 110px;
+  z-index: 1;
+  position: absolute;
+  bottom: 50px;
+  border: none;
+}
+
+.mon-dmg-3 {
+  background-image: url('../src/assets/damage-3.png');
+  background-size:cover;
+  width: 110px;
+  height: 110px;
+  z-index: 1;
+  position: absolute;
+  bottom: 50px;
+  border: none;
+}
+
 .mon-miss-1 {
   background-image: url('../src/assets/miss.png');
+  background-size:cover;
+  width: 110px;
+  height: 110px;
+  z-index: 1;
+  position: absolute;
+  bottom: 50px;
+  border: none;
+}
+
+.mon-miss-2 {
+  background-image: url('../src/assets/miss-2.png');
+  background-size:cover;
+  width: 110px;
+  height: 110px;
+  z-index: 1;
+  position: absolute;
+  bottom: 50px;
+  border: none;
+}
+
+.mon-miss-3 {
+  background-image: url('../src/assets/miss-3.png');
   background-size:cover;
   width: 110px;
   height: 110px;

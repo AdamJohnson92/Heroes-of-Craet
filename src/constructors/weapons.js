@@ -87,22 +87,39 @@ class Greatsword extends Weapon {
             const totalDmg = damage + characterObj.strength
             const combatLogText = `You swing your sword in a wide arc and deal ${totalDmg} damage.`
             const slash = 'mon-dmg-1'
-            return { totalDmg, combatLogText, slash }
+            const slash2 = 'mon-dmg-1'
+            const slash3 = 'mon-dmg-1'
+            return { totalDmg, combatLogText, slash, slash2, slash3 }
         } else {
             const totalDmg = 0
             const combatLogText = 'You missed!'
             const slash = 'mon-miss-1'
-            return {totalDmg, combatLogText, slash}
+            const slash2 = 'mon-miss-1'
+            const slash3 = 'mon-miss-1'
+            return {totalDmg, combatLogText, slash, slash2, slash3}
         }
-        const dmg = 5
-        const combatLogText = `You swing your sword in a wide arc and deal ${dmg} damage.`
-        return { dmg, combatLogText }
     }
 
-    attackDam2() {
-        const dmg = 10
-        const combatLogText = `You thrust forward with your sword and deal ${dmg} damage.`
-        return { dmg, combatLogText }
+    attackDam2(targetHit) {
+        const naturalRoll = measuredRoll()
+        const totalRoll = naturalRoll + characterObj.strength
+
+        if (totalRoll >= targetHit) {
+            const damage = Math.floor(Math.random() * (10 - 2) + 2);
+            const totalDmg = damage + characterObj.strength
+            const combatLogText = `You thrust your sword forward and deal ${totalDmg} damage.`
+            const slash = 'mon-dmg-1'
+            const slash2 = 'mon-dmg-1'
+            const slash3 = 'mon-dmg-1'
+            return { totalDmg, combatLogText, slash, slash2, slash3 }
+        } else {
+            const totalDmg = 0
+            const combatLogText = 'You missed!'
+            const slash = 'mon-miss-1'
+            const slash2 = 'mon-miss-1'
+            const slash3 = 'mon-miss-1'
+            return {totalDmg, combatLogText, slash, slash2, slash3}
+        }
     }
 }
 
