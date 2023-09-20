@@ -63,12 +63,13 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
             slash = attack1.slash
             slash2 =attack1.slash2
             slash3 =attack1.slash3
-            console.log(slash2)
         } else if (event.target.matches('#attack-2')) {
             const attack2 = chosenCharacter.weapon.attackDam2(monsterObj.hitChanceRate)
             dmg = attack2.totalDmg
             combatLogText = attack2.combatLogText
             slash = attack2.slash
+            slash2 =attack2.slash2
+            slash3 =attack2.slash3
         }
         MonsterHealthReduce(dmg)
         setCombatLog(combatLogText)

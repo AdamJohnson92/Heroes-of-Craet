@@ -31,7 +31,7 @@ export default function ArenaMonster({monster, monDmgSlash}) {
             <img className='arena-img' id="arena-monster-attack" 
             // src = {monster.attackImg}
             />
-            <div className={monDmgSlash}></div>
+            <div className={`mon-slash-class ${monDmgSlash}`}></div>
         </div>
     )
 }

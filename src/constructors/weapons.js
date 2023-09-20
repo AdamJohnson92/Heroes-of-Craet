@@ -96,7 +96,7 @@ class Greatsword extends Weapon {
             const slash = 'mon-miss-1'
             const slash2 = 'mon-miss-1'
             const slash3 = 'mon-miss-1'
-            return {totalDmg, combatLogText, slash, slash2, slash3}
+            return { totalDmg, combatLogText, slash, slash2, slash3 }
         }
     }
 
@@ -118,7 +118,7 @@ class Greatsword extends Weapon {
             const slash = 'mon-miss-1'
             const slash2 = 'mon-miss-1'
             const slash3 = 'mon-miss-1'
-            return {totalDmg, combatLogText, slash, slash2, slash3}
+            return { totalDmg, combatLogText, slash, slash2, slash3 }
         }
     }
 }
@@ -128,78 +128,99 @@ class DoubleDaggers extends Weapon {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
     attackDam1(targetHit, targetHp) {
+        let totalDmg
+        let totalDmg1
+        let totalDmg2
+        let multiLog1
+        let multiLog2
+        let slash
+        let slash2
+        let slash3
+        let combatLogText 
+        
         const naturalRoll1 = confidentRoll()
         const totalRoll1 = naturalRoll1 + characterObj.dexterity
 
-        let totalDmg1
-        let multiLog1;
         if (totalRoll1 >= targetHit) {
-            const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
-            dmgAnimation('./assets/damage.png', 1)
+            const damage1 = Math.floor(Math.random() * (8 - 1) + 1);
             totalDmg1 = damage1 + characterObj.dexterity
-            multiLog1 = `deals ${totalDmg1} damage`
+            multiLog1 = `deal ${totalDmg1} damage`
+            slash = 'mon-dmg-1'
         } else {
             totalDmg1 = 0
-            dmgAnimation('./assets/miss.png', 1)
-            multiLog1 = 'misses';
+            multiLog1 = "miss"
+            slash = 'mon-miss-1'
         }
 
         const naturalRoll2 = confidentRoll()
         const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
-        let totalDmg2;
-        let multiLog2;
         if (totalRoll2 >= targetHit) {
-            const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
-            dmgAnimation2('./assets/damage-2.png', 2)
+            const damage2 = Math.floor(Math.random() * (8 - 1) + 1);
             totalDmg2 = damage2 + characterObj.dexterity
-            multiLog2 = `deals ${totalDmg2} damage`
+            multiLog2 = `deal ${totalDmg2} damage`
+            slash2 = 'mon-dmg-2'
+            slash3 = 'mon-dmg-2'
         } else {
             totalDmg2 = 0
-            dmgAnimation2('./assets/miss-2.png', 2)
-            multiLog2 = 'misses';
+            multiLog2 = "miss"
+            slash2 = 'mon-miss-2'
+            slash3 = 'mon-miss-2'
         }
-        // combatLog.textContent = `Your first dagger slash ${multiLog1}, and you follow up with your second dagger that ${multiLog2}.`
 
-        return targetHp - (totalDmg1 + totalDmg2);
+        totalDmg = totalDmg1 + totalDmg2
+        combatLogText = `You slash with your first dagger and ${multiLog1}, then follow up with your second dagger and ${multiLog2}.`
+
+        return { totalDmg, combatLogText, slash, slash2, slash3 }
+
     };
 
     attackDam2(targetHit, targetHp) {
-        const naturalRoll1 = riskyRoll()
+        let totalDmg
+        let totalDmg1
+        let totalDmg2
+        let multiLog1
+        let multiLog2
+        let slash
+        let slash2
+        let slash3
+        let combatLogText 
+        
+        const naturalRoll1 = confidentRoll()
         const totalRoll1 = naturalRoll1 + characterObj.dexterity
 
-        let totalDmg1
-        let multiLog1;
         if (totalRoll1 >= targetHit) {
-            const damage1 = Math.floor(Math.random() * (4 - 1) + 1);
-            dmgAnimation('./assets/damage.png', 1)
+            const damage1 = Math.floor(Math.random() * (8 - 1) + 1);
             totalDmg1 = damage1 + characterObj.dexterity
-            multiLog1 = `deals ${totalDmg1} damage`
+            multiLog1 = `deal ${totalDmg1} damage`
+            slash = 'mon-dmg-1'
         } else {
             totalDmg1 = 0
-            dmgAnimation('./assets/miss.png', 1)
-            multiLog1 = 'misses';
+            multiLog1 = "miss"
+            slash = 'mon-miss-1'
         }
 
-        const naturalRoll2 = riskyRoll()
+        const naturalRoll2 = confidentRoll()
         const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
-        let totalDmg2;
-        let multiLog2;
         if (totalRoll2 >= targetHit) {
-            const damage2 = Math.floor(Math.random() * (4 - 1) + 1);
-            dmgAnimation2('./assets/damage-2.png', 2)
+            const damage2 = Math.floor(Math.random() * (8 - 1) + 1);
             totalDmg2 = damage2 + characterObj.dexterity
-            multiLog2 = `deals ${totalDmg2} damage`
+            multiLog2 = `deal ${totalDmg2} damage`
+            slash2 = 'mon-dmg-2'
+            slash3 = 'mon-dmg-2'
         } else {
             totalDmg2 = 0
-            dmgAnimation2('./assets/miss-2.png', 2)
-            multiLog2 = 'misses';
+            multiLog2 = "miss"
+            slash2 = 'mon-miss-2'
+            slash3 = 'mon-miss-2'
         }
-        // combatLog.textContent = `Your first dagger stab ${multiLog1}, and you follow up with your second dagger that ${multiLog2}.`
 
-        return targetHp - (totalDmg1 + totalDmg2);
-    }
+        totalDmg = totalDmg1 + totalDmg2
+        combatLogText = `You stab with your first dagger and ${multiLog1}, then follow up with your second dagger and ${multiLog2}.`
+
+        return { totalDmg, combatLogText, slash, slash2, slash3 }
+    };
 }
 
 class Unarmed extends Weapon {
