@@ -142,7 +142,7 @@ class DoubleDaggers extends Weapon {
         const totalRoll1 = naturalRoll1 + characterObj.dexterity
 
         if (totalRoll1 >= targetHit) {
-            const damage1 = Math.floor(Math.random() * (8 - 1) + 1);
+            const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
             totalDmg1 = damage1 + characterObj.dexterity
             multiLog1 = `deal ${totalDmg1} damage`
             slash = 'mon-dmg-1'
@@ -156,7 +156,7 @@ class DoubleDaggers extends Weapon {
         const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
         if (totalRoll2 >= targetHit) {
-            const damage2 = Math.floor(Math.random() * (8 - 1) + 1);
+            const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
             totalDmg2 = damage2 + characterObj.dexterity
             multiLog2 = `deal ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
@@ -186,11 +186,11 @@ class DoubleDaggers extends Weapon {
         let slash3
         let combatLogText 
         
-        const naturalRoll1 = confidentRoll()
+        const naturalRoll1 = measuredRoll()
         const totalRoll1 = naturalRoll1 + characterObj.dexterity
 
         if (totalRoll1 >= targetHit) {
-            const damage1 = Math.floor(Math.random() * (8 - 1) + 1);
+            const damage1 = Math.floor(Math.random() * (4 - 1) + 1);
             totalDmg1 = damage1 + characterObj.dexterity
             multiLog1 = `deal ${totalDmg1} damage`
             slash = 'mon-dmg-1'
@@ -204,7 +204,7 @@ class DoubleDaggers extends Weapon {
         const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
         if (totalRoll2 >= targetHit) {
-            const damage2 = Math.floor(Math.random() * (8 - 1) + 1);
+            const damage2 = Math.floor(Math.random() * (4 - 1) + 1);
             totalDmg2 = damage2 + characterObj.dexterity
             multiLog2 = `deal ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
@@ -228,145 +228,118 @@ class Unarmed extends Weapon {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
     attackDam1(targetHit, targetHp) {
-        const naturalRoll1 = confidentRoll()
-        let totalRoll1;
-        if (characterObj.charClass === 'Monk') {
-            totalRoll1 = naturalRoll1 + characterObj.dexterity + characterObj.strength
-        } else {
-            totalRoll1 = naturalRoll1 + characterObj.dexterity
-        }
-
-
+        let totalDmg
         let totalDmg1
-        let multiLog1;
+        let totalDmg2
+        let totalDmg3
+        let multiLog1
+        let multiLog2
+        let multiLog3
+        let slash
+        let slash2
+        let slash3
+        let combatLogText 
+        
+        const naturalRoll1 = confidentRoll()
+        const totalRoll1 = naturalRoll1 + characterObj.dexterity
+
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
-            dmgAnimation('./assets/damage.png', 1)
-            if (characterObj.charClass === 'Monk') {
-                totalDmg1 = damage1 + characterObj.dexterity + characterObj.strength
-            } else {
-                totalDmg1 = damage1 + characterObj.dexterity
-            }
+            totalDmg1 = damage1 + characterObj.dexterity
             multiLog1 = `deals ${totalDmg1} damage`
+            slash = 'mon-dmg-1'
         } else {
             totalDmg1 = 0
-            dmgAnimation('./assets/miss.png', 1)
-            multiLog1 = 'misses';
+            multiLog1 = "misses"
+            slash = 'mon-miss-1'
         }
 
         const naturalRoll2 = confidentRoll()
-        let totalRoll2;
-        if (characterObj.charClass === 'Monk') {
-            totalRoll2 = naturalRoll2 + characterObj.dexterity + characterObj.strength
-        } else {
-            totalRoll2 = naturalRoll2 + characterObj.dexterity
-        }
+        const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
-        let totalDmg2;
-        let multiLog2;
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
-            dmgAnimation2('./assets/damage-2.png')
-            if (characterObj.charClass === 'Monk') {
-                totalDmg2 = damage2 + characterObj.dexterity + characterObj.strength
-            } else {
-                totalDmg2 = damage2 + characterObj.dexterity
-            }
-
+            totalDmg2 = damage2 + characterObj.dexterity
             multiLog2 = `deals ${totalDmg2} damage`
+            slash2 = 'mon-dmg-2'
+            slash3 = 'mon-dmg-2'
         } else {
             totalDmg2 = 0
-            dmgAnimation2('./assets/miss-2.png')
-            multiLog2 = 'misses';
+            multiLog2 = "misses"
+            slash2 = 'mon-miss-2'
+            slash3 = 'mon-miss-2'
         }
 
         const naturalRoll3 = confidentRoll()
-        let totalRoll3;
-        if (characterObj.charClass === 'Monk') {
-            totalRoll3 = naturalRoll3 + characterObj.dexterity + characterObj.strength
-        } else {
-            totalRoll3 = naturalRoll3 + characterObj.dexterity
-        }
+        const totalRoll3 = naturalRoll3 + characterObj.dexterity
 
-        let totalDmg3;
-        let multiLog3 = 'poops';
         if (totalRoll3 >= targetHit) {
             const damage3 = Math.floor(Math.random() * (2 - 1) + 1);
-            dmgAnimation3('./assets/damage-3.png')
-
-            if (characterObj.charClass === 'Monk') {
-                totalDmg3 = damage3 + characterObj.dexterity + characterObj.strength
-            } else {
-                totalDmg3 = damage3 + characterObj.dexterity
-            }
+            totalDmg3 = damage3 + characterObj.dexterity
             multiLog3 = `deals ${totalDmg3} damage`
+            slash3 = 'mon-dmg-3'
+            
         } else {
             totalDmg3 = 0
-            dmgAnimation3('./assets/miss-3.png')
-            multiLog3 = 'misses';
+            multiLog3 = "misses"
+            slash3 = 'mon-miss-3'
+            
         }
 
-        // combatLog.textContent = `Your first strike ${multiLog1}, your second strike ${multiLog2}, and your third strike ${multiLog3}.`
+        totalDmg = totalDmg1 + totalDmg2 + totalDmg3
+        combatLogText = `Your first strike ${multiLog1}, your second strike ${multiLog2}, and your third strike ${multiLog3}.`
 
-        return targetHp - (totalDmg1 + totalDmg2);
+        return { totalDmg, combatLogText, slash, slash2, slash3 }
+
+    
+
     };
 
     attackDam2(targetHit, targetHp) {
-        const naturalRoll1 = confidentRoll()
-        let totalRoll1;
-        if (characterObj.charClass === 'Monk') {
-            totalRoll1 = naturalRoll1 + characterObj.dexterity + characterObj.strength
-        } else {
-            totalRoll1 = naturalRoll1 + characterObj.dexterity
-        }
-
+        let totalDmg
         let totalDmg1
-        let multiLog1;
+        let totalDmg2
+        let multiLog1
+        let multiLog2
+        let slash
+        let slash2
+        let slash3
+        let combatLogText 
+        
+        const naturalRoll1 = confidentRoll()
+        const totalRoll1 = naturalRoll1 + characterObj.dexterity
+
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (4 - 2) + 2);
-            if (characterObj.charClass === 'Monk') {
-                totalDmg1 = damage1 + characterObj.dexterity + characterObj.strength
-            } else {
-                totalDmg1 = damage1 + characterObj.dexterity
-            }
-            dmgAnimation('./assets/damage.png', 1)
-            totalDmg1 = damage1 + characterObj.strength
-            multiLog1 = `deals ${totalDmg1} damage`
+            totalDmg1 = damage1 + characterObj.dexterity
+            multiLog1 = `deal ${totalDmg1} damage`
+            slash = 'mon-dmg-1'
         } else {
             totalDmg1 = 0
-            dmgAnimation('./assets/miss.png', 1)
-            multiLog1 = 'misses';
+            multiLog1 = "misses"
+            slash = 'mon-miss-1'
         }
 
         const naturalRoll2 = confidentRoll()
-        let totalRoll2;
-        if (characterObj.charClass === 'Monk') {
-            totalRoll2 = naturalRoll2 + characterObj.dexterity + characterObj.strength
-        } else {
-            totalRoll2 = naturalRoll2 + characterObj.dexterity
-        }
+        const totalRoll2 = naturalRoll2 + characterObj.dexterity
 
-        let totalDmg2;
-        let multiLog2;
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (4 - 2) + 2);
-            dmgAnimation2('./assets/damage-2.png', 2)
-            if (characterObj.charClass === 'Monk') {
-                totalDmg2 = damage2 + characterObj.dexterity + characterObj.strength
-            } else {
-                totalDmg2 = damage2 + characterObj.dexterity
-            }
-            totalDmg2 = damage2 + characterObj.strength
-            multiLog2 = `deals ${totalDmg2} damage`
+            totalDmg2 = damage2 + characterObj.dexterity
+            multiLog2 = `deal ${totalDmg2} damage`
+            slash2 = 'mon-dmg-2'
+            slash3 = 'mon-dmg-2'
         } else {
             totalDmg2 = 0
-            dmgAnimation2('./assets/miss-2.png', 2)
-            multiLog2 = 'misses';
+            multiLog2 = "misses"
+            slash2 = 'mon-miss-2'
+            slash3 = 'mon-miss-2'
         }
 
-        // combatLog.textContent = `Your first punch ${multiLog1}, and you follow up with a second punch that ${multiLog2}.`
+        totalDmg = totalDmg1 + totalDmg2
+        combatLogText = `Your first punch ${multiLog1}, and you follow up with a second punch that ${multiLog2}.`
 
-        return targetHp - (totalDmg1 + totalDmg2);
+        return { totalDmg, combatLogText, slash, slash2, slash3 }
     }
 }
 
