@@ -240,12 +240,12 @@ class Unarmed extends Weapon {
         let slash3
         let combatLogText 
         
-        const naturalRoll1 = confidentRoll()
-        const totalRoll1 = naturalRoll1 + characterObj.dexterity
+        const naturalRoll1 = measuredRoll()
+        const totalRoll1 = naturalRoll1 + characterObj.strength
 
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg1 = damage1 + characterObj.dexterity
+            totalDmg1 = damage1 + characterObj.strength
             multiLog1 = `deals ${totalDmg1} damage`
             slash = 'mon-dmg-1'
         } else {
@@ -254,12 +254,12 @@ class Unarmed extends Weapon {
             slash = 'mon-miss-1'
         }
 
-        const naturalRoll2 = confidentRoll()
-        const totalRoll2 = naturalRoll2 + characterObj.dexterity
+        const naturalRoll2 = measuredRoll()
+        const totalRoll2 = naturalRoll2 + characterObj.strength
 
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg2 = damage2 + characterObj.dexterity
+            totalDmg2 = damage2 + characterObj.strength
             multiLog2 = `deals ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
             slash3 = 'mon-dmg-2'
@@ -270,12 +270,12 @@ class Unarmed extends Weapon {
             slash3 = 'mon-miss-2'
         }
 
-        const naturalRoll3 = confidentRoll()
-        const totalRoll3 = naturalRoll3 + characterObj.dexterity
+        const naturalRoll3 = measuredRoll()
+        const totalRoll3 = naturalRoll3 + characterObj.strength
 
         if (totalRoll3 >= targetHit) {
             const damage3 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg3 = damage3 + characterObj.dexterity
+            totalDmg3 = damage3 + characterObj.strength
             multiLog3 = `deals ${totalDmg3} damage`
             slash3 = 'mon-dmg-3'
             
@@ -307,11 +307,11 @@ class Unarmed extends Weapon {
         let combatLogText 
         
         const naturalRoll1 = confidentRoll()
-        const totalRoll1 = naturalRoll1 + characterObj.dexterity
+        const totalRoll1 = naturalRoll1 + characterObj.strength
 
         if (totalRoll1 >= targetHit) {
             const damage1 = Math.floor(Math.random() * (4 - 2) + 2);
-            totalDmg1 = damage1 + characterObj.dexterity
+            totalDmg1 = damage1 + characterObj.strength
             multiLog1 = `deal ${totalDmg1} damage`
             slash = 'mon-dmg-1'
         } else {
@@ -321,11 +321,11 @@ class Unarmed extends Weapon {
         }
 
         const naturalRoll2 = confidentRoll()
-        const totalRoll2 = naturalRoll2 + characterObj.dexterity
+        const totalRoll2 = naturalRoll2 + characterObj.strength
 
         if (totalRoll2 >= targetHit) {
             const damage2 = Math.floor(Math.random() * (4 - 2) + 2);
-            totalDmg2 = damage2 + characterObj.dexterity
+            totalDmg2 = damage2 + characterObj.strength
             multiLog2 = `deal ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
             slash3 = 'mon-dmg-2'

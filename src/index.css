@@ -329,6 +329,23 @@ a:hover {
   box-shadow: 1px 1px 10px black;
 }
 
+.shh {
+  display: block;
+  position: absolute;
+  z-index: -4;
+  
+}
+
+.shhImg {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 400px;
+  margin: 0;
+  width:5px;
+  height: 5px;
+}
+
 .background-img {
   position: absolute;
   background-image: url('../src/assets/bg-1.png');

@@ -2,6 +2,12 @@ import { useState, useEffect } from "react"
 import { monsterObj } from "../RightDiv"
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
+import damage1 from '../../assets/damage.png'
+import damage2 from '../../assets/damage-2.png'
+import damage3 from '../../assets/damage-3.png'
+import miss1 from '../../assets/miss.png'
+import miss2 from '../../assets/miss-2.png'
+import miss3 from '../../assets/miss-3.png'
 
 
 export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster, MonsterHealthReduce }) {
@@ -86,6 +92,14 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
                 <h3 id="turn-display"></h3>
             </div>
             <div id='arena'>
+                <div className='shh'>
+                    <img className='shhImg' src={damage1}></img>
+                    <img className='shhImg' src={damage2}></img>
+                    <img className='shhImg' src={damage3}></img>
+                    <img className='shhImg' src={miss1}></img>
+                    <img className='shhImg' src={miss2}></img>
+                    <img className='shhImg' src={miss3}></img>
+                </div>
                 <div className="background-img"></div>
                 <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} />
                 <ArenaMonster monster={monster} monDmgSlash={monDmgSlash}/>
