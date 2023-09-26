@@ -21,7 +21,13 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
 
     const [heroRetreatDisplay, setHeroRetreatDisplay] = useState ('hidden')
 
+    const [buttonDivDisplay, setButtonDivDisplay] = useState ('visible')
 
+
+    function hideCombatButtons() {
+        setButtonDivDisplay('invisible')
+        setTimeout(setButtonDivDisplay, 1800, 'visible' )
+    }
 
     function attackAnimation() {
         heroAttackAppear()
@@ -57,6 +63,8 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
 
     function attackRoll(event) {
 
+        hideCombatButtons()
+
         let dmg
         let combatLogText
         let slash 
@@ -64,6 +72,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
         let slash3
 
         attackAnimation()
+
         StaminaReduce()
         if (event.target.matches(`#attack-1`)) {
             const attack1 = chosenCharacter.weapon.attackDam1(monsterObj.hitChanceRate)
@@ -111,7 +120,8 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
                 <div id="combat-log-parent-div">
                     <p id='combat-log'> {combatLog} </p>
                 </div>
-                <div id="combat-btn-div"><button className="btn" id='play-again'> Play Again</button>
+                <div className={buttonDivDisplay} id='combat-btn-div'>
+                    <button className="btn" id='play-again'> Play Again</button>
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
                     <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
                     <button className='btn combat-btn' id="special-button-1" onClick={StaminaReduce}> {chosenCharacter.special} </button>

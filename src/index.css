@@ -50,6 +50,14 @@ body {
   display: none
 }
 
+.invisible{
+  visibility: hidden;
+}
+
+.visible{
+  visibility:visible;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -620,9 +628,11 @@ a:hover {
 }
 
 #combat-log {
+  position: absolute;
   line-height: 20px;
   text-align: center;
   margin: 0;
+  top: 20px;
 }
 
 #combat-btn-div {
