@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CharacterContext } from "../Main";
 
-export default function ArenaHero({ chosenCharacter, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay }) {
+export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay }) {
 
+    const chosenCharacter = useContext(CharacterContext)
 
     const stamBarWidth = (chosenCharacter.currentStamPoints / chosenCharacter.maxStaminaPoints * 100)
 

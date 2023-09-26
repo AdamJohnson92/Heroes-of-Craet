@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import goldImg from "../assets/gold-stack.png"
+import { CharacterContext } from "./Main";
 
 
-export default function CharEquip({chosenCharacter}) {
+export default function CharEquip() {
+
+    const chosenCharacter = useContext(CharacterContext)
+    console.log(chosenCharacter)
     
     return(
+        
         <div className="card" id="equipment-card">
         <h3>Equipment  </h3>
             <h4> {chosenCharacter.gold}<img id="gold-img" src={goldImg}/></h4>

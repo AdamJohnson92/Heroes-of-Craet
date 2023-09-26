@@ -1,7 +1,10 @@
-import React from "react";
-import { characterObj } from "./Main";
+import React, {useContext} from "react";
+import { characterObj, CharacterContext } from "./Main";
 
-export default function CharStats({chosenCharacter}) {
+export default function CharStats() {
+
+    const chosenCharacter = useContext(CharacterContext)
+
     return(
         <div className="card" id="character-card">
                 <div id="character-avatar-div">

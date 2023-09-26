@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { CharacterContext } from "../Main";
 import { monsterObj } from "../RightDiv"
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
@@ -10,7 +11,9 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduce, monster, MonsterHealthReduce }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, MonsterHealthReduce }) {
+
+    const chosenCharacter = useContext(CharacterContext)
 
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
 
@@ -101,7 +104,7 @@ export default function CombatDiv({ combatDisplay, chosenCharacter, StaminaReduc
                     <img className='shhImg' src={miss3}></img>
                 </div>
                 <div className="background-img"></div>
-                <ArenaHero chosenCharacter={chosenCharacter} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} />
+                <ArenaHero heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} />
                 <ArenaMonster monster={monster} monDmgSlash={monDmgSlash}/>
             </div>
             <div className="container" id="combat-UI-div">

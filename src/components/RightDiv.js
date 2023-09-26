@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import SelectChar from "./SelectChar"
 import CombatDiv from "./CombatComponents/CombatDiv"
 import { monsterRoster } from "../constructors/monster"
+import { CharacterContext } from "./Main";
+
 
  let monsterObj = {}
 
-export default function RightDiv({ characterRoster, chosenCharacter, StaminaReduce, handleChooseCharacter, heroStamPoints }) {
+export default function RightDiv({ characterRoster,  StaminaReduce, handleChooseCharacter, heroStamPoints }) {
+
+    const chosenCharacter = useContext(CharacterContext)
 
     const [selectDisplay, setSelectDisplay] = useState('displayed centered')
     const [combatDisplay, setCombatDisplay] = useState('hidden')
@@ -52,7 +56,7 @@ export default function RightDiv({ characterRoster, chosenCharacter, StaminaRedu
                     {/* <a href="./town.html" className='btn' id="to-town-btn">Go to Town</a> */}
                 </div>
             </div>
-            <CombatDiv combatDisplay={combatDisplay} chosenCharacter={chosenCharacter} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
+            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
             MonsterHealthReduce ={MonsterHealthReduce}/>
 
         </div>
