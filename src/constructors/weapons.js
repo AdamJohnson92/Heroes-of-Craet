@@ -1,5 +1,3 @@
-import { characterObj } from "../components/Main.js";
-import { monsterObj } from "../components/RightDiv.js";
 import damageSlash from '../assets/damage.png'
 import missSlash from '../assets/miss.png'
 
@@ -21,45 +19,6 @@ function riskyRoll() {
     return risky
 }
 
-
-//UTILO
-function dmgAnimation(src) {
-    setTimeout(dmgSlashAppear, 10, src)
-    setTimeout(dmgSlashDisappear, 300)
-}
-function dmgSlashAppear(src) {
-    // monsterDmgImg.setAttribute('src', src)
-    // monsterDmgImg.style.display = 'block'
-}
-function dmgSlashDisappear() {
-    // monsterDmgImg.style.display = 'none'
-}
-/////MUST MAKE THIS MORE DRY Second parameter that is only sent with the second attack
-
-function dmgAnimation2(src) {
-    setTimeout(dmgSlashAppear2, 301, src);
-    setTimeout(dmgSlashDisappear2, 601)
-}
-function dmgSlashAppear2(src) {
-    // monsterDmgImg2.setAttribute('src', src)
-    // monsterDmgImg2.style.display = 'block'
-}
-function dmgSlashDisappear2() {
-    // monsterDmgImg2.style.display = 'none'
-}
-//-------------------------------------
-function dmgAnimation3(src) {
-    setTimeout(dmgSlashAppear3, 602, src);
-    setTimeout(dmgSlashDisappear3, 902)
-}
-function dmgSlashAppear3(src) {
-    // monsterDmgImg3.setAttribute('src', src)
-    // monsterDmgImg3.style.display = 'block'
-}
-function dmgSlashDisappear3() {
-    // monsterDmgImg3.style.display = 'none'
-}
-
 //WEAPON CLASS CONSTRUCTORS
 //-----------------------------------
 
@@ -78,13 +37,13 @@ class Greatsword extends Weapon {
     constructor(name, type, weight, attack1, attack2, modifyingStat) {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
-    attackDam1(targetHit) {
+    attackDam1(mon, hero) {
         const naturalRoll = confidentRoll()
-        const totalRoll = naturalRoll + characterObj.strength
+        const totalRoll = naturalRoll + hero.strength
 
-        if (totalRoll >= targetHit) {
+        if (totalRoll >= mon.hitChanceRate) {
             const damage = Math.floor(Math.random() * (8 - 1) + 1);
-            const totalDmg = damage + characterObj.strength
+            const totalDmg = damage + hero.strength
             const combatLogText = `You swing your sword in a wide arc and deal ${totalDmg} damage.`
             const slash = 'mon-dmg-1'
             const slash2 = 'mon-dmg-1'
@@ -100,13 +59,13 @@ class Greatsword extends Weapon {
         }
     }
 
-    attackDam2(targetHit) {
+    attackDam2(mon, hero) {
         const naturalRoll = measuredRoll()
-        const totalRoll = naturalRoll + characterObj.strength
+        const totalRoll = naturalRoll + hero.strength
 
-        if (totalRoll >= targetHit) {
+        if (totalRoll >= mon.hitChanceRate) {
             const damage = Math.floor(Math.random() * (10 - 2) + 2);
-            const totalDmg = damage + characterObj.strength
+            const totalDmg = damage + hero.strength
             const combatLogText = `You thrust your sword forward and deal ${totalDmg} damage.`
             const slash = 'mon-dmg-1'
             const slash2 = 'mon-dmg-1'
@@ -127,7 +86,7 @@ class DoubleDaggers extends Weapon {
     constructor(name, type, weight, attack1, attack2, modifyingStat) {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
-    attackDam1(targetHit, targetHp) {
+    attackDam1(mon, hero) {
         let totalDmg
         let totalDmg1
         let totalDmg2
@@ -139,11 +98,11 @@ class DoubleDaggers extends Weapon {
         let combatLogText 
         
         const naturalRoll1 = confidentRoll()
-        const totalRoll1 = naturalRoll1 + characterObj.dexterity
+        const totalRoll1 = naturalRoll1 + hero.dexterity
 
-        if (totalRoll1 >= targetHit) {
+        if (totalRoll1 >= mon.hitChanceRate) {
             const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg1 = damage1 + characterObj.dexterity
+            totalDmg1 = damage1 + hero.dexterity
             multiLog1 = `deal ${totalDmg1} damage`
             slash = 'mon-dmg-1'
         } else {
@@ -153,11 +112,11 @@ class DoubleDaggers extends Weapon {
         }
 
         const naturalRoll2 = confidentRoll()
-        const totalRoll2 = naturalRoll2 + characterObj.dexterity
+        const totalRoll2 = naturalRoll2 + hero.dexterity
 
-        if (totalRoll2 >= targetHit) {
+        if (totalRoll2 >= mon.hitChanceRate) {
             const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg2 = damage2 + characterObj.dexterity
+            totalDmg2 = damage2 + hero.dexterity
             multiLog2 = `deal ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
             slash3 = 'mon-dmg-2'
@@ -175,7 +134,7 @@ class DoubleDaggers extends Weapon {
 
     };
 
-    attackDam2(targetHit, targetHp) {
+    attackDam2(mon, hero) {
         let totalDmg
         let totalDmg1
         let totalDmg2
@@ -187,11 +146,11 @@ class DoubleDaggers extends Weapon {
         let combatLogText 
         
         const naturalRoll1 = measuredRoll()
-        const totalRoll1 = naturalRoll1 + characterObj.dexterity
+        const totalRoll1 = naturalRoll1 + hero.dexterity
 
-        if (totalRoll1 >= targetHit) {
+        if (totalRoll1 >= mon.hitChanceRate) {
             const damage1 = Math.floor(Math.random() * (4 - 1) + 1);
-            totalDmg1 = damage1 + characterObj.dexterity
+            totalDmg1 = damage1 + hero.dexterity
             multiLog1 = `deal ${totalDmg1} damage`
             slash = 'mon-dmg-1'
         } else {
@@ -201,11 +160,11 @@ class DoubleDaggers extends Weapon {
         }
 
         const naturalRoll2 = confidentRoll()
-        const totalRoll2 = naturalRoll2 + characterObj.dexterity
+        const totalRoll2 = naturalRoll2 + hero.dexterity
 
-        if (totalRoll2 >= targetHit) {
+        if (totalRoll2 >= mon.hitChanceRate) {
             const damage2 = Math.floor(Math.random() * (4 - 1) + 1);
-            totalDmg2 = damage2 + characterObj.dexterity
+            totalDmg2 = damage2 + hero.dexterity
             multiLog2 = `deal ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
             slash3 = 'mon-dmg-2'
@@ -227,7 +186,7 @@ class Unarmed extends Weapon {
     constructor(name, type, weight, attack1, attack2, modifyingStat) {
         super(name, type, weight, attack1, attack2, modifyingStat)
     }
-    attackDam1(targetHit, targetHp) {
+    attackDam1(mon, hero) {
         let totalDmg
         let totalDmg1
         let totalDmg2
@@ -241,11 +200,25 @@ class Unarmed extends Weapon {
         let combatLogText 
         
         const naturalRoll1 = measuredRoll()
-        const totalRoll1 = naturalRoll1 + characterObj.strength
+        const totalRoll1 = naturalRoll1 + hero.strength
 
-        if (totalRoll1 >= targetHit) {
+        let isMonk;
+
+        if (hero.charClass === 'Monk') {
+            isMonk = true
+        }
+
+        if (totalRoll1 >= mon.hitChanceRate) {
+           
             const damage1 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg1 = damage1 + characterObj.strength
+            if (isMonk) {
+                totalDmg1 = damage1 + hero.dexterity + hero.strength
+            } else {
+                totalDmg1 = damage1 + hero.dexterity
+            } 
+            console.log( damage1 )
+            console.log( totalDmg1)
+
             multiLog1 = `deals ${totalDmg1} damage`
             slash = 'mon-dmg-1'
         } else {
@@ -255,11 +228,15 @@ class Unarmed extends Weapon {
         }
 
         const naturalRoll2 = measuredRoll()
-        const totalRoll2 = naturalRoll2 + characterObj.strength
+        const totalRoll2 = naturalRoll2 + hero.strength
 
-        if (totalRoll2 >= targetHit) {
+        if (totalRoll2 >= mon.hitChanceRate) {
             const damage2 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg2 = damage2 + characterObj.strength
+            if (isMonk) {
+                totalDmg2 = damage2 + hero.dexterity + hero.strength
+            } else {
+                totalDmg2 = damage2 + hero.dexterity
+            }
             multiLog2 = `deals ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
             slash3 = 'mon-dmg-2'
@@ -271,11 +248,15 @@ class Unarmed extends Weapon {
         }
 
         const naturalRoll3 = measuredRoll()
-        const totalRoll3 = naturalRoll3 + characterObj.strength
+        const totalRoll3 = naturalRoll3 + hero.strength
 
-        if (totalRoll3 >= targetHit) {
+        if (totalRoll3 >= mon.hitChanceRate) {
             const damage3 = Math.floor(Math.random() * (2 - 1) + 1);
-            totalDmg3 = damage3 + characterObj.strength
+            if (isMonk) {
+                totalDmg3 = damage3 + hero.dexterity + hero.strength
+            } else {
+                totalDmg3 = damage3 + hero.dexterity
+            }
             multiLog3 = `deals ${totalDmg3} damage`
             slash3 = 'mon-dmg-3'
             
@@ -295,7 +276,7 @@ class Unarmed extends Weapon {
 
     };
 
-    attackDam2(targetHit, targetHp) {
+    attackDam2(mon, hero) {
         let totalDmg
         let totalDmg1
         let totalDmg2
@@ -307,11 +288,11 @@ class Unarmed extends Weapon {
         let combatLogText 
         
         const naturalRoll1 = confidentRoll()
-        const totalRoll1 = naturalRoll1 + characterObj.strength
+        const totalRoll1 = naturalRoll1 + hero.strength
 
-        if (totalRoll1 >= targetHit) {
+        if (totalRoll1 >= mon.hitChanceRate) {
             const damage1 = Math.floor(Math.random() * (4 - 2) + 2);
-            totalDmg1 = damage1 + characterObj.strength
+            totalDmg1 = damage1 + hero.strength
             multiLog1 = `deal ${totalDmg1} damage`
             slash = 'mon-dmg-1'
         } else {
@@ -321,11 +302,11 @@ class Unarmed extends Weapon {
         }
 
         const naturalRoll2 = confidentRoll()
-        const totalRoll2 = naturalRoll2 + characterObj.strength
+        const totalRoll2 = naturalRoll2 + hero.strength
 
-        if (totalRoll2 >= targetHit) {
+        if (totalRoll2 >= mon.hitChanceRate) {
             const damage2 = Math.floor(Math.random() * (4 - 2) + 2);
-            totalDmg2 = damage2 + characterObj.strength
+            totalDmg2 = damage2 + hero.strength
             multiLog2 = `deal ${totalDmg2} damage`
             slash2 = 'mon-dmg-2'
             slash3 = 'mon-dmg-2'

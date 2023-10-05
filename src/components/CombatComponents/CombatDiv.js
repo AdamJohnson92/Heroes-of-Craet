@@ -75,14 +75,14 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
 
         StaminaReduce()
         if (event.target.matches(`#attack-1`)) {
-            const attack1 = chosenCharacter.weapon.attackDam1(monsterObj.hitChanceRate)
+            const attack1 = chosenCharacter.weapon.attackDam1(monster, chosenCharacter)
             dmg = attack1.totalDmg
             combatLogText = attack1.combatLogText
             slash = attack1.slash
             slash2 =attack1.slash2
             slash3 =attack1.slash3
         } else if (event.target.matches('#attack-2')) {
-            const attack2 = chosenCharacter.weapon.attackDam2(monsterObj.hitChanceRate)
+            const attack2 = chosenCharacter.weapon.attackDam2(monster, chosenCharacter)
             dmg = attack2.totalDmg
             combatLogText = attack2.combatLogText
             slash = attack2.slash
