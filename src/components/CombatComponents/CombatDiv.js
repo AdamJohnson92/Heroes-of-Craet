@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react"
 import { CharacterContext } from "../Main";
-import { monsterObj } from "../RightDiv"
+import { handleMonSlash } from "./Utils";
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
 import damage1 from '../../assets/damage.png'
@@ -11,7 +11,7 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -63,14 +63,14 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     }
 
 
-    const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
+    // const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
 
-    function handleMonSlash(slash, slash2, slash3) {
-        setTimeout(setMonDmgSlash, 200, slash)
-        setTimeout(setMonDmgSlash, 400, slash2)
-        setTimeout(setMonDmgSlash, 600, slash3)
-        setTimeout(setMonDmgSlash, 1000, 'mon-dmg-0')
-    }
+    // function handleMonSlash(slash, slash2, slash3) {
+    //     setTimeout(setMonDmgSlash, 200, slash)
+    //     setTimeout(setMonDmgSlash, 400, slash2)
+    //     setTimeout(setMonDmgSlash, 600, slash3)
+    //     setTimeout(setMonDmgSlash, 1000, 'mon-dmg-0')
+    // }
 
     const [combatLog, setCombatLog] = useState('Begin!')
 

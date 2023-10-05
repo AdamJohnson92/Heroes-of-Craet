@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import SelectChar from "./SelectChar"
 import CombatDiv from "./CombatComponents/CombatDiv"
+import CombatUtil from "./CombatComponents/Utils"
 import { monsterRoster } from "../constructors/monster"
 import { CharacterContext } from "./Main";
 
@@ -56,7 +57,7 @@ export default function RightDiv({ characterRoster,  StaminaReduce, handleChoose
                     {/* <a href="./town.html" className='btn' id="to-town-btn">Go to Town</a> */}
                 </div>
             </div>
-            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
+            <CombatUtil combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
              setMonster={setMonster}/>
 
         </div>
