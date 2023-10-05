@@ -11,22 +11,35 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, MonsterHealthReduce }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
-
     const [heroAttackDisplay, setHeroAttackDisplay] = useState('hidden')
+    const [heroRetreatDisplay, setHeroRetreatDisplay] = useState('hidden')
+    const [buttonDivDisplay, setButtonDivDisplay] = useState('visible')
 
-    const [heroRetreatDisplay, setHeroRetreatDisplay] = useState ('hidden')
-
-    const [buttonDivDisplay, setButtonDivDisplay] = useState ('visible')
+    function MonsterHealthReduce(attackDmg, combatLogText) {
+        if ((monster.currentHp - attackDmg) < 1) {
+            setMonster({
+                ...monster,
+                currentHp: 0
+            })
+            winner()
+        } else {
+            setMonster({
+                ...monster,
+                currentHp: monster.currentHp - attackDmg
+            })
+            setCombatLog(combatLogText)
+        }
+    }
 
 
     function hideCombatButtons() {
         setButtonDivDisplay('invisible')
-        setTimeout(setButtonDivDisplay, 1800, 'visible' )
+        setTimeout(setButtonDivDisplay, 1800, 'visible')
     }
 
     function attackAnimation() {
@@ -44,7 +57,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
         setHeroRetreatDisplay('retreat-display')
     }
 
-    function heroRetreatDisappear(){
+    function heroRetreatDisappear() {
         setHeroRetreatDisplay('hidden')
         setHeroStaticDisplay('static-display')
     }
@@ -52,7 +65,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
 
     const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
 
-    function handleMonSlash(slash, slash2, slash3){
+    function handleMonSlash(slash, slash2, slash3) {
         setTimeout(setMonDmgSlash, 200, slash)
         setTimeout(setMonDmgSlash, 400, slash2)
         setTimeout(setMonDmgSlash, 600, slash3)
@@ -67,7 +80,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
 
         let dmg
         let combatLogText
-        let slash 
+        let slash
         let slash2
         let slash3
 
@@ -79,29 +92,42 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
             dmg = attack1.totalDmg
             combatLogText = attack1.combatLogText
             slash = attack1.slash
-            slash2 =attack1.slash2
-            slash3 =attack1.slash3
+            slash2 = attack1.slash2
+            slash3 = attack1.slash3
         } else if (event.target.matches('#attack-2')) {
             const attack2 = chosenCharacter.weapon.attackDam2(monster, chosenCharacter)
             dmg = attack2.totalDmg
             combatLogText = attack2.combatLogText
             slash = attack2.slash
-            slash2 =attack2.slash2
-            slash3 =attack2.slash3
+            slash2 = attack2.slash2
+            slash3 = attack2.slash3
         }
-        MonsterHealthReduce(dmg)
-        setCombatLog(combatLogText)
+        MonsterHealthReduce(dmg, combatLogText)
+
+        // setCombatLog(combatLogText)
+
         handleMonSlash(slash, slash2, slash3)
+
+
     }
 
-    function logMonster(){
+    function logMonster() {
         console.log(monster)
+    }
+
+    const [bannerText, setBannerText] = useState('Your Turn')
+    const [bannerStyle, setBannerStyle] = useState('player-turn')
+
+    function winner() {
+        setCombatLog(`You have slain the ${monster.name}`)
+        setBannerText('You Win!')
+        setBannerStyle('end-win')
     }
 
     return (
         <div className={combatDisplay} id="combat-div">
             <div className="container" id="arena-banner">
-                <h3 id="turn-display"></h3>
+                <h3 className={`turn-display ${bannerStyle}`}>{bannerText}</h3>
             </div>
             <div id='arena'>
                 <div className='shh'>
@@ -114,7 +140,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, Monst
                 </div>
                 <div className="background-img"></div>
                 <ArenaHero heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} />
-                <ArenaMonster monster={monster} monDmgSlash={monDmgSlash}/>
+                <ArenaMonster monster={monster} monDmgSlash={monDmgSlash} />
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">

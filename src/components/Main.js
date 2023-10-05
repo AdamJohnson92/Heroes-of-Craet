@@ -13,9 +13,7 @@ export default function Main() {
     const handleChooseCharacter = (event) => {
         for (let i = 0; i < characterRoster.length; i++) {
             if (event.target.matches(`#${characterRoster[i].name}`)) {
-                // characterObj = characterRoster[i]
                 setChosenCharacter(characterRoster[i])
-
             }
         }
     }
@@ -27,7 +25,6 @@ export default function Main() {
             currentStamPoints: chosenCharacter.currentStamPoints - 1
         })
     }
-
 
 
     return (
@@ -42,9 +39,6 @@ export default function Main() {
                     handleChooseCharacter={handleChooseCharacter} />
                 {/* <DamageTest chosenCharacter={chosenCharacter} /> */}
             </CharacterContext.Provider>
-
-
-
         </main>
     )
 

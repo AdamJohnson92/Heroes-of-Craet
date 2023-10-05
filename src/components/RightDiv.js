@@ -16,19 +16,19 @@ export default function RightDiv({ characterRoster,  StaminaReduce, handleChoose
 
     const [monster, setMonster] = useState(monsterRoster[0])
 
-    function MonsterHealthReduce(attackDmg) {
-        if((monster.currentHp - attackDmg) < 0){
-            setMonster({
-                ...monster,
-                currentHp: 0
-            })
-        } else {
-            setMonster({
-                ...monster,
-                currentHp: monster.currentHp - attackDmg
-            })
-        }
-    }
+    // function MonsterHealthReduce(attackDmg) {
+    //     if((monster.currentHp - attackDmg) < 0){
+    //         setMonster({
+    //             ...monster,
+    //             currentHp: 0
+    //         })
+    //     } else {
+    //         setMonster({
+    //             ...monster,
+    //             currentHp: monster.currentHp - attackDmg
+    //         })
+    //     }
+    // }
 
    
 
@@ -57,7 +57,7 @@ export default function RightDiv({ characterRoster,  StaminaReduce, handleChoose
                 </div>
             </div>
             <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
-            MonsterHealthReduce ={MonsterHealthReduce}/>
+             setMonster={setMonster}/>
 
         </div>
 

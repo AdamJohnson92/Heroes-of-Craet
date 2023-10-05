@@ -376,7 +376,7 @@ a:hover {
   margin-bottom: 20px;
 }
 
-#turn-display {
+.turn-display {
   display: flex;
   align-items: center;
   padding-left: 20px;
@@ -385,6 +385,18 @@ a:hover {
   border-radius: 10px;
   height: 50px;
   box-shadow: 1px 1px 10px black;
+}
+
+.player-turn {
+  background-color: green;
+}
+
+.monster-turn {
+  background-color: red;
+}
+
+.end-win {
+  background-color: var(--gold);
 }
 
 .stam-div {
@@ -937,7 +949,7 @@ footer {
     height: 100px;
   }
 
-  #turn-display {
+  .turn-display {
     padding: 10px;
     border: 10px double black;
     border-radius: 20px;
