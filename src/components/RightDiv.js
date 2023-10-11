@@ -8,7 +8,7 @@ import { CharacterContext } from "./Main";
 
  let monsterObj = {}
 
-export default function RightDiv({ characterRoster,  StaminaReduce, handleChooseCharacter, heroStamPoints }) {
+export default function RightDiv({ characterRoster, StaminaReduce, handleChooseCharacter, heroStamPoints, setChosenCharacter }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -16,22 +16,6 @@ export default function RightDiv({ characterRoster,  StaminaReduce, handleChoose
     const [combatDisplay, setCombatDisplay] = useState('hidden')
 
     const [monster, setMonster] = useState(monsterRoster[0])
-
-    // function MonsterHealthReduce(attackDmg) {
-    //     if((monster.currentHp - attackDmg) < 0){
-    //         setMonster({
-    //             ...monster,
-    //             currentHp: 0
-    //         })
-    //     } else {
-    //         setMonster({
-    //             ...monster,
-    //             currentHp: monster.currentHp - attackDmg
-    //         })
-    //     }
-    // }
-
-   
 
     const generateMonster = () => {
         const randomMonster = monsterRoster[Math.floor(Math.random() * monsterRoster.length)]
@@ -58,7 +42,7 @@ export default function RightDiv({ characterRoster,  StaminaReduce, handleChoose
                 </div>
             </div>
             <CombatUtil combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
-             setMonster={setMonster}/>
+             setMonster={setMonster} setChosenCharacter={setChosenCharacter}chosenCharacter={chosenCharacter}/>
 
         </div>
 

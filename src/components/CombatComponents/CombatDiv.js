@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react"
 import { CharacterContext } from "../Main";
-import { handleMonSlash } from "./Utils";
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
 import damage1 from '../../assets/damage.png'
@@ -11,14 +10,9 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle }) {
 
     const chosenCharacter = useContext(CharacterContext)
-
-    const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
-    const [heroAttackDisplay, setHeroAttackDisplay] = useState('hidden')
-    const [heroRetreatDisplay, setHeroRetreatDisplay] = useState('hidden')
-    const [buttonDivDisplay, setButtonDivDisplay] = useState('visible')
 
     function MonsterHealthReduce(attackDmg, combatLogText) {
         if ((monster.currentHp - attackDmg) < 1) {
@@ -35,42 +29,6 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             setCombatLog(combatLogText)
         }
     }
-
-
-    function hideCombatButtons() {
-        setButtonDivDisplay('invisible')
-        setTimeout(setButtonDivDisplay, 1800, 'visible')
-    }
-
-    function attackAnimation() {
-        heroAttackAppear()
-        setTimeout(heroAttackDisappear, 650)
-        setTimeout(heroRetreatDisappear, 1150)
-    }
-
-    function heroAttackAppear() {
-        setHeroAttackDisplay('attack-display')
-        setHeroStaticDisplay('hidden')
-    }
-    function heroAttackDisappear() {
-        setHeroAttackDisplay('hidden')
-        setHeroRetreatDisplay('retreat-display')
-    }
-
-    function heroRetreatDisappear() {
-        setHeroRetreatDisplay('hidden')
-        setHeroStaticDisplay('static-display')
-    }
-
-
-    // const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
-
-    // function handleMonSlash(slash, slash2, slash3) {
-    //     setTimeout(setMonDmgSlash, 200, slash)
-    //     setTimeout(setMonDmgSlash, 400, slash2)
-    //     setTimeout(setMonDmgSlash, 600, slash3)
-    //     setTimeout(setMonDmgSlash, 1000, 'mon-dmg-0')
-    // }
 
     const [combatLog, setCombatLog] = useState('Begin!')
 
@@ -114,9 +72,6 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     function logMonster() {
         console.log(monster)
     }
-
-    const [bannerText, setBannerText] = useState('Your Turn')
-    const [bannerStyle, setBannerStyle] = useState('player-turn')
 
     function winner() {
         setCombatLog(`You have slain the ${monster.name}`)

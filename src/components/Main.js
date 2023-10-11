@@ -18,14 +18,6 @@ export default function Main() {
         }
     }
 
-    function StaminaReduce() {
-
-        setChosenCharacter({
-            ...chosenCharacter,
-            currentStamPoints: chosenCharacter.currentStamPoints - 1
-        })
-    }
-
 
     return (
         <main>
@@ -35,8 +27,10 @@ export default function Main() {
                     <CharEquip />
                 </div>
                 <RightDiv characterRoster={characterRoster}
-                    StaminaReduce={StaminaReduce}
-                    handleChooseCharacter={handleChooseCharacter} />
+                    // StaminaReduce={StaminaReduce}
+                    chosenCharacter={chosenCharacter}
+                    handleChooseCharacter={handleChooseCharacter}
+                    setChosenCharacter={setChosenCharacter} />
                 {/* <DamageTest chosenCharacter={chosenCharacter} /> */}
             </CharacterContext.Provider>
         </main>
