@@ -10,7 +10,7 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -30,7 +30,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         }
     }
 
-    const [combatLog, setCombatLog] = useState('Begin!')
+    // const [combatLog, setCombatLog] = useState('Begin!')
 
     function attackRoll(event) {
 

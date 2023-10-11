@@ -11,13 +11,22 @@ export default function ArenaMonster({monster, monDmgSlash}) {
         height: '15px'
     }
 
+    const stamBarWidth = (monster.currentStamPoints / monster.maxStaminaPoints * 100)
+
+    const stamWidthStyle = {
+        id: "mon-stam-bar-style",
+        backgroundColor: 'green',
+        width: `${stamBarWidth}%`,
+        height: '15px'
+    }
+
     return (
         <div className='arena-placement' id='arena-monster'>
             <div className="health-bar" id="monster-health-bar">
                 <div className="health-juice" id="monster-health-juice" style={hpWidthStyle}></div>
             </div>
             <div className="stam-bar" id="monster-stam-bar">
-                <div className="stam-juice" id="monster-stam-juice"></div>
+                <div className="stam-juice" id="monster-stam-juice" style={stamWidthStyle}></div>
             </div>
             <div id="potion-div">
                 <div id="potion-lid"></div>

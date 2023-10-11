@@ -7,6 +7,8 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     const chosenCharacter = useContext(CharacterContext)
 
+    const [combatLog, setCombatLog] = useState('Begin!')
+
     //Renders the necessary slash depending on if the attack was a hit or a miss.
     const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
 
@@ -52,12 +54,19 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     }
 
 
-    //Reduces the hero's stamina by 1 whenever they do an action. 
+    //Reduces the hero and monster's stamina by 1 whenever they do an action. 
     function StaminaReduce() {
 
         setChosenCharacter({
             ...chosenCharacter,
             currentStamPoints: chosenCharacter.currentStamPoints - 1
+        })
+    } 
+
+    function monStaminaReduce() {
+        setMonster({
+            ...monster,
+            currentStamPoints: monster.currentStamPoints - 1
         })
     }
 
@@ -70,6 +79,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
             setBannerStyle('monster-turn')
             setBannerText('Enemy Turn')
             setButtonDivDisplay('invisible')
+             
         }
     })
    
@@ -77,10 +87,14 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     const [bannerStyle, setBannerStyle] = useState('player-turn')
 
 
+    function monsterTurn() {
+       console.log(monster)
+    }
+monsterTurn()
     return (
         <>
             <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
-            bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} />
+            bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>
     )
 }

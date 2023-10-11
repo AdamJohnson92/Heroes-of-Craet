@@ -15,14 +15,14 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
     const [selectDisplay, setSelectDisplay] = useState('displayed centered')
     const [combatDisplay, setCombatDisplay] = useState('hidden')
 
-    const [monster, setMonster] = useState(monsterRoster[0])
+    const [monster, setMonster] = useState(monsterRoster[1])
 
     const generateMonster = () => {
         const randomMonster = monsterRoster[Math.floor(Math.random() * monsterRoster.length)]
         //for testing against goblin
         // return monsterRoster[0]
-        setMonster(randomMonster)
-        monsterObj = randomMonster
+        setMonster(monsterRoster[1])
+        console.log(monster)
     }
     
     const playGame = () => {
@@ -42,7 +42,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
                 </div>
             </div>
             <CombatUtil combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
-             setMonster={setMonster} setChosenCharacter={setChosenCharacter}chosenCharacter={chosenCharacter}/>
+             setMonster={setMonster} setChosenCharacter={setChosenCharacter}/>
 
         </div>
 

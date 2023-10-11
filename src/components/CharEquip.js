@@ -6,7 +6,6 @@ import { CharacterContext } from "./Main";
 export default function CharEquip() {
 
     const chosenCharacter = useContext(CharacterContext)
-    console.log(chosenCharacter)
     
     return(
         
