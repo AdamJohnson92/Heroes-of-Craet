@@ -1,9 +1,18 @@
 import { useState, useContext } from "react";
 import { CharacterContext } from "../Main";
 
-export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay }) {
+export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, heroDmgSlash }) {
 
     const chosenCharacter = useContext(CharacterContext)
+
+    const hpBarWidth = (chosenCharacter.currentHp / chosenCharacter.maxHp * 100)
+
+    const hpWidthStyle = {
+        id: "mon-hp-bar-style",
+        backgroundColor: 'red',
+        width: `${hpBarWidth}%`,
+        height: '15px'
+    }
 
     const stamBarWidth = (chosenCharacter.currentStamPoints / chosenCharacter.maxStaminaPoints * 100)
 
@@ -17,7 +26,7 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
     return (
         <div className='arena-placement' id='arena-hero'>
             <div className="health-bar" id="hero-health-bar">
-                <div className="health-juice" id="hero-health-juice"></div>
+                <div className="health-juice" id="hero-health-juice" style={hpWidthStyle}></div>
             </div>
             <div className="stam-bar" id="hero-stam-bar">
                 <div className="stam-juice" style={stamWidthStyle}></div>
@@ -31,7 +40,7 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
             <img className={heroStaticDisplay} id="arena-hero-avatar" src={chosenCharacter.img} />
             <img className= {heroAttackDisplay} id="arena-hero-attack" src={chosenCharacter.attackImg} />
             <img className= {heroRetreatDisplay} id="arena-hero-retreat" src={chosenCharacter.retreatImg} />
-            <img className="dmg-img arena-img" id="hero-dmg" />
+            <div className={`mon-slash-class ${heroDmgSlash}`}></div>
         </div>
     )
 }

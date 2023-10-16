@@ -9,7 +9,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     const [combatLog, setCombatLog] = useState('Begin!')
 
-    //Renders the necessary slash depending on if the attack was a hit or a miss.
+    //Renders the necessary slash on the monster depending on if the attack was a hit or a miss.
     const [monDmgSlash, setMonDmgSlash] = useState('mon-dmg-0')
 
     function handleMonSlash(slash, slash2, slash3) {
@@ -19,6 +19,13 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setTimeout(setMonDmgSlash, 1000, 'mon-dmg-0')
     }
 
+    //Renders the necessary slash on the hero depending on if the attack was a hit or a miss.
+    const [heroDmgSlash, setHeroDmgSlash] = useState('mon-dmg-0')
+
+    function handleHeroSlash(slash) {
+        setTimeout(setHeroDmgSlash, 200, slash)
+        setTimeout(setHeroDmgSlash, 1000, 'mon-dmg-0')
+    }
 
     //handles the posing of the character attack animations
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
@@ -73,20 +80,33 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     //handles turn change
     const [isPlayerTurn, setIsPlayerTurn] = useState(true)
 
-    useEffect(() => {
-        if (chosenCharacter.currentStamPoints < 1) {
-            setIsPlayerTurn(false)
-            setBannerStyle('monster-turn')
-            setBannerText('Enemy Turn')
-            setButtonDivDisplay('invisible')
-        
-            const monAttack = monster.attack1(chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
+    function monsterTurnChange() {
+        setIsPlayerTurn(false)
+        setBannerStyle('monster-turn')
+        setBannerText('Enemy Turn')
+        setButtonDivDisplay('invisible')
+    }
+
+    function monsterAttackHandler(hitChance, armorRating){
+        const monAttack = monster.attack1(hitChance, armorRating)
             const dmg = monAttack.dmgLessArmor
             const combatLogText = monAttack.combatLogText
             const slash = monAttack.slash
 
-            setCombatLog(combatLogText)
+            monStaminaReduce()
+            handleHeroSlash(slash)
+            setChosenCharacter((prevState) => ({
+                ...prevState,
+                currentHp: chosenCharacter.currentHp - dmg
+            }))
 
+            setCombatLog(combatLogText)
+    }
+
+    useEffect(() => {
+        if (chosenCharacter.currentStamPoints < 1) {
+            monsterTurnChange()
+            setTimeout(monsterAttackHandler, 1200, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
         }
     }, [chosenCharacter.currentStamPoints])
 
@@ -96,7 +116,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     return (
         <>
-            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
+            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
                 bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>
     )

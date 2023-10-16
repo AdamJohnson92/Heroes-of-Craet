@@ -5,7 +5,7 @@ export default function ArenaMonster({monster, monDmgSlash}) {
     const hpBarWidth = (monster.currentHp / monster.maxHp * 100)
 
     const hpWidthStyle = {
-        id: "hero-stam-bar-style",
+        id: "mon-hp-bar-style",
         backgroundColor: 'red',
         width: `${hpBarWidth}%`,
         height: '15px'
