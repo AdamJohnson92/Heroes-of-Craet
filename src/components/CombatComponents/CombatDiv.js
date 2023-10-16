@@ -33,6 +33,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     // const [combatLog, setCombatLog] = useState('Begin!')
 
     function attackRoll(event) {
+        console.log(chosenCharacter)
 
         hideCombatButtons()
 
@@ -67,6 +68,13 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         handleMonSlash(slash, slash2, slash3)
 
 
+    }
+
+    function special() {
+        console.log(chosenCharacter)
+        hideCombatButtons()
+        StaminaReduce()
+        chosenCharacter.special1()
     }
 
     function logMonster() {
@@ -105,7 +113,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                     <button className="btn" id='play-again'> Play Again</button>
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
                     <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
-                    <button className='btn combat-btn' id="special-button-1" onClick={StaminaReduce}> {chosenCharacter.special} </button>
+                    <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
                     <button className="btn combat-btn" id="potion-button" onClick={logMonster}> Drink Potion </button>
                 </div>
             </div>

@@ -57,11 +57,11 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     //Reduces the hero and monster's stamina by 1 whenever they do an action. 
     function StaminaReduce() {
 
-        setChosenCharacter({
-            ...chosenCharacter,
+        setChosenCharacter((prevState) => ({
+            ...prevState,
             currentStamPoints: chosenCharacter.currentStamPoints - 1
-        })
-    } 
+        }))
+    }
 
     function monStaminaReduce() {
         setMonster({
@@ -74,27 +74,30 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     const [isPlayerTurn, setIsPlayerTurn] = useState(true)
 
     useEffect(() => {
-         if (chosenCharacter.currentStamPoints < 1) {
+        if (chosenCharacter.currentStamPoints < 1) {
             setIsPlayerTurn(false)
             setBannerStyle('monster-turn')
             setBannerText('Enemy Turn')
             setButtonDivDisplay('invisible')
-             
+        
+            const monAttack = monster.attack1(chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
+            const dmg = monAttack.dmgLessArmor
+            const combatLogText = monAttack.combatLogText
+            const slash = monAttack.slash
+
+            setCombatLog(combatLogText)
+
         }
-    })
-   
+    }, [chosenCharacter.currentStamPoints])
+
     const [bannerText, setBannerText] = useState('Your Turn')
     const [bannerStyle, setBannerStyle] = useState('player-turn')
 
 
-    function monsterTurn() {
-       console.log(monster)
-    }
-monsterTurn()
     return (
         <>
             <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
-            bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
+                bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>
     )
 }

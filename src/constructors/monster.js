@@ -6,29 +6,20 @@ import badFrogStatic from '../assets/bad-frog-static.png'
 
 // import { monDmgAnimation, combatLog } from "../combatUtil.js";
 
-
-//MONSTER CLASS CONSTRUCTORS
+// MONSTER ROSTER
 //-----------------------------------
 
-class Monster {
-    constructor(name, maxHp, currentHp, hitChanceRate, img, attackImg, maxStaminaPoints, currentStamPoints) {
-        this.name = name;
-        this.maxHp = maxHp;
-        this.currentHp = currentHp;
-        this.hitChanceRate = hitChanceRate
-        this.img = img
-        this.maxStaminaPoints = maxStaminaPoints
-        this.currentStamPoints = currentStamPoints
-        this.attackImg = attackImg
-    }
-}
+const undead = {
+    name: 'Undead',
+    maxHp: 23,
+    currentHp: 23,
+    hitChanceRate: 12,
+    img: undeadStatic,
+    attackImg: undeadAttack,
+    maxStaminaPoints: 1,
+    currentStamPoints: 1,
 
-class Undead extends Monster {
-    constructor(name, maxHp, currentHp, hitChanceRate, img, attackImg, maxStaminaPoints, currentStamPoints) {
-        super(name, maxHp, currentHp, hitChanceRate, img, attackImg, maxStaminaPoints, currentStamPoints)
-    }
-
-    attack1(targetHit, targetHp, targetArmor) {
+    attack1(targetHit, targetArmor) {
         const naturalRoll = Math.floor(Math.random() * (20 - 10) + 10)
         console.log('hello world!')
 
@@ -54,12 +45,32 @@ class Undead extends Monster {
         }
 
     }
+
 }
 
-class Goblin extends Monster {
-    constructor(name, maxHp, currentHp, hitChanceRate, img, attackImg, maxStaminaPoints, currentStamPoints) {
-        super(name, maxHp, currentHp, hitChanceRate, img, attackImg, maxStaminaPoints, currentStamPoints)
-    }
+const goblin = {
+    name: 'Goblin',
+    maxHp: 30,
+    currentHp: 30,
+    hitChanceRate: 13,
+    img: goblinStatic,
+    attackImg: goblinAttack,
+    maxStaminaPoints: 1,
+    currentStamPoints: 1,
+
+    
+}
+
+const badFrog = {
+    name: 'Bad Frog',
+    maxHp: 35,
+    currentHp: 35,
+    hitChanceRate: 11,
+    img: badFrogStatic,
+    attackImg: badFrogStatic,
+    maxStaminaPoints: 1,
+    currentStamPoints: 1,
+    
     attack1(targetHit, targetHp, targetArmor) {
         const naturalRoll = Math.floor(Math.random() * (20 - 12) + 12)
 
@@ -84,16 +95,6 @@ class Goblin extends Monster {
 
     }
 }
-
-// MONSTER ROSTER
-//-----------------------------------
-
-
-const undead = new Undead('Undead', 23, 23, 12, undeadStatic, undeadAttack, 1, 1)
-
-const goblin = new Goblin('Goblin', 35, 35, 13, goblinStatic, goblinAttack, 1, 1)
-
-const badFrog = new Goblin('Bad Frog', 40, 40, 10, badFrogStatic,badFrogStatic, 1, 1)
 
 const monsterRoster = [goblin, undead, badFrog]
 
