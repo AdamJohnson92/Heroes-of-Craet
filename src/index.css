@@ -410,8 +410,8 @@ a:hover {
     transform-origin: center bottom;
   }
 
-  50% {
-    transform: scale(1, 1.03);
+  52% {
+    transform: scale(1, 1.04);
     /* transform: translateY(0); */
   }
 
@@ -423,11 +423,26 @@ a:hover {
 
 @keyframes heroAttackAni {
   from {
-    transform: translateX(-60px);
+    transform: translateX(0px);
   }
 
 13% {
-    transform: translateX(0px);
+    transform: translateX(150%);
+  }
+
+  to {
+    transform: translateX(150%);
+  }
+
+}
+
+@keyframes heroRetreatAni {
+  from {
+    transform: translateX(150%);
+  }
+
+  20% {
+    transform: translateX(150%);
   }
 
   to {
@@ -436,13 +451,28 @@ a:hover {
 
 }
 
-@keyframes heroRetreatAni {
+@keyframes monAttackAni {
   from {
-    transform: translateX(90px);
+    transform: translateX(0%);
+  }
+
+13% {
+    transform: translateX(-150%);
+  }
+
+  to {
+    transform: translateX(-150%);
+  }
+
+}
+
+@keyframes monRetreatAni {
+  from {
+    transform: translateX(-150px);
   }
 
   20% {
-    transform: translateX(90px);
+    transform: translateX(-150px);
   }
 
   to {
@@ -452,7 +482,7 @@ a:hover {
 }
 
 .static-display {
-  animation: breath 1.5s linear infinite normal none;
+  animation: breath 1.8s linear infinite normal none;
   width: 150px;
   height: 150px;
   position: absolute;
@@ -465,7 +495,6 @@ a:hover {
   width: 150px;
   height: 150px;
   position: relative;
-  left: 210%;
   top: 25px;
   z-index: 1;
 }
@@ -476,14 +505,23 @@ a:hover {
   height: 150px;
   position: absolute;
   bottom: 35px;
-
 }
 
-#arena-monster-attack {
-  display: none;
+.mon-attack-display {
+  animation: monAttackAni 1s linear 1 normal none;
+  width: 150px;
+  height: 150px;
   position: relative;
-  right: 50px;
   top: 25px;
+  z-index: 1;
+}
+
+.mon-retreat-display {
+  animation: monRetreatAni .4s ease-out 1 normal none;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  bottom: 35px;
 }
 
 .dmg-img {
@@ -733,7 +771,6 @@ footer {
     width: 90px;
     height: 90px;
     position: relative;
-    left: 90px;
     top:60px;
   }
 
@@ -741,7 +778,21 @@ footer {
     width: 90px;
     height: 90px;
     position: relative;
+    top:50px;
+  }
+
+  .mon-attack-display {
+    width: 90px;
+    height: 90px;
+    position: relative;
     top:60px;
+  }
+
+  .mon-retreat-display {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    top:50px;
   }
 
   .health-bar {
@@ -892,32 +943,45 @@ footer {
 
 
   #arena {
-    height: 125px;
-    width: 225px;
+    height: 175px;
+    width: 325px;
   }
 
 
 
   .static-display {
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     position: absolute;
     bottom: 15px;
   }
 
   .attack-display {
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     position: relative;
-    left: 90px;
-    top: 25px;
+    top: 38px;
   }
 
   .retreat-display {
-    width: 70px;
-    height: 70px;
+    width: 85px;
+    height: 85px;
     position: relative;
-    top: 25px;
+    top: 35px;
+  }
+
+  .mon-attack-display {
+    width: 85px;
+    height: 85px;
+    position: relative;
+    top: 38px;
+  }
+
+  .mon-retreat-display {
+    width: 85px;
+    height: 85px;
+    position: relative;
+    top: 35px;
   }
 
   .mon-slash-class{
@@ -930,13 +994,6 @@ footer {
 
   .mon-dmg-0 {
     background-image: none;
-  }
-
-  #arena-monster-attack {
-    display: none;
-    position: relative;
-    right: 50px;
-    top: 25px;
   }
 
   #arena-banner {

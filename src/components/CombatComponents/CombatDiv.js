@@ -10,7 +10,7 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -103,7 +103,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                 </div>
                 <div className="background-img"></div>
                 <ArenaHero heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} heroDmgSlash={heroDmgSlash} />
-                <ArenaMonster monster={monster} monDmgSlash={monDmgSlash} />
+                <ArenaMonster monster={monster} monDmgSlash={monDmgSlash} monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} />
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">

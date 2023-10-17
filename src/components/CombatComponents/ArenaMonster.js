@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-export default function ArenaMonster({monster, monDmgSlash}) {
+export default function ArenaMonster({monster, monDmgSlash, monStaticDisplay, monAttackDisplay, monRetreatDisplay}) {
     const hpBarWidth = (monster.currentHp / monster.maxHp * 100)
 
     const hpWidthStyle = {
@@ -34,12 +34,9 @@ export default function ArenaMonster({monster, monDmgSlash}) {
                     <div id="potion-juice"></div>
                 </div>
             </div>
-            <img className='static-display' id="arena-monster-avatar" 
-            src={monster.img} 
-            />
-            <img className='arena-img' id="arena-monster-attack" 
-            // src = {monster.attackImg}
-            />
+            <img className={monStaticDisplay} id="arena-monster-avatar" src={monster.img} />
+            <img className={monAttackDisplay} id="arena-monster-attack" src={monster.attackImg}/>
+            <img className= {monRetreatDisplay} id="arena-monster-retreat" src={monster.img} />
             <div className={`mon-slash-class ${monDmgSlash}`}></div>
         </div>
     )

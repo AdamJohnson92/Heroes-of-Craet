@@ -52,6 +52,31 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setHeroStaticDisplay('static-display')
     }
 
+    //handles the posing of the character attack animations
+    const [monStaticDisplay, setMonStaticDisplay] = useState('static-display')
+    const [monAttackDisplay, setMonAttackDisplay] = useState('hidden')
+    const [monRetreatDisplay, setMonRetreatDisplay] = useState('hidden')
+
+    function monAttackAnimation() {
+        monAttackAppear()
+        setTimeout(monAttackDisappear, 650)
+        setTimeout(monRetreatDisappear, 1150)
+    }
+
+    function monAttackAppear() {
+        setMonAttackDisplay('mon-attack-display')
+        setMonStaticDisplay('hidden')
+    }
+    function monAttackDisappear() {
+        setMonAttackDisplay('hidden')
+        setMonRetreatDisplay('mon-retreat-display')
+    }
+
+    function monRetreatDisappear() {
+        setMonRetreatDisplay('hidden')
+        setMonStaticDisplay('static-display')
+    }
+
     //Displays or Hides the combat buttons so players can't click a button while something else is happening.
     const [buttonDivDisplay, setButtonDivDisplay] = useState('visible')
 
@@ -94,6 +119,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
             const slash = monAttack.slash
 
             monStaminaReduce()
+            monAttackAnimation()
             handleHeroSlash(slash)
             setChosenCharacter((prevState) => ({
                 ...prevState,
@@ -106,7 +132,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     useEffect(() => {
         if (chosenCharacter.currentStamPoints < 1) {
             monsterTurnChange()
-            setTimeout(monsterAttackHandler, 1200, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
+            setTimeout(monsterAttackHandler, 1500, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
         }
     }, [chosenCharacter.currentStamPoints])
 
@@ -116,7 +142,8 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     return (
         <>
-            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
+            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} 
+            monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
                 bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>
     )
