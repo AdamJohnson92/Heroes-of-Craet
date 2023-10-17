@@ -27,7 +27,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setTimeout(setHeroDmgSlash, 1000, 'mon-dmg-0')
     }
 
-    //handles the posing of the character attack animations
+    //handles the posing of the hero attack animations
     const [heroStaticDisplay, setHeroStaticDisplay] = useState('static-display')
     const [heroAttackDisplay, setHeroAttackDisplay] = useState('hidden')
     const [heroRetreatDisplay, setHeroRetreatDisplay] = useState('hidden')
@@ -52,7 +52,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setHeroStaticDisplay('static-display')
     }
 
-    //handles the posing of the character attack animations
+    //handles the posing of the monster attack animations
     const [monStaticDisplay, setMonStaticDisplay] = useState('static-display')
     const [monAttackDisplay, setMonAttackDisplay] = useState('hidden')
     const [monRetreatDisplay, setMonRetreatDisplay] = useState('hidden')
@@ -110,31 +110,56 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setBannerStyle('monster-turn')
         setBannerText('Enemy Turn')
         setButtonDivDisplay('invisible')
+
+
     }
 
-    function monsterAttackHandler(hitChance, armorRating){
-        const monAttack = monster.attack1(hitChance, armorRating)
-            const dmg = monAttack.dmgLessArmor
-            const combatLogText = monAttack.combatLogText
-            const slash = monAttack.slash
-
-            monStaminaReduce()
-            monAttackAnimation()
-            handleHeroSlash(slash)
-            setChosenCharacter((prevState) => ({
+    function heroTurnChange() {
+        setIsPlayerTurn(true)
+        setBannerStyle('player-turn')
+        setBannerText('Your Turn')
+    }
+    function monsterAttackHandler(hitChance, armorRating) {
+        setMonster((prevState) => ({
                 ...prevState,
-                currentHp: chosenCharacter.currentHp - dmg
+                currentStamPoints: monster.maxStaminaPoints
             }))
+        const monAttack = monster.attack1(hitChance, armorRating)
+        const dmg = monAttack.dmgLessArmor
+        const combatLogText = monAttack.combatLogText
+        const slash = monAttack.slash
 
-            setCombatLog(combatLogText)
+        monStaminaReduce()
+        monAttackAnimation()
+        handleHeroSlash(slash)
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            currentHp: chosenCharacter.currentHp - dmg
+        }))
+
+        setCombatLog(combatLogText)
     }
 
+    //Use Effect to catch state change and trigger the monster's turn
     useEffect(() => {
-        if (chosenCharacter.currentStamPoints < 1) {
+        if (chosenCharacter.currentStamPoints < 1 && monster.currentHp > 0) {
+            
             monsterTurnChange()
             setTimeout(monsterAttackHandler, 1500, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
         }
     }, [chosenCharacter.currentStamPoints])
+
+    //Use Effect to catch state change and trigger the player's turn
+    useEffect(() => {
+        if (monster.currentStamPoints < 1) {
+            heroTurnChange()
+            setChosenCharacter((prevState) => ({
+                ...prevState,
+                currentStamPoints: chosenCharacter.maxStaminaPoints
+            }))
+
+        }
+    }, [monster.currentStamPoints])
 
     const [bannerText, setBannerText] = useState('Your Turn')
     const [bannerStyle, setBannerStyle] = useState('player-turn')
@@ -142,8 +167,8 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     return (
         <>
-            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} 
-            monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
+            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation}
+                monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
                 bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>
     )

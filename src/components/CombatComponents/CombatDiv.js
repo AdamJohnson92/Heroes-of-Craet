@@ -66,8 +66,6 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         // setCombatLog(combatLogText)
 
         handleMonSlash(slash, slash2, slash3)
-
-
     }
 
     function special() {
@@ -77,15 +75,17 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         chosenCharacter.special1()
     }
 
-    function logMonster() {
-        console.log(monster)
-    }
-
     function winner() {
         setCombatLog(`You have slain the ${monster.name}`)
         setBannerText('You Win!')
         setBannerStyle('end-win')
     }
+
+    useEffect(() => {
+        if(monster.currentHp < 1) {
+            winner()
+        }
+    })
 
     return (
         <div className={combatDisplay} id="combat-div">
@@ -114,7 +114,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
                     <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
                     <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
-                    <button className="btn combat-btn" id="potion-button" onClick={logMonster}> Drink Potion </button>
+                    <button className="btn combat-btn" id="potion-button"> Drink Potion </button>
                 </div>
             </div>
         </div>
