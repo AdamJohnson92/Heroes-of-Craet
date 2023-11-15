@@ -18,7 +18,7 @@ export default function CharStats() {
                 <p className="card-item">Strength: {chosenCharacter.strength}</p>
                 <p className="card-item">Dexterity: {chosenCharacter.dexterity}</p>
                 <p className="card-item">Wisdom: {chosenCharacter.wisdom}</p>
-                <p className="card-item">Hit Chance: {chosenCharacter.hitChanceRate}</p>
+                <p className="card-item">Dodge Chance: {chosenCharacter.hitChanceRate}</p>
                 <p className="card-item">Special Ability: {chosenCharacter.special}</p>
             </div>
     )

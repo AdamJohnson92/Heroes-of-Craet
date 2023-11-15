@@ -10,7 +10,7 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, showCombatButtons, buttonDivDisplay, setButtonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -20,7 +20,9 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                 ...monster,
                 currentHp: 0
             })
-            winner()
+            setCombatLog(combatLogText)
+            setTimeout(winner,1200)
+            setTimeout(hideCombatButtons, 1801)
         } else {
             setMonster({
                 ...monster,
@@ -30,11 +32,10 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         }
     }
 
-    // const [combatLog, setCombatLog] = useState('Begin!')
-
     function attackRoll(event) {
         console.log(chosenCharacter)
         hideCombatButtons()
+        setTimeout(showCombatButtons, 1800)
         attackAnimation()
 
         let dmg
@@ -67,8 +68,6 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     }
 
     function special() {
-
-        
         hideCombatButtons()
         setChosenCharacter((prevState) => ({
             ...prevState,
@@ -93,11 +92,6 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         } 
     }, [chosenCharacter.isBuffed])
 
-    // setChosenCharacter((prevState) => ({
-    //     ...prevState,
-    //     currentStamPoints: chosenCharacter.currentStamPoints - 1
-    // }))
-
     const [monFullDisplay, setMonFullDisplay] = useState('alive')
 
     function winner() {
@@ -105,14 +99,14 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         setBannerText('You Win!')
         setBannerStyle('end-win')
         setMonFullDisplay('dead')
-        hideCombatButtons()
+        setButtonDivDisplay('invisible')
     }
 
     useEffect(() => {
         if (monster.currentHp < 1) {
-            winner()
+            setTimeout(winner, 1200)
         }
-    })
+    }, [monster.currentHp])
 
     return (
         <div className={combatDisplay} id="combat-div">

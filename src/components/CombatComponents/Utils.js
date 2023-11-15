@@ -82,7 +82,14 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     function hideCombatButtons() {
         setButtonDivDisplay('invisible')
-        setTimeout(setButtonDivDisplay, 1800, 'visible')
+        // console.log(monster.currentHp)
+        // if (monster.currentHp > 0) {
+        //     setTimeout(setButtonDivDisplay, 2000, 'visible')
+        // }
+    }
+
+    function showCombatButtons() {
+        setButtonDivDisplay('visible')
     }
 
 
@@ -110,15 +117,14 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setBannerStyle('monster-turn')
         setBannerText('Enemy Turn')
         setButtonDivDisplay('invisible')
-
-
     }
 
     function heroTurnChange() {
         setIsPlayerTurn(true)
         setBannerStyle('player-turn')
         setBannerText('Your Turn')
-        
+        // showCombatButtons()
+
         const undo = chosenCharacter.undo1()
             const deBuffedHero = chosenCharacter
             deBuffedHero.armor.armorRating = deBuffedHero.armor.armorRating + undo.armorDeBuff
@@ -128,6 +134,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
             })
             )
     }
+    
     function monsterAttackHandler(hitChance, armorRating) {
         setMonster((prevState) => ({
                 ...prevState,
@@ -178,7 +185,9 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     return (
         <>
             <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} setChosenCharacter={setChosenCharacter} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation}
-                monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
+                monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} 
+                setButtonDivDisplay = {setButtonDivDisplay} hideCombatButtons={hideCombatButtons}
+                showCombatButtons={showCombatButtons}
                 bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>
     )
