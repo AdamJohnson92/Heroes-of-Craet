@@ -73,7 +73,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         console.log(chosenCharacter)
         hideCombatButtons()
 
-        setCombatLog(special.combatLogText)
+
 
         setChosenCharacter((prevState) => ({
             ...prevState,
@@ -91,10 +91,10 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             buffedHero.armor.armorRating = buffedHero.armor.armorRating + special.armorBuff
             buffedHero.hitChanceRate = buffedHero.hitChanceRate + special.hitBuff
             setChosenCharacter(() => ({
-                  ...buffedHero
+                ...buffedHero
             })
-              
             )
+            setCombatLog(special.combatLogText)
         }
     }, [chosenCharacter.isBuffed])
 

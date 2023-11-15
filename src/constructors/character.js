@@ -167,14 +167,14 @@ const orbyn = {
 
     special1() {
         //MINDFUL
-        this.hitChanceRate = this.hitChanceRate + 1
-        this.armor.armorRating = this.armor.armorRating + 1
-        // charHitDiv.textContent = `${this.hitChanceRate}`
-        // charArmorRating.textContent = `${this.armor.armorRating}`
-        console.log("Your hit chance rating and your damage reduction are improved by 1 for one turn")
-        // combatLog.textContent = "Your hit chance rating and your damage reduction are improved by 1 for one turn"
-        // buffDisplay(charHitDiv)
-        // buffDisplay(charArmorRating)
+        const armorBuff =  1
+        const hitBuff = 1
+
+        // buffDisplay(this.armor.armorRating)
+        const combatLogText = "Your chance to dodge attacks and your damage reduction are increased by 1 for one turn."
+
+
+        return {combatLogText, armorBuff, hitBuff}
     },
 
     undo1() {
