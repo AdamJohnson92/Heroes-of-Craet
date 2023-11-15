@@ -32,7 +32,7 @@ const vale = {
     potionMax: 1,
     potionCount: 1,
     gold: 100,
-    isBuffed: false,
+    isBuffed: undefined,
 
     takePotion() {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);
@@ -60,11 +60,10 @@ const vale = {
     },
 
     undo1() {
-        if (vale.armor.armorRating > 2) {
-            vale.armor.armorRating = 2
-        }
-        // clearBuffDisplay()
-
+        const armorDeBuff = -2
+        const hitDeBuff = 0
+        
+        return {armorDeBuff, hitDeBuff}
     }
 
 }
@@ -117,11 +116,10 @@ const slick = {
     },
 
     undo1() {
-        if (this.hitChanceRate > 14) {
-            this.hitChanceRate = 14
-        }
-        // clearBuffDisplay()
-        // charHitDiv.textContent = `${this.hitChanceRate}`
+        const armorDeBuff = 0
+        const hitDeBuff = -2
+        
+        return {armorDeBuff, hitDeBuff}
     }
 
 
@@ -178,15 +176,10 @@ const orbyn = {
     },
 
     undo1() {
-        if (this.hitChanceRate > 15) {
-            this.hitChanceRate = 15
-        }
-
-        // charHitDiv.textContent = `${this.hitChanceRate}`
-        if (this.armor.armorRating > 0) {
-            this.armor.armorRating = 0
-        }
-        // clearBuffDisplay()
+        const armorDeBuff = -1
+        const hitDeBuff = -1
+        
+        return {armorDeBuff, hitDeBuff}
     }
 
 }

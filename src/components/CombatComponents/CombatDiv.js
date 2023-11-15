@@ -34,16 +34,14 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
 
     function attackRoll(event) {
         console.log(chosenCharacter)
-
         hideCombatButtons()
+        attackAnimation()
 
         let dmg
         let combatLogText
         let slash
         let slash2
         let slash3
-
-        attackAnimation()
 
         StaminaReduce()
         if (event.target.matches(`#attack-1`)) {
@@ -70,11 +68,8 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
 
     function special() {
 
-        console.log(chosenCharacter)
+        
         hideCombatButtons()
-
-
-
         setChosenCharacter((prevState) => ({
             ...prevState,
             currentStamPoints: chosenCharacter.currentStamPoints - 1,
@@ -82,12 +77,11 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         }))
     }
 
+    //After much bug chasing, this was the only way I could get special buffs to work. 
     useEffect(() => {
         if (chosenCharacter.isBuffed === true) {
-            console.log(chosenCharacter)
             const special = chosenCharacter.special1()
             const buffedHero = chosenCharacter
-            console.log(buffedHero)
             buffedHero.armor.armorRating = buffedHero.armor.armorRating + special.armorBuff
             buffedHero.hitChanceRate = buffedHero.hitChanceRate + special.hitBuff
             setChosenCharacter(() => ({
@@ -95,7 +89,8 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             })
             )
             setCombatLog(special.combatLogText)
-        }
+            console.log(chosenCharacter)
+        } 
     }, [chosenCharacter.isBuffed])
 
     // setChosenCharacter((prevState) => ({

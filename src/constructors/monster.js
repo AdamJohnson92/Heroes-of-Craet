@@ -21,10 +21,10 @@ const undead = {
 
     attack1(targetHit, targetArmor) {
         const naturalRoll = Math.floor(Math.random() * (20 - 10) + 10)
-        console.log('hello world!')
-
+        
         if (naturalRoll >= targetHit) {
             let damage = Math.floor(Math.random() * (7 - 2) + 2);
+            
             let dmgLessArmor = damage - targetArmor
             if ((dmgLessArmor) < 0) {
                 dmgLessArmor = 0;

@@ -25,6 +25,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
     }
     
     const playGame = () => {
+        console.log(chosenCharacter)
         setSelectDisplay("hidden")
         setCombatDisplay('displayed')
         generateMonster()

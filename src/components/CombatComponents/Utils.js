@@ -118,6 +118,15 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setIsPlayerTurn(true)
         setBannerStyle('player-turn')
         setBannerText('Your Turn')
+        
+        const undo = chosenCharacter.undo1()
+            const deBuffedHero = chosenCharacter
+            deBuffedHero.armor.armorRating = deBuffedHero.armor.armorRating + undo.armorDeBuff
+            deBuffedHero.hitChanceRate = deBuffedHero.hitChanceRate + undo.hitDeBuff
+            setChosenCharacter(() => ({
+                ...deBuffedHero
+            })
+            )
     }
     function monsterAttackHandler(hitChance, armorRating) {
         setMonster((prevState) => ({
@@ -155,9 +164,10 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
             heroTurnChange()
             setChosenCharacter((prevState) => ({
                 ...prevState,
-                currentStamPoints: chosenCharacter.maxStaminaPoints
+                currentStamPoints: chosenCharacter.maxStaminaPoints,
+                isBuffed: false
             }))
-
+            console.log(chosenCharacter)
         }
     }, [monster.currentStamPoints])
 
