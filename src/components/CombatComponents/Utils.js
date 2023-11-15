@@ -145,7 +145,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         if (chosenCharacter.currentStamPoints < 1 && monster.currentHp > 0) {
             
             monsterTurnChange()
-            setTimeout(monsterAttackHandler, 1500, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
+            setTimeout(monsterAttackHandler, 2000, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
         }
     }, [chosenCharacter.currentStamPoints])
 
@@ -167,7 +167,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     return (
         <>
-            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation}
+            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} setChosenCharacter={setChosenCharacter} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation}
                 monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} hideCombatButtons={hideCombatButtons}
                 bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>

@@ -10,7 +10,7 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, buttonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -69,20 +69,52 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     }
 
     function special() {
+
         console.log(chosenCharacter)
         hideCombatButtons()
-        StaminaReduce()
-        chosenCharacter.special1()
-    }
 
-    function winner() {
-        setCombatLog(`You have slain the ${monster.name}`)
-        setBannerText('You Win!')
-        setBannerStyle('end-win')
+        setCombatLog(special.combatLogText)
+
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            currentStamPoints: chosenCharacter.currentStamPoints - 1,
+            isBuffed: true
+        }))
     }
 
     useEffect(() => {
-        if(monster.currentHp < 1) {
+        if (chosenCharacter.isBuffed === true) {
+            console.log(chosenCharacter)
+            const special = chosenCharacter.special1()
+            const buffedHero = chosenCharacter
+            console.log(buffedHero)
+            buffedHero.armor.armorRating = buffedHero.armor.armorRating + special.armorBuff
+            buffedHero.hitChanceRate = buffedHero.hitChanceRate + special.hitBuff
+            setChosenCharacter(() => ({
+                  ...buffedHero
+            })
+              
+            )
+        }
+    }, [chosenCharacter.isBuffed])
+
+    // setChosenCharacter((prevState) => ({
+    //     ...prevState,
+    //     currentStamPoints: chosenCharacter.currentStamPoints - 1
+    // }))
+
+    const [monFullDisplay, setMonFullDisplay] = useState('alive')
+
+    function winner() {
+        setCombatLog(`You have slain the ${monster.name}!`)
+        setBannerText('You Win!')
+        setBannerStyle('end-win')
+        setMonFullDisplay('dead')
+        hideCombatButtons()
+    }
+
+    useEffect(() => {
+        if (monster.currentHp < 1) {
             winner()
         }
     })
@@ -103,7 +135,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                 </div>
                 <div className="background-img"></div>
                 <ArenaHero heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} heroDmgSlash={heroDmgSlash} />
-                <ArenaMonster monster={monster} monDmgSlash={monDmgSlash} monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} />
+                <ArenaMonster monster={monster} monDmgSlash={monDmgSlash} monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} monFullDisplay={monFullDisplay} />
             </div>
             <div className="container" id="combat-UI-div">
                 <div id="combat-log-parent-div">

@@ -32,6 +32,7 @@ const vale = {
     potionMax: 1,
     potionCount: 1,
     gold: 100,
+    isBuffed: false,
 
     takePotion() {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);
@@ -48,16 +49,19 @@ const vale = {
     },
 
     special1() {
-        this.armor.armorRating = this.armor.armorRating + 2
+        const armorBuff =  2
+        const hitBuff = 0
 
         // buffDisplay(this.armor.armorRating)
-        console.log("Your damage reduction is increased by 2 for one turn")
-        // combatLog.textContent = "Your damage reduction is increased by 2 for one turn"
+        const combatLogText = "Your damage reduction is increased by 2 for one turn"
+
+
+        return {combatLogText, armorBuff, hitBuff}
     },
 
     undo1() {
-        if (this.armor.armorRating > 2) {
-            this.armor.armorRating = 2
+        if (vale.armor.armorRating > 2) {
+            vale.armor.armorRating = 2
         }
         // clearBuffDisplay()
 
@@ -85,6 +89,7 @@ const slick = {
     potionMax: 1,
     potionCount: 1,
     gold: 100,
+    isBuffed: false,
 
     takePotion() {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);
@@ -101,12 +106,14 @@ const slick = {
     },
 
     special1() {
-        //AGILE
-        this.hitChanceRate = this.hitChanceRate + 2
-        // charHitDiv.textContent = `${this.hitChanceRate}`
-        console.log("Your hit chance rating is increased by 2 for one turn")
-        // combatLog.textContent = "Your hit chance rating is increased by 2 for one turn"
-        // buffDisplay(charHitDiv)
+        const armorBuff =  0
+        const hitBuff = 2
+
+        // buffDisplay(this.armor.armorRating)
+        const combatLogText = "Your chance to dodge attacks is increased by 2 for one turn."
+
+
+        return {combatLogText, armorBuff, hitBuff}
     },
 
     undo1() {
@@ -142,6 +149,7 @@ const orbyn = {
     potionMax: 2,
     potionCount: 2,
     gold: 100,
+    isBuffed: false,
 
     takePotion() {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);

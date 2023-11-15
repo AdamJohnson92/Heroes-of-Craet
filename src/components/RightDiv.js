@@ -22,14 +22,16 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
         //for testing against goblin
         // return monsterRoster[0]
         setMonster(monsterRoster[1])
-        console.log(monster)
     }
     
     const playGame = () => {
-        console.log(chosenCharacter)
         setSelectDisplay("hidden")
         setCombatDisplay('displayed')
         generateMonster()
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            isBuffed: false
+        }))
 
     }
 

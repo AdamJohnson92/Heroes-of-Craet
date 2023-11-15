@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-export default function ArenaMonster({monster, monDmgSlash, monStaticDisplay, monAttackDisplay, monRetreatDisplay}) {
+export default function ArenaMonster({monster, monDmgSlash, monStaticDisplay, monAttackDisplay, monRetreatDisplay, monFullDisplay}) {
     const hpBarWidth = (monster.currentHp / monster.maxHp * 100)
 
     const hpWidthStyle = {
@@ -21,7 +21,8 @@ export default function ArenaMonster({monster, monDmgSlash, monStaticDisplay, mo
     }
 
     return (
-        <div className='arena-placement' id='arena-monster'>
+        <div className={`arena-placement ${monFullDisplay}`}
+        id='arena-monster'>
             <div className="health-bar" id="monster-health-bar">
                 <div className="health-juice" id="monster-health-juice" style={hpWidthStyle}></div>
             </div>
