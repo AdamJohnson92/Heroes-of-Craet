@@ -69,6 +69,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
 
     function special() {
         hideCombatButtons()
+        setTimeout(showCombatButtons, 1800)
         setChosenCharacter((prevState) => ({
             ...prevState,
             currentStamPoints: chosenCharacter.currentStamPoints - 1,

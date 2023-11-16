@@ -19,8 +19,6 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
 
     const generateMonster = () => {
         const randomMonster = monsterRoster[Math.floor(Math.random() * monsterRoster.length)]
-        //for testing against goblin
-        // return monsterRoster[0]
         setMonster(monsterRoster[1])
     }
     
@@ -42,7 +40,6 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
                 <SelectChar characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
                 <div className="menu-btn-div">
                     <button className="btn" id="play-btn" onClick={playGame}>Slay Monsters</button>
-                    {/* <a href="./town.html" className='btn' id="to-town-btn">Go to Town</a> */}
                 </div>
             </div>
             <CombatUtil combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
