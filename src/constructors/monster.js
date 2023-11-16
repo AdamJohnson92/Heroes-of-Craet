@@ -11,8 +11,8 @@ import badFrogStatic from '../assets/bad-frog-static.png'
 
 const undead = {
     name: 'Undead',
-    maxHp: 23,
-    currentHp: 23,
+    maxHp: 30,
+    currentHp: 30,
     hitChanceRate: 12,
     img: undeadStatic,
     attackImg: undeadAttack,
@@ -20,10 +20,12 @@ const undead = {
     currentStamPoints: 1,
 
     attack1(targetHit, targetArmor) {
-        const naturalRoll = Math.floor(Math.random() * (20 - 10) + 10)
+        const naturalRoll = 18
+        // Math.floor(Math.random() * (20 - 10) + 10)
         
         if (naturalRoll >= targetHit) {
-            let damage = Math.floor(Math.random() * (7 - 2) + 2);
+            let damage = 7
+            // Math.floor(Math.random() * (7 - 2) + 2);
             
             let dmgLessArmor = damage - targetArmor
             if ((dmgLessArmor) < 0) {

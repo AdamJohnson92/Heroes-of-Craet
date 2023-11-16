@@ -126,13 +126,16 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         // showCombatButtons()
 
         const undo = chosenCharacter.undo1()
-            const deBuffedHero = chosenCharacter
+
+        if (chosenCharacter.isBuffed === true) {
+             const deBuffedHero = chosenCharacter
             deBuffedHero.armor.armorRating = deBuffedHero.armor.armorRating + undo.armorDeBuff
             deBuffedHero.hitChanceRate = deBuffedHero.hitChanceRate + undo.hitDeBuff
             setChosenCharacter(() => ({
                 ...deBuffedHero
             })
             )
+        }
     }
     
     function monsterAttackHandler(hitChance, armorRating) {

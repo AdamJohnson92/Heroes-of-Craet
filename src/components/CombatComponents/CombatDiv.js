@@ -21,7 +21,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                 currentHp: 0
             })
             setCombatLog(combatLogText)
-            setTimeout(winner,1200)
+            setTimeout(winner, 1200)
             setTimeout(hideCombatButtons, 1801)
         } else {
             setMonster({
@@ -77,6 +77,18 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         }))
     }
 
+    function takePotion() {
+        hideCombatButtons()
+        setTimeout(showCombatButtons, 1800)
+        const healed = chosenCharacter.takePotion()
+        setCombatLog(healed.combatLogText)
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            currentStamPoints: chosenCharacter.currentStamPoints - 1,
+            currentHp: chosenCharacter.currentHp + healed.healAmount
+        }))
+    }
+
     //After much bug chasing, this was the only way I could get special buffs to work. 
     useEffect(() => {
         if (chosenCharacter.isBuffed === true) {
@@ -90,7 +102,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             )
             setCombatLog(special.combatLogText)
             console.log(chosenCharacter)
-        } 
+        }
     }, [chosenCharacter.isBuffed])
 
     const [monFullDisplay, setMonFullDisplay] = useState('alive')
@@ -136,7 +148,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
                     <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
                     <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
-                    <button className="btn combat-btn" id="potion-button"> Drink Potion </button>
+                    <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion </button>
                 </div>
             </div>
         </div>

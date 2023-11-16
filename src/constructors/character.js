@@ -32,16 +32,20 @@ const vale = {
     potionMax: 1,
     potionCount: 1,
     gold: 100,
-    isBuffed: undefined,
+    isBuffed: false,
 
     takePotion() {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);
         console.log('glug glug glug glug')
-        if ((this.currentHp + healAmount) > this.maxHp) {
-            this.currentHp = this.maxHp
-        } else {
-            this.currentHp = healAmount + this.currentHp
-        }
+        const combatLogText = `You heal for ${healAmount} hitpoints.`
+        // if ((this.currentHp + healAmount) > this.maxHp) {
+        //     this.currentHp = this.maxHp
+        // } else {
+        //     this.currentHp = healAmount + this.currentHp
+        // }
+
+        return { healAmount, combatLogText }
+
         // heroHealthJuice.style.width = `${(this.currentHp / this.maxHp) * 100}%`
         // charHpDiv.textContent = `${this.currentHp}`
         // combatLog.textContent = `You heal for ${healAmount} hitpoints.`
@@ -49,21 +53,21 @@ const vale = {
     },
 
     special1() {
-        const armorBuff =  2
+        const armorBuff = 2
         const hitBuff = 0
 
         // buffDisplay(this.armor.armorRating)
         const combatLogText = "Your damage reduction is increased by 2 for one turn"
 
 
-        return {combatLogText, armorBuff, hitBuff}
+        return { combatLogText, armorBuff, hitBuff }
     },
 
     undo1() {
         const armorDeBuff = -2
         const hitDeBuff = 0
-        
-        return {armorDeBuff, hitDeBuff}
+
+        return { armorDeBuff, hitDeBuff }
     }
 
 }
@@ -105,21 +109,21 @@ const slick = {
     },
 
     special1() {
-        const armorBuff =  0
+        const armorBuff = 0
         const hitBuff = 2
 
         // buffDisplay(this.armor.armorRating)
         const combatLogText = "Your chance to dodge attacks is increased by 2 for one turn."
 
 
-        return {combatLogText, armorBuff, hitBuff}
+        return { combatLogText, armorBuff, hitBuff }
     },
 
     undo1() {
         const armorDeBuff = 0
         const hitDeBuff = -2
-        
-        return {armorDeBuff, hitDeBuff}
+
+        return { armorDeBuff, hitDeBuff }
     }
 
 
@@ -165,21 +169,21 @@ const orbyn = {
 
     special1() {
         //MINDFUL
-        const armorBuff =  1
+        const armorBuff = 1
         const hitBuff = 1
 
         // buffDisplay(this.armor.armorRating)
         const combatLogText = "Your chance to dodge attacks and your damage reduction are increased by 1 for one turn."
 
 
-        return {combatLogText, armorBuff, hitBuff}
+        return { combatLogText, armorBuff, hitBuff }
     },
 
     undo1() {
         const armorDeBuff = -1
         const hitDeBuff = -1
-        
-        return {armorDeBuff, hitDeBuff}
+
+        return { armorDeBuff, hitDeBuff }
     }
 
 }
