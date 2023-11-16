@@ -54,13 +54,24 @@ body {
   /* visibility: hidden; */
   opacity: 0;
   transition: 
-  .1s ;
+  .15s ;
 }
 
 .visible{
   /* visibility:visible; */
   opacity: 1;
-  transition: 1.8s;
+  transition: 2.8s;
+ 
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  z-index: -1;
+  transition: 
+  .15s ;
 }
 
 
