@@ -51,11 +51,16 @@ body {
 }
 
 .invisible{
-  visibility: hidden;
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: 
+  .1s ;
 }
 
 .visible{
-  visibility:visible;
+  /* visibility:visible; */
+  opacity: 1;
+  transition: 1.8s;
 }
 
 
