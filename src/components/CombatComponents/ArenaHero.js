@@ -22,6 +22,14 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
         width: `${stamBarWidth}%`,
         height: '15px'
     }
+
+    const potionBarHeight = (chosenCharacter.potionCount / chosenCharacter.potionMax * 100)
+
+    const potionHeightStyle = {
+        id: 'potion-juice-height-style',
+        backgroundColor: 'pink',
+        height: `${potionBarHeight}%`,
+    }
     
     return (
         <div className='arena-placement' id='arena-hero'>
@@ -34,7 +42,7 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
             <div id="potion-div">
                 <div id="potion-lid"></div>
                 <div id="potion-bottle">
-                    <div id="potion-juice"></div>
+                    <div id="potion-juice" style={potionHeightStyle}></div>
                 </div>
             </div>
             <img className={heroStaticDisplay} id="arena-hero-avatar" src={chosenCharacter.img} />

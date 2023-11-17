@@ -24,7 +24,7 @@ const undead = {
         // Math.floor(Math.random() * (20 - 10) + 10)
         
         if (naturalRoll >= targetHit) {
-            let damage = 7
+            let damage = 5
             // Math.floor(Math.random() * (7 - 2) + 2);
             
             let dmgLessArmor = damage - targetArmor
@@ -33,11 +33,6 @@ const undead = {
             }
             const combatLogText=`The ${this.name} hits you for ${dmgLessArmor} damage`
             const slash = 'mon-dmg-1'
-
-            // if ((targetHp - dmgLessArmor) < 1) {
-            //     // heroHealthJuice.style.width = '0%'
-            //     // loser()
-            // }
             return {dmgLessArmor, combatLogText, slash};
         } else {
             const dmgLessArmor = 0

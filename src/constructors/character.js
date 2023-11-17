@@ -38,25 +38,13 @@ const vale = {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);
         console.log('glug glug glug glug')
         const combatLogText = `You heal for ${healAmount} hitpoints.`
-        // if ((this.currentHp + healAmount) > this.maxHp) {
-        //     this.currentHp = this.maxHp
-        // } else {
-        //     this.currentHp = healAmount + this.currentHp
-        // }
 
         return { healAmount, combatLogText }
-
-        // heroHealthJuice.style.width = `${(this.currentHp / this.maxHp) * 100}%`
-        // charHpDiv.textContent = `${this.currentHp}`
-        // combatLog.textContent = `You heal for ${healAmount} hitpoints.`
-
     },
 
     special1() {
         const armorBuff = 2
         const hitBuff = 0
-
-        // buffDisplay(this.armor.armorRating)
         const combatLogText = "Your damage reduction is increased by 2 for one turn"
 
 
@@ -97,22 +85,14 @@ const slick = {
     takePotion() {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);
         console.log('glug glug glug glug')
-        if ((this.currentHp + healAmount) > this.maxHp) {
-            this.currentHp = this.maxHp
-        } else {
-            this.currentHp = healAmount + this.currentHp
-        }
-        // heroHealthJuice.style.width = `${(this.currentHp / this.maxHp) * 100}%`
-        // charHpDiv.textContent = `${this.currentHp}`
-        // combatLog.textContent = `You heal for ${healAmount} hitpoints.`
+        const combatLogText = `You heal for ${healAmount} hitpoints.`
 
+        return { healAmount, combatLogText }
     },
 
     special1() {
         const armorBuff = 0
         const hitBuff = 2
-
-        // buffDisplay(this.armor.armorRating)
         const combatLogText = "Your chance to dodge attacks is increased by 2 for one turn."
 
 
@@ -156,14 +136,9 @@ const orbyn = {
     takePotion() {
         const healAmount = Math.floor(Math.random() * (6 - 4) + 4);
         console.log('glug glug glug glug')
-        if ((this.currentHp + healAmount) > this.maxHp) {
-            this.currentHp = this.maxHp
-        } else {
-            this.currentHp = healAmount + this.currentHp
-        }
-        // heroHealthJuice.style.width = `${(this.currentHp / this.maxHp) * 100}%`
-        // charHpDiv.textContent = `${this.currentHp}`
-        // combatLog.textContent = `You heal for ${healAmount} hitpoints.`
+        const combatLogText = `You heal for ${healAmount} hitpoints.`
+
+        return { healAmount, combatLogText }
 
     },
 
@@ -171,8 +146,6 @@ const orbyn = {
         //MINDFUL
         const armorBuff = 1
         const hitBuff = 1
-
-        // buffDisplay(this.armor.armorRating)
         const combatLogText = "Your chance to dodge attacks and your damage reduction are increased by 1 for one turn."
 
 

@@ -78,15 +78,30 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     }
 
     function takePotion() {
-        hideCombatButtons()
-        setTimeout(showCombatButtons, 1800)
         const healed = chosenCharacter.takePotion()
-        setCombatLog(healed.combatLogText)
-        setChosenCharacter((prevState) => ({
-            ...prevState,
-            currentStamPoints: chosenCharacter.currentStamPoints - 1,
-            currentHp: chosenCharacter.currentHp + healed.healAmount
-        }))
+        if (chosenCharacter.potionCount < 1) {
+            setCombatLog("You are all out of potions.")
+        } else if ((chosenCharacter.currentHp + healed.healAmount) > chosenCharacter.maxHp) {
+            hideCombatButtons()
+            setTimeout(showCombatButtons, 1800)
+            setCombatLog(healed.combatLogText)
+            setChosenCharacter((prevState) => ({
+                ...prevState,
+                currentStamPoints: chosenCharacter.currentStamPoints - 1,
+                currentHp: chosenCharacter.maxHp,
+                potionCount: chosenCharacter.potionCount - 1
+            }))
+        } else {
+            hideCombatButtons()
+            setTimeout(showCombatButtons, 1800)
+            setCombatLog(healed.combatLogText)
+            setChosenCharacter((prevState) => ({
+                ...prevState,
+                currentStamPoints: chosenCharacter.currentStamPoints - 1,
+                currentHp: chosenCharacter.currentHp + healed.healAmount,
+                potionCount: chosenCharacter.potionCount - 1
+            }))
+        }
     }
 
     //After much bug chasing, this was the only way I could get special buffs to work. 
