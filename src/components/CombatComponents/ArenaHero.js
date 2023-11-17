@@ -29,6 +29,8 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
         id: 'potion-juice-height-style',
         backgroundColor: 'pink',
         height: `${potionBarHeight}%`,
+        width: '100%',
+        borderRadius: '100px'
     }
     
     return (
