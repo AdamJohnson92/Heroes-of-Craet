@@ -163,7 +163,7 @@ const orbyn = {
 
 //A filler hero that's used so the character stat sheet can still populate even when not rendered
 const tav = {
-    name: "Vale",
+    name: "Tav",
     charClass: 'Knight',
     maxHp: 20,
     currentHp: 20,

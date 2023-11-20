@@ -38,9 +38,10 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
         <div className="container" id="character-selection-div">
             <div className={selectDisplay}>
                 <SelectChar characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
-                <div className="menu-btn-div">
+                {chosenCharacter.name !== 'Tav' ? <div className="menu-btn-div">
                     <button className="btn" id="play-btn" onClick={playGame}>Slay Monsters</button>
-                </div>
+                </div> : <div />}
+                
             </div>
             <CombatUtil combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
              setMonster={setMonster} setChosenCharacter={setChosenCharacter}/>
