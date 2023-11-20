@@ -1,14 +1,16 @@
 import React, { useEffect, useState, createContext } from "react";
 import CharStats from "./CharStats";
 import CharEquip from "./CharEquip";
-import { characterRoster } from "../constructors/character";
+import { characterRoster, tav } from "../constructors/character";
 import RightDiv from "./RightDiv";
+import Preamble from './Preamble';
 
 export const CharacterContext = createContext()
 
+
 export default function Main() {
 
-    const [chosenCharacter, setChosenCharacter] = useState(characterRoster[0])
+    const [chosenCharacter, setChosenCharacter] = useState(tav)
 
     const handleChooseCharacter = (event) => {
         for (let i = 0; i < characterRoster.length; i++) {
@@ -22,10 +24,12 @@ export default function Main() {
     return (
         <main>
             <CharacterContext.Provider value={chosenCharacter}>
+                {chosenCharacter === tav ? <Preamble /> : 
                 <div className="container" id='char-container'>
                     <CharStats />
                     <CharEquip />
-                </div>
+                </div>}
+
                 <RightDiv characterRoster={characterRoster}
                     // StaminaReduce={StaminaReduce}
                     chosenCharacter={chosenCharacter}

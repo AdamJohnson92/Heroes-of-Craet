@@ -88,7 +88,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             setChosenCharacter((prevState) => ({
                 ...prevState,
                 currentStamPoints: chosenCharacter.currentStamPoints - 1,
-                currentHp: chosenCharacter.maxHp,
+                currentHp: chosenCharacter.m,
                 potionCount: chosenCharacter.potionCount - 1
             }))
         } else {
