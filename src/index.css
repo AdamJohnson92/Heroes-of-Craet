@@ -46,6 +46,10 @@ body {
   justify-content: center;
 }
 
+.paragraph {
+  text-indent: 25px;
+}
+
 .hidden {
   display: none
 }
