@@ -82,10 +82,6 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     function hideCombatButtons() {
         setButtonDivDisplay('invisible back')
-        // console.log(monster.currentHp)
-        // if (monster.currentHp > 0) {
-        //     setTimeout(setButtonDivDisplay, 2000, 'visible')
-        // }
     }
 
     function showCombatButtons() {

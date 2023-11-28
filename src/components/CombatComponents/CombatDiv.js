@@ -36,7 +36,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         console.log(chosenCharacter)
         hideCombatButtons()
         if (chosenCharacter.currentStamPoints > 1) {
-            setTimeout(showCombatButtons, 1800)
+            setTimeout(showCombatButtons, 500)
         }
         attackAnimation()
 
@@ -72,7 +72,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     function special() {
         hideCombatButtons()
         if (chosenCharacter.currentStamPoints > 1) {
-            setTimeout(showCombatButtons, 1800)
+            setTimeout(showCombatButtons, 500)
         }
         setChosenCharacter((prevState) => ({
             ...prevState,
@@ -88,7 +88,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         } else if ((chosenCharacter.currentHp + healed.healAmount) > chosenCharacter.maxHp) {
             hideCombatButtons()
             if (chosenCharacter.currentStamPoints > 1) {
-                setTimeout(showCombatButtons, 1800)
+                setTimeout(showCombatButtons, 500)
             }
             setCombatLog(healed.combatLogText)
             setChosenCharacter((prevState) => ({
@@ -100,7 +100,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         } else {
             hideCombatButtons()
             if (chosenCharacter.currentStamPoints > 1) {
-                setTimeout(showCombatButtons, 1800)
+                setTimeout(showCombatButtons, 500)
             }
             setCombatLog(healed.combatLogText)
             setChosenCharacter((prevState) => ({

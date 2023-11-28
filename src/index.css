@@ -632,6 +632,7 @@ a:hover {
 .health-juice {
   transition: 
   .25s ;
+  transition-delay: .08s;
 }
 
 .stam-juice {
