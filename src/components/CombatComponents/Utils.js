@@ -99,10 +99,10 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     }
 
     function monStaminaReduce() {
-        setMonster({
-            ...monster,
+        setMonster((prevState) => ({
+            ...prevState,
             currentStamPoints: monster.currentStamPoints - 1
-        })
+        }))
     }
 
     //handles turn change
@@ -113,6 +113,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setBannerStyle('monster-turn')
         setBannerText('Enemy Turn')
         setButtonDivDisplay('invisible back')
+
     }
 
     function heroTurnChange() {
@@ -124,7 +125,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         const undo = chosenCharacter.undo1()
 
         if (chosenCharacter.isBuffed === true) {
-             const deBuffedHero = chosenCharacter
+            const deBuffedHero = chosenCharacter
             deBuffedHero.armor.armorRating = deBuffedHero.armor.armorRating + undo.armorDeBuff
             deBuffedHero.hitChanceRate = deBuffedHero.hitChanceRate + undo.hitDeBuff
             setChosenCharacter(() => ({
@@ -133,12 +134,12 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
             )
         }
     }
-    
+
     function monsterAttackHandler(hitChance, armorRating) {
-        setMonster((prevState) => ({
-                ...prevState,
-                currentStamPoints: monster.maxStaminaPoints
-            }))
+        // setMonster((prevState) => ({
+        //     ...prevState,
+        //     currentStamPoints: monster.maxStaminaPoints
+        // }))
         const monAttack = monster.attack1(hitChance, armorRating)
         const dmg = monAttack.dmgLessArmor
         const combatLogText = monAttack.combatLogText
@@ -158,9 +159,13 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     //Use Effect to catch state change and trigger the monster's turn
     useEffect(() => {
         if (chosenCharacter.currentStamPoints < 1 && monster.currentHp > 0) {
-            
+            setMonster((prevState) => ({
+                ...prevState,
+                currentStamPoints: monster.maxStaminaPoints
+            }))
             monsterTurnChange()
             setTimeout(monsterAttackHandler, 2000, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
+
         }
     }, [chosenCharacter.currentStamPoints])
 
@@ -184,8 +189,8 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     return (
         <>
             <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} setChosenCharacter={setChosenCharacter} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation}
-                monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} 
-                setButtonDivDisplay = {setButtonDivDisplay} hideCombatButtons={hideCombatButtons}
+                monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay}
+                setButtonDivDisplay={setButtonDivDisplay} hideCombatButtons={hideCombatButtons}
                 showCombatButtons={showCombatButtons}
                 bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
         </>
