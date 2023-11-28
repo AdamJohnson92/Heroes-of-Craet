@@ -24,6 +24,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
     
     const playGame = () => {
         console.log(chosenCharacter)
+        cleanSlate()
         setSelectDisplay("hidden")
         setCombatDisplay('displayed')
         generateMonster()
@@ -34,17 +35,26 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
 
     }
 
+    function cleanSlate(){
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            currentHp: chosenCharacter.maxHp,
+            currentStamPoints: chosenCharacter.maxStaminaPoints,
+            potionCount: chosenCharacter.potionMax
+        }))
+    }
+
     return (
         <div className="container" id="character-selection-div">
             <div className={selectDisplay}>
                 <SelectChar characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
                 {chosenCharacter.name !== 'Tav' ? <div className="menu-btn-div">
-                    <button className="btn" id="play-btn" onClick={playGame}>Slay Monsters</button>
+                    <button className="btn play-btn" onClick={playGame}>Slay Monsters</button>
                 </div> : <div />}
                 
             </div>
             <CombatUtil combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
-             setMonster={setMonster} setChosenCharacter={setChosenCharacter}/>
+             setMonster={setMonster} setChosenCharacter={setChosenCharacter} playGame={playGame}/>
 
         </div>
 

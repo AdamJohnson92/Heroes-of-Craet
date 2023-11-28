@@ -94,8 +94,6 @@ const slick = {
         const armorBuff = 0
         const hitBuff = 2
         const combatLogText = "Your chance to dodge attacks is increased by 2 for one turn."
-
-
         return { combatLogText, armorBuff, hitBuff }
     },
 
@@ -105,8 +103,6 @@ const slick = {
 
         return { armorDeBuff, hitDeBuff }
     }
-
-
 }
 
 

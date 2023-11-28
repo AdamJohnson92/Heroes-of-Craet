@@ -116,14 +116,14 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         setIsPlayerTurn(false)
         setBannerStyle('monster-turn')
         setBannerText('Enemy Turn')
-        setButtonDivDisplay('invisible')
+        setButtonDivDisplay('invisible back')
     }
 
     function heroTurnChange() {
         setIsPlayerTurn(true)
         setBannerStyle('player-turn')
         setBannerText('Your Turn')
-        // showCombatButtons()
+        setTimeout(showCombatButtons, 1000)
 
         const undo = chosenCharacter.undo1()
 

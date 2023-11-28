@@ -297,7 +297,7 @@ a {
   flex-wrap: wrap;
 }
 
-#play-btn {
+.play-btn {
   background-color: rgb(156, 19, 19);
 }
 
@@ -307,10 +307,6 @@ a {
 
 #to-town-btn {
   background-color: var(--green);
-  display: none;
-}
-
-#play-again {
   display: none;
 }
 
@@ -634,16 +630,14 @@ a:hover {
 }
 
 .health-juice {
-  background-color: red;
-  width: 100%;
-  height: 15px;
+  transition: 
+  .25s ;
 }
 
-/* .stam-juice {
-  background-color: green;
-  width: 100%;
-  height: 15px;
-} */
+.stam-juice {
+  transition: 
+  .25s ;
+}
 
 #potion-div {
   position: absolute;
@@ -676,13 +670,10 @@ a:hover {
   justify-content: center;
 }
 
-/* #potion-juice {
-  position: relative;
-  background-color: rgb(241, 153, 168);
-  width: 100%;
-  height: 100%;
-  border-radius: 100px;
-} */
+#potion-juice {
+ transition: 
+  .25s ;
+}
 
 #combat-UI-div {
   position: relative;

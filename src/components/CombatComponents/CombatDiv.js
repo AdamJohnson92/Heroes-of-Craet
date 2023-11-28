@@ -10,7 +10,7 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, showCombatButtons, buttonDivDisplay, setButtonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog }) {
+export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, showCombatButtons, buttonDivDisplay, setButtonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog, playGame }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -35,7 +35,9 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     function attackRoll(event) {
         console.log(chosenCharacter)
         hideCombatButtons()
-        setTimeout(showCombatButtons, 1800)
+        if (chosenCharacter.currentStamPoints > 1) {
+            setTimeout(showCombatButtons, 1800)
+        }
         attackAnimation()
 
         let dmg
@@ -44,7 +46,10 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         let slash2
         let slash3
 
-        StaminaReduce()
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            currentStamPoints: chosenCharacter.currentStamPoints - 1
+        }))
         if (event.target.matches(`#attack-1`)) {
             const attack1 = chosenCharacter.weapon.attackDam1(monster, chosenCharacter)
             dmg = attack1.totalDmg
@@ -61,15 +66,14 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             slash3 = attack2.slash3
         }
         MonsterHealthReduce(dmg, combatLogText)
-
-        // setCombatLog(combatLogText)
-
         handleMonSlash(slash, slash2, slash3)
     }
 
     function special() {
         hideCombatButtons()
-        setTimeout(showCombatButtons, 1800)
+        if (chosenCharacter.currentStamPoints > 1) {
+            setTimeout(showCombatButtons, 1800)
+        }
         setChosenCharacter((prevState) => ({
             ...prevState,
             currentStamPoints: chosenCharacter.currentStamPoints - 1,
@@ -83,17 +87,21 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             setCombatLog("You are all out of potions.")
         } else if ((chosenCharacter.currentHp + healed.healAmount) > chosenCharacter.maxHp) {
             hideCombatButtons()
-            setTimeout(showCombatButtons, 1800)
+            if (chosenCharacter.currentStamPoints > 1) {
+                setTimeout(showCombatButtons, 1800)
+            }
             setCombatLog(healed.combatLogText)
             setChosenCharacter((prevState) => ({
                 ...prevState,
                 currentStamPoints: chosenCharacter.currentStamPoints - 1,
-                currentHp: chosenCharacter.m,
+                currentHp: chosenCharacter.maxHp,
                 potionCount: chosenCharacter.potionCount - 1
             }))
         } else {
             hideCombatButtons()
-            setTimeout(showCombatButtons, 1800)
+            if (chosenCharacter.currentStamPoints > 1) {
+                setTimeout(showCombatButtons, 1800)
+            }
             setCombatLog(healed.combatLogText)
             setChosenCharacter((prevState) => ({
                 ...prevState,
@@ -159,12 +167,16 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                     <p id='combat-log'> {combatLog} </p>
                 </div>
                 <div className={buttonDivDisplay} id='combat-btn-div'>
-                    <button className="btn" id='play-again'> Play Again</button>
+
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
                     <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
                     <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
                     <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion </button>
                 </div>
+            </div>
+            <div className="hidden" id="post-game-btn-div">
+                <button className="btn play-btn" onClick={playGame}> Keep Fighting</button>
+                <button className='btn' id='char-select-btn'> New Character</button>
             </div>
         </div>
     )
