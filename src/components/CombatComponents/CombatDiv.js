@@ -130,12 +130,30 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
 
     const [monFullDisplay, setMonFullDisplay] = useState('alive')
 
+    const [postGameBtns, setPostGameBtns] = useState('hidden')
+
     function winner() {
         setCombatLog(`You have slain the ${monster.name}!`)
         setBannerText('You Win!')
         setBannerStyle('end-win')
         setMonFullDisplay('dead')
         setButtonDivDisplay('invisible')
+        setPostGameBtns('shown')
+        setMonster ((prevState) => ({
+            ...prevState,
+            currentStamPoints: monster.maxStaminaPoints,
+            currentHp: monster.maxHp
+        }))
+    }
+
+    function playAgain () {
+        setCombatLog(`Begin!`)
+        setBannerText('Your Turn')
+        setBannerStyle('player-turn')
+        setMonFullDisplay('alive')
+        setButtonDivDisplay('visible')
+        setPostGameBtns('hidden')
+        playGame()
     }
 
     useEffect(() => {
@@ -174,8 +192,8 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                     <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion </button>
                 </div>
             </div>
-            <div className="hidden" id="post-game-btn-div">
-                <button className="btn play-btn" onClick={playGame}> Keep Fighting</button>
+            <div className={postGameBtns} id="post-game-btn-div">
+                <button className="btn play-btn" onClick={playAgain}> Keep Fighting</button>
                 <button className='btn' id='char-select-btn'> New Character</button>
             </div>
         </div>

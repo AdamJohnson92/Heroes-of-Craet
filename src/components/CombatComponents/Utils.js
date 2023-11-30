@@ -3,7 +3,7 @@ import CombatDiv from "./CombatDiv"
 import { CharacterContext } from "../Main"
 
 
-export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoints, monster, setMonster, setChosenCharacter }) {
+export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoints, monster, setMonster, setChosenCharacter, playGame }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -136,10 +136,6 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
     }
 
     function monsterAttackHandler(hitChance, armorRating) {
-        // setMonster((prevState) => ({
-        //     ...prevState,
-        //     currentStamPoints: monster.maxStaminaPoints
-        // }))
         const monAttack = monster.attack1(hitChance, armorRating)
         const dmg = monAttack.dmgLessArmor
         const combatLogText = monAttack.combatLogText
@@ -192,7 +188,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
                 monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay}
                 setButtonDivDisplay={setButtonDivDisplay} hideCombatButtons={hideCombatButtons}
                 showCombatButtons={showCombatButtons}
-                bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} />
+                bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} playGame={playGame} />
         </>
     )
 }

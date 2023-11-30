@@ -54,6 +54,10 @@ body {
   display: none
 }
 
+.shown {
+  display: flex;
+}
+
 .invisible{
   /* visibility: hidden; */
   opacity: 0;
@@ -414,6 +418,10 @@ a:hover {
 
 .end-win {
   background-color: var(--gold);
+}
+
+.end-lose {
+  background-color: red;
 }
 
 .stam-div {

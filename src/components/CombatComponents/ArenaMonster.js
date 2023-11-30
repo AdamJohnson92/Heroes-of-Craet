@@ -21,7 +21,7 @@ export default function ArenaMonster({monster, monDmgSlash, monStaticDisplay, mo
     }
 
     return (
-        <div className={`arena-placement ${monFullDisplay}`}
+        <div className={`arena-placement ${monFullDisplay }`}
         id='arena-monster'>
             <div className="health-bar" id="monster-health-bar">
                 <div className="health-juice" id="monster-health-juice" style={hpWidthStyle}></div>
