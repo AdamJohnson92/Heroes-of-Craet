@@ -47,7 +47,6 @@ const vale = {
         const hitBuff = 0
         const combatLogText = "Your damage reduction is increased by 2 for one turn"
 
-
         return { combatLogText, armorBuff, hitBuff }
     },
 
@@ -106,7 +105,6 @@ const slick = {
 }
 
 
-
 const orbyn = {
     name: "Orbyn",
     charClass: 'Monk',
@@ -135,7 +133,6 @@ const orbyn = {
         const combatLogText = `You heal for ${healAmount} hitpoints.`
 
         return { healAmount, combatLogText }
-
     },
 
     special1() {
@@ -161,23 +158,23 @@ const orbyn = {
 const tav = {
     name: "Tav",
     charClass: 'Knight',
-    maxHp: 20,
-    currentHp: 20,
-    strength: 3,
-    dexterity: 1,
-    wisdom: 0,
-    hitChanceRate: 12,
+    maxHp: 100,
+    currentHp: 100,
+    strength: 5,
+    dexterity: 5,
+    wisdom: 5,
+    hitChanceRate: 20,
     weapon: valeGreatsword,
     armor: plateArmor,
     special: 'Tank',
     img: valeStatic,
     attackImg: valeAttack,
     retreatImg: valeRetreat,
-    maxStaminaPoints: 2,
-    currentStamPoints: 2,
-    potionMax: 1,
-    potionCount: 1,
-    gold: 100,
+    maxStaminaPoints: 3,
+    currentStamPoints: 3,
+    potionMax: 3,
+    potionCount: 3,
+    gold: 1000,
     isBuffed: false,
 
     takePotion() {

@@ -144,6 +144,10 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             currentStamPoints: monster.maxStaminaPoints,
             currentHp: monster.maxHp
         }))
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            gold: chosenCharacter.gold + 100,
+        }))
     }
 
     function playAgain () {
