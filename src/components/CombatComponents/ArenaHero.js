@@ -34,7 +34,7 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
     }
     
     return (
-        <div className={`arena-placement' ${heroFullDisplay}`} id='arena-hero'>
+        <div className={`arena-placement ${heroFullDisplay}`} id='arena-hero'>
             <div className="health-bar" id="hero-health-bar">
                 <div className="health-juice" id="hero-health-juice" style={hpWidthStyle}></div>
             </div>
