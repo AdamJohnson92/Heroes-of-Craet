@@ -174,7 +174,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     //Use Effect to catch state change and trigger the player's turn
     useEffect(() => {
-        if (monster.currentStamPoints < 1) {
+        if (monster.currentStamPoints < 1 && chosenCharacter.currentHp > 0) {
             heroTurnChange()
             setChosenCharacter((prevState) => ({
                 ...prevState,
