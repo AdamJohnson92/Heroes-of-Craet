@@ -24,7 +24,7 @@ const undead = {
         // Math.floor(Math.random() * (20 - 10) + 10)
         
         if (naturalRoll >= targetHit) {
-            let damage = 5
+            let damage = 20
             // Math.floor(Math.random() * (7 - 2) + 2);
             
             let dmgLessArmor = damage - targetArmor
@@ -55,6 +55,30 @@ const goblin = {
     maxStaminaPoints: 1,
     currentStamPoints: 1,
 
+    attack1(targetHit, targetArmor) {
+        const naturalRoll = 18
+        // Math.floor(Math.random() * (20 - 10) + 10)
+        
+        if (naturalRoll >= targetHit) {
+            let damage = 5
+            // Math.floor(Math.random() * (7 - 2) + 2);
+            
+            let dmgLessArmor = damage - targetArmor
+            if ((dmgLessArmor) < 0) {
+                dmgLessArmor = 0;
+            }
+            const combatLogText=`The ${this.name} hits you for ${dmgLessArmor} damage`
+            const slash = 'mon-dmg-1'
+            return {dmgLessArmor, combatLogText, slash};
+        } else {
+            const dmgLessArmor = 0
+            const combatLogText =`The ${this.name} missed!`
+            const slash = 'mon-miss-1'
+            return {dmgLessArmor, combatLogText, slash};
+        }
+
+    }
+
     
 }
 
@@ -68,29 +92,30 @@ const badFrog = {
     maxStaminaPoints: 1,
     currentStamPoints: 1,
     
-    attack1(targetHit, targetHp, targetArmor) {
-        const naturalRoll = Math.floor(Math.random() * (20 - 12) + 12)
-
+    attack1(targetHit, targetArmor) {
+        const naturalRoll = 18
+        // Math.floor(Math.random() * (20 - 10) + 10)
+        
         if (naturalRoll >= targetHit) {
-            let damage = Math.floor(Math.random() * (9 - 2) + 2);
-            // monDmgAnimation('./assets/damage.png')
+            let damage = 5
+            // Math.floor(Math.random() * (7 - 2) + 2);
+            
             let dmgLessArmor = damage - targetArmor
             if ((dmgLessArmor) < 0) {
                 dmgLessArmor = 0;
             }
-            // combatLog.textContent = `The ${this.name} hits you for ${dmgLessArmor} damage`
-            // charHpDiv.textContent = `${(targetHp - dmgLessArmor)}`
-            if ((targetHp - dmgLessArmor) < 1) {
-                // loser()
-            }
-            return targetHp - dmgLessArmor;
+            const combatLogText=`The ${this.name} hits you for ${dmgLessArmor} damage`
+            const slash = 'mon-dmg-1'
+            return {dmgLessArmor, combatLogText, slash};
         } else {
-            // monDmgAnimation('./assets/miss.png')
-            // combatLog.textContent = `The ${this.name} missed!`
-            return targetHp;
+            const dmgLessArmor = 0
+            const combatLogText =`The ${this.name} missed!`
+            const slash = 'mon-miss-1'
+            return {dmgLessArmor, combatLogText, slash};
         }
 
     }
+
 }
 
 const monsterRoster = [goblin, undead, badFrog]

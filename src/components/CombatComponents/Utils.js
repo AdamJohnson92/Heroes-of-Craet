@@ -144,11 +144,18 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
         monStaminaReduce()
         monAttackAnimation()
         handleHeroSlash(slash)
-        setChosenCharacter((prevState) => ({
+        if ((chosenCharacter.currentHp - dmg) > 0) {
+            setChosenCharacter((prevState) => ({
             ...prevState,
             currentHp: chosenCharacter.currentHp - dmg
         }))
-
+        } else {
+            setChosenCharacter((prevState) => ({
+                ...prevState,
+                currentHp: 0
+            }))
+        }
+        
         setCombatLog(combatLogText)
     }
 

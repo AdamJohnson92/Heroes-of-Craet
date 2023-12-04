@@ -35,7 +35,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     function attackRoll(event) {
         console.log(chosenCharacter)
         hideCombatButtons()
-        if (chosenCharacter.currentStamPoints > 1) {
+        if ((chosenCharacter.currentStamPoints > 1) && (chosenCharacter.currentHp > 1)) {
             setTimeout(showCombatButtons, 500)
         }
         attackAnimation()
@@ -71,7 +71,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
 
     function special() {
         hideCombatButtons()
-        if (chosenCharacter.currentStamPoints > 1) {
+        if ((chosenCharacter.currentStamPoints > 1) && (chosenCharacter.currentHp > 1)) {
             setTimeout(showCombatButtons, 500)
         }
         setChosenCharacter((prevState) => ({
@@ -87,7 +87,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             setCombatLog("You are all out of potions.")
         } else if ((chosenCharacter.currentHp + healed.healAmount) > chosenCharacter.maxHp) {
             hideCombatButtons()
-            if (chosenCharacter.currentStamPoints > 1) {
+            if ((chosenCharacter.currentStamPoints > 1) && (chosenCharacter.currentHp > 1)) {
                 setTimeout(showCombatButtons, 500)
             }
             setCombatLog(healed.combatLogText)
@@ -99,7 +99,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             }))
         } else {
             hideCombatButtons()
-            if (chosenCharacter.currentStamPoints > 1) {
+            if ((chosenCharacter.currentStamPoints > 1) && (chosenCharacter.currentHp > 1)) {
                 setTimeout(showCombatButtons, 500)
             }
             setCombatLog(healed.combatLogText)
@@ -129,6 +129,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     }, [chosenCharacter.isBuffed])
 
     const [monFullDisplay, setMonFullDisplay] = useState('alive')
+    const [heroFullDisplay, setHeroFullDisplay] = useState('alive')
 
     const [postGameBtns, setPostGameBtns] = useState('hidden')
 
@@ -137,9 +138,9 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         setBannerText('You Win!')
         setBannerStyle('end-win')
         setMonFullDisplay('dead')
-        setButtonDivDisplay('invisible')
+        setButtonDivDisplay('invisible hidden')
         setPostGameBtns('shown')
-        setMonster ((prevState) => ({
+        setMonster((prevState) => ({
             ...prevState,
             currentStamPoints: monster.maxStaminaPoints,
             currentHp: monster.maxHp
@@ -150,11 +151,32 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
         }))
     }
 
-    function playAgain () {
+    function loser() {
+        setCombatLog(`You have been defeated!`)
+        setBannerText('You Lose!')
+        setBannerStyle('end-lose')
+        setHeroFullDisplay('dead')
+        setButtonDivDisplay('invisible hidden')
+        setPostGameBtns('shown')
+        setMonster((prevState) => ({
+            ...prevState,
+            currentStamPoints: monster.maxStaminaPoints,
+            currentHp: monster.maxHp
+        }))
+        setChosenCharacter((prevState) => ({
+            ...prevState,
+            currentStamPoints: chosenCharacter.maxStaminaPoints,
+            currentHp: chosenCharacter.maxHp,
+            potionCount: chosenCharacter.potionMax
+        }))
+    }
+
+    function playAgain() {
         setCombatLog(`Begin!`)
         setBannerText('Your Turn')
         setBannerStyle('player-turn')
         setMonFullDisplay('alive')
+        setHeroFullDisplay('alive')
         setButtonDivDisplay('visible')
         setPostGameBtns('hidden')
         playGame()
@@ -165,6 +187,12 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             setTimeout(winner, 1200)
         }
     }, [monster.currentHp])
+
+    useEffect(() => {
+        if (chosenCharacter.currentHp < 1) {
+            loser()
+        }
+    }, [chosenCharacter.currentHp])
 
     return (
         <div className={combatDisplay} id="combat-div">
@@ -181,7 +209,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
                     <img className='shhImg' src={miss3}></img>
                 </div>
                 <div className="background-img"></div>
-                <ArenaHero heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} heroDmgSlash={heroDmgSlash} />
+                <ArenaHero heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} heroDmgSlash={heroDmgSlash} heroFullDisplay={heroFullDisplay} />
                 <ArenaMonster monster={monster} monDmgSlash={monDmgSlash} monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} monFullDisplay={monFullDisplay} />
             </div>
             <div className="container" id="combat-UI-div">
