@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react"
 import SelectChar from "./SelectChar"
-import CombatDiv from "./CombatComponents/CombatDiv"
 import CombatUtil from "./CombatComponents/Utils"
 import { monsterRoster } from "../constructors/monster"
 import { CharacterContext } from "./Main";
@@ -19,7 +18,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
 
     const generateMonster = () => {
         const randomMonster = monsterRoster[Math.floor(Math.random() * monsterRoster.length)]
-        setMonster(monsterRoster[1])
+        setMonster(randomMonster)
     }
     
     const playGame = () => {
