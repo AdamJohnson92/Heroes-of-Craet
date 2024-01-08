@@ -20,6 +20,17 @@ export default function Main() {
         }
     }
 
+ 
+    useEffect(() => {
+        if (chosenCharacter.name !== 'Tav') {
+            const chosenCharacterSaveData = JSON.parse(localStorage.getItem(chosenCharacter.name))
+        { setChosenCharacter((prevState) => ({
+            ...prevState,
+            gold: chosenCharacterSaveData
+        }))}
+        }
+    }, [chosenCharacter.name])
+
 
     return (
         <main>
