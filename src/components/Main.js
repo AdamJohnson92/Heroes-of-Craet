@@ -20,14 +20,23 @@ export default function Main() {
         }
     }
 
- 
+
     useEffect(() => {
         if (chosenCharacter.name !== 'Tav') {
             const chosenCharacterSaveData = JSON.parse(localStorage.getItem(chosenCharacter.name))
-        { setChosenCharacter((prevState) => ({
-            ...prevState,
-            gold: chosenCharacterSaveData
-        }))}
+
+            if (!chosenCharacterSaveData) {
+                setChosenCharacter((prevState) => ({
+                    ...prevState,
+                    gold: 100
+                }))
+            } else {
+                setChosenCharacter((prevState) => ({
+                ...prevState,
+                gold: chosenCharacterSaveData
+            }))
+            }
+            console.log(chosenCharacterSaveData)
         }
     }, [chosenCharacter.name])
 
@@ -35,11 +44,11 @@ export default function Main() {
     return (
         <main>
             <CharacterContext.Provider value={chosenCharacter}>
-                {chosenCharacter === tav ? <Preamble /> : 
-                <div className="container" id='char-container'>
-                    <CharStats />
-                    <CharEquip />
-                </div>}
+                {chosenCharacter === tav ? <Preamble /> :
+                    <div className="container" id='char-container'>
+                        <CharStats />
+                        <CharEquip />
+                    </div>}
 
                 <RightDiv characterRoster={characterRoster}
                     // StaminaReduce={StaminaReduce}

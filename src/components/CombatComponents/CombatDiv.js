@@ -155,7 +155,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
     //Use effect to store gold earned from Win to local storage
     useEffect(() => {
         localStorage.setItem(chosenCharacter.name, JSON.stringify(chosenCharacter.gold))
-    }, [chosenCharacter.gold])
+    }, [monster.currentHp])
 
     function loser() {
         setCombatLog(`You have been defeated!`)
