@@ -3,7 +3,7 @@ import CombatDiv from "./CombatDiv"
 import { CharacterContext } from "../Main"
 
 
-export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoints, monster, setMonster, setChosenCharacter, playGame }) {
+export default function CombatUtil({ combatDisplay, setCombatDisplay, setSelectDisplay, StaminaReduce, heroStamPoints, monster, setMonster, setChosenCharacter, playGame }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -191,11 +191,7 @@ export default function CombatUtil({ combatDisplay, StaminaReduce, heroStamPoint
 
     return (
         <>
-            <CombatDiv combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} setChosenCharacter={setChosenCharacter} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation}
-                monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay}
-                setButtonDivDisplay={setButtonDivDisplay} hideCombatButtons={hideCombatButtons}
-                showCombatButtons={showCombatButtons}
-                bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} playGame={playGame} />
+            <CombatDiv combatDisplay={combatDisplay} setCombatDisplay={setCombatDisplay} setSelectDisplay={setSelectDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} setMonster={setMonster} setChosenCharacter={setChosenCharacter} monDmgSlash={monDmgSlash} handleMonSlash={handleMonSlash} heroDmgSlash={heroDmgSlash} heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} attackAnimation={attackAnimation} monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} buttonDivDisplay={buttonDivDisplay} setButtonDivDisplay={setButtonDivDisplay} hideCombatButtons={hideCombatButtons}showCombatButtons={showCombatButtons} bannerText={bannerText} setBannerText={setBannerText} bannerStyle={bannerStyle} setBannerStyle={setBannerStyle} combatLog={combatLog} setCombatLog={setCombatLog} playGame={playGame} />
         </>
     )
 }

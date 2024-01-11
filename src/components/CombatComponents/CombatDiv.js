@@ -10,7 +10,7 @@ import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
 
 
-export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, showCombatButtons, buttonDivDisplay, setButtonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog, playGame }) {
+export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDisplay, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, showCombatButtons, buttonDivDisplay, setButtonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog, playGame }) {
 
     const chosenCharacter = useContext(CharacterContext)
 
@@ -232,7 +232,7 @@ export default function CombatDiv({ combatDisplay, StaminaReduce, monster, setMo
             </div>
             <div className={postGameBtns} id="post-game-btn-div">
                 <button className="btn play-btn" onClick={playAgain}> Keep Fighting</button>
-                <button className='btn' id='char-select-btn'> New Character</button>
+                {/* <button className='btn' id='char-select-btn' onClick={setSelectDisplay('displayed')}> New Character</button> */}
             </div>
         </div>
     )

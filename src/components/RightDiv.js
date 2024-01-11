@@ -52,7 +52,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
                 </div> : <div />}
                 
             </div>
-            <CombatUtil combatDisplay={combatDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
+            <CombatUtil combatDisplay={combatDisplay} setCombatDisplay={setCombatDisplay} setSelectDisplay={setSelectDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
              setMonster={setMonster} setChosenCharacter={setChosenCharacter} playGame={playGame}/>
 
         </div>
