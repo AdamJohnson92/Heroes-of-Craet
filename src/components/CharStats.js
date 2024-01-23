@@ -6,7 +6,7 @@ export default function CharStats() {
     const chosenCharacter = useContext(CharacterContext)
 
     return(
-        <div className="card" id="character-card">
+        <div className="card parchment" id="character-card">
                 <div id="character-avatar-div">
                     <h2 id="char-name"> {chosenCharacter.name}
                         </h2>

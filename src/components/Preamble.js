@@ -6,9 +6,9 @@ export default function Preamble() {
     const chosenCharacter = useContext(CharacterContext)
 
     return (
-        <div className="card" id="character-card">
+        <div className="card parchment" >
 
-            <h2 id="char-name"> Welcome to Craet
+            <h2> Welcome to Craet
             </h2>
 
 
