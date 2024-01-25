@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route  path="/Heroes-of-Craet" element={<Main />} />
+          <Route  path="/" element={<Main />} />
           <Route path="*" element={<Error />} />
           <Route path='/shop' element={<Shop/>}/>
         </Routes>
