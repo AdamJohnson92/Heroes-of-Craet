@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from "react"
+import { Link } from 'react-router-dom'
 import SelectChar from "./SelectChar"
 import CombatUtil from "./CombatComponents/Utils"
 import { monsterRoster } from "../constructors/monster"
 import { CharacterContext } from "../pages/Main";
 
 
- let monsterObj = {}
+let monsterObj = {}
 
 export default function RightDiv({ characterRoster, StaminaReduce, handleChooseCharacter, heroStamPoints, setChosenCharacter }) {
 
@@ -20,7 +21,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
         const randomMonster = monsterRoster[Math.floor(Math.random() * monsterRoster.length)]
         setMonster(randomMonster)
     }
-    
+
     const playGame = () => {
         console.log(chosenCharacter)
         cleanSlate()
@@ -34,7 +35,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
 
     }
 
-    function cleanSlate(){
+    function cleanSlate() {
         setChosenCharacter((prevState) => ({
             ...prevState,
             currentHp: chosenCharacter.maxHp,
@@ -49,11 +50,14 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
                 <SelectChar characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
                 {chosenCharacter.name !== 'Tav' ? <div className="menu-btn-div">
                     <button className="btn play-btn" onClick={playGame}>Slay Monsters</button>
+                    <Link to='/Heroes-of-Craet/shop'>
+                        <button className='btn' id="to-town-btn"> Go to Town </button>
+                    </Link>
                 </div> : <div />}
-                
+
             </div>
-            <CombatUtil combatDisplay={combatDisplay} setCombatDisplay={setCombatDisplay} setSelectDisplay={setSelectDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints} 
-             setMonster={setMonster} setChosenCharacter={setChosenCharacter} playGame={playGame}/>
+            <CombatUtil combatDisplay={combatDisplay} setCombatDisplay={setCombatDisplay} setSelectDisplay={setSelectDisplay} monster={monster} StaminaReduce={StaminaReduce} heroStamPoints={heroStamPoints}
+                setMonster={setMonster} setChosenCharacter={setChosenCharacter} playGame={playGame} />
 
         </div>
 
@@ -61,5 +65,5 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
     )
 }
 
-export {monsterObj}
+export { monsterObj }
 
