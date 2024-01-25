@@ -1,14 +1,32 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
 import Header from './components/Header';
-import Main from './components/Main';
+import Main from './pages/Main'
+import Error from './pages/Error'
+// import Shop from './pages/Shop'
 import Footer from './components/Footer';
+
+function Shop() {
+  
+  return (
+    <div>
+        <h1>WELCOME TO THE SHOP. Coming Soon</h1>
+    </div>
+)
+}
 
 function App() {
   return (
     <div className="hero-app">
-      <Header/>
-      <Main/>
-      <Footer/>
+      <Router>
+        <Header />
+        <Routes>
+          <Route  path="/" element={<Main />} />
+          {/* <Route path="*" element={<Error />} /> */}
+          <Route path='/shop' element={<Shop/>}/>
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

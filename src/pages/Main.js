@@ -43,8 +43,6 @@ function Main() {
 
     return (
         <main>
-            <h1> Hello World!</h1>
-
             <CharacterContext.Provider value={chosenCharacter}>
                 {chosenCharacter === tav ? <Preamble /> :
                     <div className="container" id='char-container'>

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import goldImg from "../assets/gold-stack.png"
-import { CharacterContext } from "./Main";
+import { CharacterContext } from "./../pages/Main";
 
 
 export default function CharEquip() {

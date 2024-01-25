@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import SelectChar from "./SelectChar"
 import CombatUtil from "./CombatComponents/Utils"
 import { monsterRoster } from "../constructors/monster"
-import { CharacterContext } from "./Main";
+import { CharacterContext } from "../pages/Main";
 
 
  let monsterObj = {}

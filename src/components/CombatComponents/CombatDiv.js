@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react"
-import { CharacterContext } from "../Main";
+import { CharacterContext } from "../../pages/Main";
 import ArenaHero from "./ArenaHero"
 import ArenaMonster from "./ArenaMonster"
 import damage1 from '../../assets/damage.png'

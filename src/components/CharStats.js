@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { characterObj, CharacterContext } from "./Main";
+import { characterObj, CharacterContext } from "./../pages/Main";
 
 export default function CharStats() {
 

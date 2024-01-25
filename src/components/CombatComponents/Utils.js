@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import CombatDiv from "./CombatDiv"
-import { CharacterContext } from "../Main"
+import { CharacterContext } from "../../pages/Main"
 
 
 export default function CombatUtil({ combatDisplay, setCombatDisplay, setSelectDisplay, StaminaReduce, heroStamPoints, monster, setMonster, setChosenCharacter, playGame }) {

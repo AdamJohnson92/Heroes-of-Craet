@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { CharacterContext } from "../Main";
+import { CharacterContext } from "../../pages/Main";
 
 export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, heroDmgSlash, heroFullDisplay }) {
 
