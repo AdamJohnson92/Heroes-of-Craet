@@ -3,17 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation} from 'react-router
 import Header from './components/Header';
 import Main from './pages/Main'
 import Error from './pages/Error'
-// import Shop from './pages/Shop'
+import Shop from './pages/Shop'
 import Footer from './components/Footer';
-
-function Shop() {
-  
-  return (
-    <div>
-        <h1>WELCOME TO THE SHOP. Coming Soon</h1>
-    </div>
-)
-}
 
 function App() {
   return (
@@ -23,7 +14,7 @@ function App() {
         <Routes>
           <Route  path="/Heroes-of-Craet" element={<Main />} />
           <Route path="*" element={<Error />} />
-          <Route path='/Heroes-of-Craet/shop' element={<Shop/>}/>
+          <Route path='/shop' element={<Shop/>}/>
         </Routes>
         <Footer />
       </Router>
