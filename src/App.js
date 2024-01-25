@@ -22,7 +22,7 @@ function App() {
         <Header />
         <Routes>
           <Route  path="/Heroes-of-Craet" element={<Main />} />
-          {/* <Route path="*" element={<Error />} /> */}
+          <Route path="*" element={<Error />} />
           <Route path='/Heroes-of-Craet/shop' element={<Shop/>}/>
         </Routes>
         <Footer />
