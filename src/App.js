@@ -21,9 +21,9 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route  path="/" element={<Main />} />
+          <Route  path="/Heroes-of-Craet" element={<Main />} />
           {/* <Route path="*" element={<Error />} /> */}
-          <Route path='/shop' element={<Shop/>}/>
+          <Route path='/Heroes-of-Craet/shop' element={<Shop/>}/>
         </Routes>
         <Footer />
       </Router>
