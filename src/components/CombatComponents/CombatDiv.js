@@ -213,7 +213,7 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
     }, [chosenCharacter.currentHp])
 
     return (
-        <div className={combatDisplay} id="combat-div">
+        <div className={`${combatDisplay} `} id="combat-div">
             <div className="container" id="arena-banner">
                 <h3 className={`turn-display ${bannerStyle}`}>{bannerText}</h3>
             </div>

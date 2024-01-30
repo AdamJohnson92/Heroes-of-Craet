@@ -330,7 +330,7 @@ a {
 }
 
 #combat-div {
-
+  width: 90%;
   align-items: center;
   padding-top: 0px;
   height: 700px;
@@ -919,7 +919,7 @@ footer {
   }
 
   .card {
-    width: 90%;
+    width: 80%;
     height: auto;
   }
 
@@ -1051,8 +1051,7 @@ footer {
     flex-direction: row;
     border: 10px ridge var(--gold);
     justify-content: space-around;
-
-    width: 100%;
+    width: 110%;
     height: 100px;
   }
 
@@ -1096,11 +1095,11 @@ footer {
   }
 
   #combat-UI-div {
+    width: 110%;
     height: 250px;
   }
 
   #combat-btn-div {
-
     height: 200px;
   }
 
