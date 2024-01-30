@@ -91,6 +91,7 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
             currentStamPoints: chosenCharacter.currentStamPoints - 1,
             isBuffed: true
         }))
+        console.log(monster)
     }
 
     function takePotion() {

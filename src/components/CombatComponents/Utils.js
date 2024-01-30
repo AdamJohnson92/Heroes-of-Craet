@@ -103,6 +103,7 @@ export default function CombatUtil({ combatDisplay, setCombatDisplay, setSelectD
             ...prevState,
             currentStamPoints: monster.currentStamPoints - 1
         }))
+        console.log('hello world')
     }
 
     //handles turn change
@@ -113,6 +114,10 @@ export default function CombatUtil({ combatDisplay, setCombatDisplay, setSelectD
         setBannerStyle('monster-turn')
         setBannerText('Enemy Turn')
         setButtonDivDisplay('invisible back')
+        setMonster((prevState) => ({
+            ...prevState,
+            currentStamPoints: monster.maxStaminaPoints
+        }))
 
     }
 
@@ -141,7 +146,10 @@ export default function CombatUtil({ combatDisplay, setCombatDisplay, setSelectD
         const combatLogText = monAttack.combatLogText
         const slash = monAttack.slash
 
-        monStaminaReduce()
+        setMonster((prevState) => ({
+            ...prevState,
+            currentStamPoints: monster.maxStaminaPoints - 1
+        }))
         monAttackAnimation()
         handleHeroSlash(slash)
         if ((chosenCharacter.currentHp - dmg) > 0) {
@@ -161,11 +169,12 @@ export default function CombatUtil({ combatDisplay, setCombatDisplay, setSelectD
 
     //Use Effect to catch state change and trigger the monster's turn
     useEffect(() => {
+        console.log(monster)
         if (chosenCharacter.currentStamPoints < 1 && monster.currentHp > 0) {
-            setMonster((prevState) => ({
-                ...prevState,
-                currentStamPoints: monster.maxStaminaPoints
-            }))
+            // setMonster((prevState) => ({
+            //     ...prevState,
+            //     currentStamPoints: monster.maxStaminaPoints
+            // }))
             monsterTurnChange()
             setTimeout(monsterAttackHandler, 2000, chosenCharacter.hitChanceRate, chosenCharacter.armor.armorRating)
 
