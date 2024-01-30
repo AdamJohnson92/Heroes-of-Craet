@@ -17,6 +17,13 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
     function changeCharacter() {
         setCombatDisplay("hidden")
         setSelectDisplay("displayed")
+        setCombatLog(`Begin!`)
+        setBannerText('Your Turn')
+        setBannerStyle('player-turn')
+        setMonFullDisplay('alive')
+        setHeroFullDisplay('alive')
+        setButtonDivDisplay('visible')
+        setPostGameBtns('hidden')
     }
 
     function MonsterHealthReduce(attackDmg, combatLogText) {
