@@ -229,12 +229,6 @@ span {
   border-radius: 90px;
 }
 
-/* #char-container {
-  display: none;
-  flex-direction: row;
-  position: relative;
-} */
-
 #char-container-2 {
   display: flex;
   flex-direction: row;
@@ -355,6 +349,11 @@ a:hover {
   justify-content: center;
   width: 100px;
   height: 100px;
+}
+
+.tooltip {
+  width: 100px;
+  background-color: red;
 }
 
 #arena {

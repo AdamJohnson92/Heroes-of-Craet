@@ -8,12 +8,14 @@ import damage3 from '../../assets/damage-3.png'
 import miss1 from '../../assets/miss.png'
 import miss2 from '../../assets/miss-2.png'
 import miss3 from '../../assets/miss-3.png'
+import parchment from '../../assets/parchment-background.PNG'
+import { Tooltip } from "react-tooltip";
 
 
 export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDisplay, monster, setMonster, setChosenCharacter, monDmgSlash, handleMonSlash, heroDmgSlash, heroStaticDisplay, heroAttackDisplay, heroRetreatDisplay, monStaticDisplay, monAttackDisplay, monRetreatDisplay, attackAnimation, hideCombatButtons, showCombatButtons, buttonDivDisplay, setButtonDivDisplay, bannerText, setBannerText, bannerStyle, setBannerStyle, combatLog, setCombatLog, playGame }) {
 
     const chosenCharacter = useContext(CharacterContext)
-    
+
     function changeCharacter() {
         setCombatDisplay("hidden")
         setSelectDisplay("displayed")
@@ -213,6 +215,10 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
         }
     }, [chosenCharacter.currentHp])
 
+const anchorStyle = {
+    maxWidth: 'fit-content'
+}
+
     return (
         <div className={`${combatDisplay} `} id="combat-div">
             <div className="container" id="arena-banner">
@@ -239,7 +245,12 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
 
                     <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
                     <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
-                    <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
+                    <a className="special-tooltip" style={anchorStyle}>
+                        <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
+                    </a>
+                    <Tooltip anchorSelect=".special-tooltip" place="top" className="tooltip"  style={{ color: "black", width: '200px', backgroundImage: `url(${parchment})`, fontSize: "20px"}}>
+                        {chosenCharacter.specialDesc}
+                    </Tooltip>
                     <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion </button>
                 </div>
             </div>
