@@ -180,6 +180,8 @@ main {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 #char-select-header {
@@ -327,11 +329,17 @@ a {
 }
 
 #play-btn:hover {
-  background-color: rgb(128, 15, 15);
+  background-color: rgb(105, 12, 12);
+  color: white;
 }
 
 #to-town-btn {
   background-color: var(--green);
+}
+
+#to-town-btn:hover {
+  background-color: rgb(35, 95, 50);
+  color: white;
 }
 
 #combat-div {
@@ -351,7 +359,6 @@ button:hover {
 
 a:hover {
   cursor: pointer;
-  filter: brightness(75%);
 }
 
 .arena-placement {

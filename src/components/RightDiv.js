@@ -49,7 +49,7 @@ export default function RightDiv({ characterRoster, StaminaReduce, handleChooseC
             <div className={selectDisplay}>
                 <SelectChar characterRoster={characterRoster} chosenCharacter={chosenCharacter} handleChooseCharacter={handleChooseCharacter} />
                 {chosenCharacter.name !== 'Tav' ? <div className="menu-btn-div">
-                    <button className="btn play-btn" onClick={playGame}>Slay Monsters</button>
+                    <button className="btn play-btn" id="play-btn" onClick={playGame}>Slay Monsters</button>
                     <Link to='/Heroes-of-Craet/shop'>
                         <button className='btn' id="to-town-btn"> Go to Town </button>
                     </Link>
