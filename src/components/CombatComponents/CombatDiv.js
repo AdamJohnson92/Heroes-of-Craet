@@ -215,9 +215,9 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
         }
     }, [chosenCharacter.currentHp])
 
-const anchorStyle = {
-    maxWidth: 'fit-content'
-}
+    const anchorStyle = {
+        maxWidth: 'fit-content'
+    }
 
     return (
         <div className={`${combatDisplay} `} id="combat-div">
@@ -248,16 +248,17 @@ const anchorStyle = {
                     <a className="special-tooltip" style={anchorStyle}>
                         <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
                     </a>
-                    <Tooltip anchorSelect=".special-tooltip" place="top" className="tooltip"  style={{ color: "black", width: '200px', backgroundImage: `url(${parchment})`, fontSize: "20px"}}>
+                    <Tooltip anchorSelect=".special-tooltip" place="top" className="tooltip" style={{ color: "black", width: '200px', backgroundImage: `url(${parchment})`, fontSize: "20px" }}>
                         {chosenCharacter.specialDesc}
                     </Tooltip>
                     <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion </button>
                 </div>
+                <div className={postGameBtns} id="post-game-btn-div">
+                    <button className="btn play-btn" onClick={playAgain}> Keep Fighting</button>
+                    <button className='btn' id='char-select-btn' onClick={changeCharacter}> New Character</button>
+                </div>
             </div>
-            <div className={postGameBtns} id="post-game-btn-div">
-                <button className="btn play-btn" onClick={playAgain}> Keep Fighting</button>
-                <button className='btn' id='char-select-btn' onClick={changeCharacter}> New Character</button>
-            </div>
+
         </div>
     )
 }

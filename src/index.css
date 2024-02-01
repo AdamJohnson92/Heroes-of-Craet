@@ -443,8 +443,8 @@ a:hover {
   background-color: red;
 }
 
-.stam-div {
-  display: none;
+#post-game-btn-div {
+  justify-content: center;
 }
 
 
