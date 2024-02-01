@@ -212,9 +212,15 @@ main {
 
 
 #char-name {
+  height: fit-content;
   font-size: 50px;
   position: relative;
-  top: 0px;
+  top: 20px;
+  padding-left: 20px;
+  padding-right:30px;
+  border-left: solid black 5px;
+  border-bottom: solid black 5px;
+  border-radius: 15px 45px;
 }
 
 p {
@@ -254,8 +260,9 @@ span {
 }
 
 #character-avatar-div {
+  width: 95%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   position: relative;
   top: 10px;
