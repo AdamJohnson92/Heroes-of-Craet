@@ -10,7 +10,7 @@ export default function CharStats() {
                 <div id="character-avatar-div">
                     <h2 id="char-name"> {chosenCharacter.name}
                         </h2>
-                        <img id="character-img-div" src={chosenCharacter.img}/>
+                        <img className="character-img-div" src={chosenCharacter.img}/>
                 </div>
                 <h3 className="card-header">Class: {chosenCharacter.charClass}</h3>
                 <p className="card-item">Hitpoints: {chosenCharacter.currentHp}</p>

@@ -235,18 +235,22 @@ span {
   position: relative;
 }
 
-#character-img-div {
-  height: 90px;
+.character-img-div {
+  height: 105px;
+  width: 105px;
   background-image: url('../src/assets/bg-1.png');
   margin-top: 20px;
   background-size: cover;
-  width: 90px;
   position: relative;
   bottom: 10px;
   border: 7px ridge var(--silver);
   box-shadow: 1px 1px 10px black;
   padding-bottom: 5px;
   background-color: none;
+}
+
+#currentChar {
+  border: 7px ridge var(--gold);
 }
 
 #character-avatar-div {
