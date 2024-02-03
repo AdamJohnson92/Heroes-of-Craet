@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Heroes-of-Craet/static/css/main.142cdfc1.css",
+    "main.css": "/Heroes-of-Craet/static/css/main.b828220d.css",
     "main.js": "/Heroes-of-Craet/static/js/main.ae240325.js",
     "static/js/787.c8924c82.chunk.js": "/Heroes-of-Craet/static/js/787.c8924c82.chunk.js",
     "static/media/leather-background.PNG": "/Heroes-of-Craet/static/media/leather-background.45a47e937ae186993ecf.PNG",
@@ -26,12 +26,12 @@
     "static/media/orbyn-retreat.png": "/Heroes-of-Craet/static/media/orbyn-retreat.726c15b1da7142eadbbc.png",
     "static/media/orbyn-attack.png": "/Heroes-of-Craet/static/media/orbyn-attack.6c39cddf30a8a63aa9fa.png",
     "index.html": "/Heroes-of-Craet/index.html",
-    "main.142cdfc1.css.map": "/Heroes-of-Craet/static/css/main.142cdfc1.css.map",
+    "main.b828220d.css.map": "/Heroes-of-Craet/static/css/main.b828220d.css.map",
     "main.ae240325.js.map": "/Heroes-of-Craet/static/js/main.ae240325.js.map",
     "787.c8924c82.chunk.js.map": "/Heroes-of-Craet/static/js/787.c8924c82.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.142cdfc1.css",
+    "static/css/main.b828220d.css",
     "static/js/main.ae240325.js"
   ]
 }
