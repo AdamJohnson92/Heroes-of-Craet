@@ -11,9 +11,10 @@
   --silver: rgb(163, 163, 163);
   --green: rgb(56, 151, 80);
   --red: rgb(180, 12, 12);
-  height: 100vh;
-  background-image: linear-gradient(var(--brown) 0%, black 100%);
-  background-size: cover;
+  height: 100%;
+  /* background-image: linear-gradient(var(--brown) 0%, black 100%);
+  background-size: cover; */
+  background-color: black;
 }
 
 body {
@@ -50,14 +51,12 @@ body {
 .paragraph {
   font-size: 25px;
   text-indent: 30px;
-  /* min-height: max-content; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   width: 75%;
-  padding-left: 9%;
 }
 
 .hidden {
@@ -106,8 +105,10 @@ code {
 }
 
 #page-title {
+  background-image: radial-gradient(var(--grey) 0%, var(--grey) 50%, var(--grey)60%, var(--silver) 100%);
+  text-decoration: underline overline rgb(46, 46, 228);
+  text-underline-offset: 25px;
   border: 10px ridge var(--gold);
-
   padding: 20px;
   margin: 0px;
 }
@@ -131,9 +132,14 @@ nav {
 }
 
 h1 {
+  align-content: center;
+  width: 810px;
   font-size: 80px;
-  background-image: radial-gradient(var(--grey) 0%, var(--grey) 50%, var(--grey)60%, var(--silver) 100%);
   text-align: center;
+  border-bottom: 5px solid; 
+  border-radius: 20px;
+  text-decoration: underline solid black 5px;
+  text-underline-offset: 10px;
 }
 
 h2 {
@@ -146,10 +152,18 @@ h2 {
 h3 {
   font-size: 30px;
   margin: 10px;
+  border-bottom: 5px solid black;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 14px;
 }
 
 h4 {
   font-size: 25px;
+  text-decoration: underline solid black;
+  text-underline-offset: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 main {
@@ -199,11 +213,16 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border: 10px ridge var(--gold);
   padding: 10px;
   background-color: var(--grey);
   border-radius: 5px;
   box-shadow: 2px 2px 10px black;
+}
+
+.card-item {
+  font-size: 22px;
 }
 
 .parchment {
@@ -220,8 +239,8 @@ main {
   top: 20px;
   padding-left: 20px;
   padding-right:30px;
-  border-left: solid black 5px;
-  border-bottom: solid black 5px;
+  border-left: solid black 4px;
+  border-bottom: solid black 7px;
   border-radius: 15px 45px;
 }
 
@@ -267,7 +286,7 @@ span {
   justify-content: space-between;
   flex-direction: row;
   position: relative;
-  top: 10px;
+  top: 6px;
 }
 
 #character-card {

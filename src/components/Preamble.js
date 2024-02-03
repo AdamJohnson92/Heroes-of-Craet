@@ -8,8 +8,8 @@ export default function Preamble() {
     return (
         <div className="card parchment" >
 
-            <h2> Welcome to Craet
-            </h2>
+            <h1> Welcome to Craet
+            </h1>
 
 
             <h3 className= 'centered'> Untold Dangers Await </h3>
