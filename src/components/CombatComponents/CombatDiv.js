@@ -243,15 +243,21 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
                 </div>
                 <div className={buttonDivDisplay} id='combat-btn-div'>
 
-                    <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1} </button>
-                    <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2} </button>
-                    <a className="special-tooltip" style={anchorStyle}>
-                        <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special} </button>
-                    </a>
+                    <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1}
+                    </button>
+                    <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2}
+                    </button>
+
+                    <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special}
+                        <a className="special-tooltip" style={anchorStyle}>
+                            <div className="question-mark">?</div>
+                        </a>
+                    </button>
                     <Tooltip anchorSelect=".special-tooltip" place="top" className="tooltip" style={{ color: "black", width: '200px', backgroundImage: `url(${parchment})`, fontSize: "20px" }}>
                         {chosenCharacter.specialDesc}
                     </Tooltip>
-                    <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion </button>
+                    <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion
+                    </button>
                 </div>
                 <div className={postGameBtns} id="post-game-btn-div">
                     <button className="btn play-btn" onClick={playAgain}> Keep Fighting</button>
