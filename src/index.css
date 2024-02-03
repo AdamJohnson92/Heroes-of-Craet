@@ -132,8 +132,8 @@ nav {
 }
 
 h1 {
-  align-content: center;
-  width: 810px;
+  /* align-content: center; */
+  /* width: 810px; */
   font-size: 80px;
   text-align: center;
   border-bottom: 5px solid; 
@@ -907,8 +907,14 @@ footer {
 }
 
 @media screen and (max-width: 900px) {
+  h1 {
+    font-size: 50px; 
+    text-decoration: none;
+  }
+
   #char-select-header {
     font-size: 40px;
+    text-decoration: none;
   }
 
   #character-img-div {
