@@ -11,7 +11,7 @@ export default function CharEquip() {
         
         <div className="card" id="equipment-card">
         <h3>Equipment  </h3>
-            <p id="gold-line"> <img id="gold-img" src={goldImg}/>{chosenCharacter.gold}</p>
+            <p className= "card-item"id="gold-line"> <img id="gold-img" src={goldImg}/>{chosenCharacter.gold}</p>
         <h4 className="card-header" id="weapon-name">{chosenCharacter.weapon.name}</h4>
         <p className="card-item"> Type: {chosenCharacter.weapon.name} </p>
         <p className="card-item">Weight: {chosenCharacter.weapon.weight} </p>
