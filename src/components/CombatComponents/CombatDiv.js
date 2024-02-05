@@ -47,7 +47,7 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
     }
 
     function attackRoll(event) {
-        console.log(chosenCharacter)
+        // event.stopPropagation()
         hideCombatButtons()
         if ((chosenCharacter.currentStamPoints > 1) && (chosenCharacter.currentHp > 1)) {
             setTimeout(showCombatButtons, 500)
@@ -242,25 +242,39 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
                     <p id='combat-log'> {combatLog} </p>
                 </div>
                 <div className={buttonDivDisplay} id='combat-btn-div'>
+                    <div className="btn-container">
+                        <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1}
 
-                    <button className='btn combat-btn' id="attack-1" onClick={attackRoll}> {chosenCharacter.weapon.attack1}
+                        </button>
                         <a className="attack1-tooltip" style={anchorStyle}>
                             <div className="question-mark">?</div>
                         </a>
-                    </button>
-                    <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2}
+                    </div>
+
+                    <div className="btn-container">
+                        <button className='btn combat-btn' id="attack-2" onClick={attackRoll}>{chosenCharacter.weapon.attack2}
+
+                        </button>
                         <a className="attack2-tooltip" style={anchorStyle}>
                             <div className="question-mark">?</div>
                         </a>
-                    </button>
+                    </div>
 
-                    <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special}
+
+                    <div className="btn-container">
+                        <button className='btn combat-btn' id="special-button-1" onClick={special}> {chosenCharacter.special}
+                        </button>
                         <a className="special-tooltip" style={anchorStyle}>
                             <div className="question-mark">?</div>
                         </a>
-                    </button>
-                    <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion
-                    </button>
+                    </div>
+
+
+                    <div className="btn-container">
+                        <button className="btn combat-btn" id="potion-button" onClick={takePotion}> Drink Potion
+                        </button>
+                    </div>
+
                     <Tooltip anchorSelect=".attack1-tooltip" place="top" className="tooltip" style={{ color: "black", width: '200px', backgroundImage: `url(${parchment})`, fontSize: "20px" }}>
                         {chosenCharacter.weapon.attack1Desc}
                     </Tooltip>

@@ -67,18 +67,18 @@ body {
   display: flex;
 }
 
-.invisible{
+.invisible {
   /* visibility: hidden; */
   opacity: 0;
-  transition: 
-  .15s ;
+  transition:
+    .15s;
 }
 
-.visible{
+.visible {
   /* visibility:visible; */
   opacity: 1;
   transition: 2.8s;
- 
+
 }
 
 .front {
@@ -87,8 +87,8 @@ body {
 
 .back {
   z-index: -1;
-  transition: 
-  .15s ;
+  transition:
+    .15s;
 }
 
 
@@ -101,7 +101,7 @@ code {
   border: 30px ridge var(--gold);
   border-radius: 7px;
   padding: 0px;
-  margin: 10px; 
+  margin: 10px;
   background-image: radial-gradient(var(--grey) 0%, var(--grey) 50%, var(--grey)60%, var(--silver) 100%);
 }
 
@@ -151,7 +151,7 @@ h1 {
   /* width: 810px; */
   font-size: 80px;
   text-align: center;
-  border-bottom: 5px solid; 
+  border-bottom: 5px solid;
   border-radius: 20px;
   /* text-decoration: underline solid black 5px;
   text-underline-offset: 10px; */
@@ -253,7 +253,7 @@ main {
   position: relative;
   top: 20px;
   padding-left: 20px;
-  padding-right:30px;
+  padding-right: 30px;
   border-left: solid black 4px;
   border-bottom: solid black 7px;
   border-radius: 15px 45px;
@@ -342,15 +342,22 @@ span {
   box-shadow: 2px 2px 10px black;
 }
 
+.btn-container {
+  display: flex;
+  position: relative;
+  width: 175px;
+}
+
 .question-mark {
+  color: black;
   position: absolute;
-  right: 3px;
-  bottom: 0px;
+  right: 25px;
+  bottom: 18px;
   font-size: 12px;
   border: 1px solid black;
   border-radius: 100px;
-  width: 18px; 
-  filter: opacity(50%);
+  width: 18px;
+  filter: opacity(65%);
 }
 
 a {
@@ -441,7 +448,7 @@ a:hover {
   display: block;
   position: absolute;
   z-index: -4;
-  
+
 }
 
 .shhImg {
@@ -450,7 +457,7 @@ a:hover {
   bottom: 0px;
   right: 400px;
   margin: 0;
-  width:5px;
+  width: 5px;
   height: 5px;
 }
 
@@ -530,7 +537,7 @@ a:hover {
     transform: translateX(0px);
   }
 
-13% {
+  13% {
     transform: translateX(150%);
   }
 
@@ -560,7 +567,7 @@ a:hover {
     transform: translateX(0%);
   }
 
-13% {
+  13% {
     transform: translateX(-150%);
   }
 
@@ -633,7 +640,7 @@ a:hover {
   position: absolute;
 }
 
-.mon-slash-class{
+.mon-slash-class {
   width: 110px;
   height: 110px;
   z-index: 1;
@@ -649,32 +656,32 @@ a:hover {
 
 .mon-dmg-1 {
   background-image: url('../src/assets/damage.png');
-  background-size:cover;
+  background-size: cover;
 }
 
 .mon-dmg-2 {
   background-image: url('../src/assets/damage-2.png');
-  background-size:cover;
+  background-size: cover;
 }
 
 .mon-dmg-3 {
   background-image: url('../src/assets/damage-3.png');
-  background-size:cover;
+  background-size: cover;
 }
 
 .mon-miss-1 {
   background-image: url('../src/assets/miss.png');
-  background-size:cover;
+  background-size: cover;
 }
 
 .mon-miss-2 {
   background-image: url('../src/assets/miss-2.png');
-  background-size:cover;
+  background-size: cover;
 }
 
 .mon-miss-3 {
   background-image: url('../src/assets/miss-3.png');
-  background-size:cover;
+  background-size: cover;
 }
 
 
@@ -717,14 +724,14 @@ a:hover {
 }
 
 .health-juice {
-  transition: 
-  .25s ;
+  transition:
+    .25s;
   transition-delay: .08s;
 }
 
 .stam-juice {
-  transition: 
-  .25s ;
+  transition:
+    .25s;
 }
 
 #potion-div {
@@ -759,8 +766,8 @@ a:hover {
 }
 
 #potion-juice {
- transition: 
-  .25s ;
+  transition:
+    .25s;
 }
 
 #combat-UI-div {
@@ -768,7 +775,7 @@ a:hover {
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 220px;
+  height: 300px;
   padding: 0;
   border-bottom: none;
   box-shadow: none;
@@ -793,11 +800,13 @@ a:hover {
 }
 
 #combat-btn-div {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   height: auto;
+  padding-bottom: 20px;
 
 }
 
@@ -816,8 +825,7 @@ footer {
   color: white;
   justify-content: center;
   align-items: center;
-  background-color: none
-  ;
+  background-color: none;
 }
 
 @media screen and (max-width: 1500px) {
@@ -842,7 +850,7 @@ footer {
   }
 
   #combat-UI-div {
-    height: 500px;
+    height: 400px;
   }
 
   #combat-log-parent-div {
@@ -855,6 +863,10 @@ footer {
     margin: 15px;
   }
 
+  .question-mark {
+    bottom: 25px
+  }
+
 }
 
 @media screen and (max-width: 1275px) {
@@ -865,7 +877,7 @@ footer {
   }
 
   #arena {
-    width: 300px;
+    width: 370px;
     height: 300px;
   }
 
@@ -873,35 +885,35 @@ footer {
     width: 90px;
     height: 90px;
     position: absolute;
-    bottom:60px;
+    bottom: 60px;
   }
 
   .attack-display {
     width: 90px;
     height: 90px;
     position: relative;
-    top:60px;
+    top: 60px;
   }
 
   .retreat-display {
     width: 90px;
     height: 90px;
     position: relative;
-    top:50px;
+    top: 50px;
   }
 
   .mon-attack-display {
     width: 90px;
     height: 90px;
     position: relative;
-    top:60px;
+    top: 60px;
   }
 
   .mon-retreat-display {
     width: 90px;
     height: 90px;
     position: relative;
-    top:50px;
+    top: 50px;
   }
 
   .health-bar {
@@ -931,11 +943,20 @@ footer {
   #potion-bottle {
     border: 1px solid black
   }
+
+  .btn-container {
+    width: 150px;
+  }
+  .combat-btn {
+    
+    font-size: 15px;
+  }
+
 }
 
 @media screen and (max-width: 900px) {
   h1 {
-    font-size: 50px; 
+    font-size: 50px;
     text-decoration: none;
   }
 
@@ -954,8 +975,20 @@ footer {
     margin-top: 5px;
   }
 
+  #combat-UI-div {
+    height: 600px;
+  }
+
+  #combat-log {
+    font-size: 19px;
+  }
+
   .btn {
     width: 150px;
+  }
+
+  .question-mark {
+    font-size: 11px;
   }
 
   .card {
@@ -987,7 +1020,7 @@ footer {
     margin: 0;
   }
 
-  .paragraph{
+  .paragraph {
     font-size: 20px;
   }
 
@@ -1111,7 +1144,7 @@ footer {
     top: 35px;
   }
 
-  .mon-slash-class{
+  .mon-slash-class {
     width: 50px;
     height: 50px;
     z-index: 1;
@@ -1173,11 +1206,22 @@ footer {
 
   #combat-UI-div {
     width: 110%;
-    height: 250px;
+    height: 280px;
   }
 
   #combat-btn-div {
     height: 200px;
+    top: 20px;
+  }
+
+  .btn-container {
+    width: 112px;
+    padding-bottom: 30px;
+  }
+
+  .question-mark {
+    bottom: 10px;
+    right: 40px;
   }
 
   .combat-btn {
