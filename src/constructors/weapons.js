@@ -10,12 +10,12 @@ function confidentRoll() {
 }
 
 function measuredRoll() {
-    const measured = Math.floor(Math.random() * (20 - 3) + 3)
+    const measured = Math.floor(Math.random() * (19 - 3) + 3)
     return measured
 }
 
 function riskyRoll() {
-    const risky = Math.floor(Math.random() * (18 - 2) + 2)
+    const risky = Math.floor(Math.random() * (18 - 1) + 1)
     return risky
 }
 
@@ -23,19 +23,21 @@ function riskyRoll() {
 //-----------------------------------
 
 class Weapon {
-    constructor(name, type, weight, attack1, attack2, modifyingStat) {
+    constructor(name, type, weight, attack1, attack1Desc, attack2, attack2Desc, modifyingStat) {
         this.name = name;
         this.type = type;
         this.weight = weight;
         this.attack1 = attack1;
+        this.attack1Desc = attack1Desc
         this.attack2 = attack2;
+        this.attack2Desc = attack2Desc
         this.modifyingStat = modifyingStat;
     }
 }
 
 class Greatsword extends Weapon {
-    constructor(name, type, weight, attack1, attack2, modifyingStat) {
-        super(name, type, weight, attack1, attack2, modifyingStat)
+    constructor(name, type, weight, attack1, attack1Desc, attack2, attack2Desc, modifyingStat) {
+        super(name, type, weight, attack1, attack1Desc, attack2, attack2Desc,modifyingStat)
     }
     attackDam1(mon, hero) {
         const naturalRoll = confidentRoll()
@@ -83,8 +85,8 @@ class Greatsword extends Weapon {
 }
 
 class DoubleDaggers extends Weapon {
-    constructor(name, type, weight, attack1, attack2, modifyingStat) {
-        super(name, type, weight, attack1, attack2, modifyingStat)
+    constructor(name, type, weight, attack1, attack1Desc, attack2, attack2Desc, modifyingStat) {
+        super(name, type, weight, attack1, attack1Desc, attack2, attack2Desc, modifyingStat)
     }
     attackDam1(mon, hero) {
         let totalDmg
@@ -183,8 +185,8 @@ class DoubleDaggers extends Weapon {
 }
 
 class Unarmed extends Weapon {
-    constructor(name, type, weight, attack1, attack2, modifyingStat) {
-        super(name, type, weight, attack1, attack2, modifyingStat)
+    constructor(name, type, weight, attack1, attack1Desc, attack2, attack2Desc, modifyingStat) {
+        super(name, type, weight, attack1, attack1Desc, attack2, attack2Desc, modifyingStat)
     }
     attackDam1(mon, hero) {
         let totalDmg
@@ -328,10 +330,10 @@ class Unarmed extends Weapon {
 //WEAPON LIST
 //-----------------------------------
 
-const valeGreatsword = new Greatsword("Greatsword", 'Sword', 6, 'Sweep Attack', 'Lunge Attack', 'strength')
+const valeGreatsword = new Greatsword("Greatsword", 'Sword', 6, 'Sweep Attack', 'An attack with a relatively high chance to hit. You sweep your sword in a wide arc that is difficult to dodge. If it hits, it deals (1-8 + Strength) damage.', 'Lunge Attack', 'A highly damaging attack with a moderate chance to hit. You lunge forward with your sword with a powerful stab. If it hits, it deals (2-10 + Strength) damage','strength')
 
-const slickDoubleDaggers = new DoubleDaggers("Double Daggers", "Daggers", 3, 'Double Slash', 'Double Stab', 'dexterity')
+const slickDoubleDaggers = new DoubleDaggers("Double Daggers", "Daggers", 3, 'Double Slash', 'A double attack with a relatively high chance to hit. You slash forward with both of your daggers, one after the other. If it makes contact, each slash deals (1-2 + Dexterity) damage.', 'Double Stab', 'A double attack with a moderate chance to hit. You stab with both of your daggers, one after the other. If it makes contact, each stab deals (1-4 + Dexterity) damage.','dexterity')
 
-const unarmed = new Unarmed('Unarmed', 'N/A', 0, 'Flurry of Blows', 'One-Two Punch', 'dexterity')
+const unarmed = new Unarmed('Unarmed', 'N/A', 0, 'Flurry of Blows', 'A triple attack usings your fists and feet. You attack rapidly using your whole body as a weapon. If it makes contact, each strike deals (1-2 + Dexterity) damage. Monks also add Strength to the damage.', 'One-Two Punch', "The ol' one-two punch. Each punch has a relatively high chance of making contact, and deals (2-4 + Dexterity damage. Monks also add Strength to the damage.",'dexterity')
 
 export { valeGreatsword, slickDoubleDaggers, unarmed }
