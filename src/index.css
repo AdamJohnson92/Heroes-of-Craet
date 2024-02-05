@@ -153,8 +153,8 @@ h1 {
   text-align: center;
   border-bottom: 5px solid; 
   border-radius: 20px;
-  text-decoration: underline solid black 5px;
-  text-underline-offset: 10px;
+  /* text-decoration: underline solid black 5px;
+  text-underline-offset: 10px; */
 }
 
 h2 {
@@ -215,8 +215,8 @@ main {
 
 #char-select-header {
   font-size: 60px;
-  text-decoration: underline;
-  text-underline-offset: 10px;
+  /* text-decoration: underline;
+  text-underline-offset: 10px; */
   background-image: none;
 }
 
