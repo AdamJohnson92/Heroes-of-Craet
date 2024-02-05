@@ -330,10 +330,10 @@ class Unarmed extends Weapon {
 //WEAPON LIST
 //-----------------------------------
 
-const valeGreatsword = new Greatsword("Greatsword", 'Sword', 6, 'Sweep Attack', 'An attack with a relatively high chance to hit. You sweep your sword in a wide arc that is difficult to dodge. If it hits, it deals (1-8 + Strength) damage.', 'Lunge Attack', 'A highly damaging attack with a moderate chance to hit. You lunge forward with your sword with a powerful stab. If it hits, it deals (2-10 + Strength) damage','strength')
+const valeGreatsword = new Greatsword("Greatsword", 'Sword', 6, 'Sweep Attack', 'An attack with a relatively high chance to hit. You sweep your sword in a wide arc that is difficult to dodge. If it hits, it deals (1-8 + Strength) damage.', 'Lunge Attack', 'A highly damaging attack with a moderate chance to hit. You lunge forward with your sword with a powerful stab. If it hits, it deals (2-10 + Strength) damage.','strength')
 
 const slickDoubleDaggers = new DoubleDaggers("Double Daggers", "Daggers", 3, 'Double Slash', 'A double attack with a relatively high chance to hit. You slash forward with both of your daggers, one after the other. If it makes contact, each slash deals (1-2 + Dexterity) damage.', 'Double Stab', 'A double attack with a moderate chance to hit. You stab with both of your daggers, one after the other. If it makes contact, each stab deals (1-4 + Dexterity) damage.','dexterity')
 
-const unarmed = new Unarmed('Unarmed', 'N/A', 0, 'Flurry of Blows', 'A triple attack usings your fists and feet. You attack rapidly using your whole body as a weapon. If it makes contact, each strike deals (1-2 + Dexterity) damage. Monks also add Strength to the damage.', 'One-Two Punch', "The ol' one-two punch. Each punch has a relatively high chance of making contact, and deals (2-4 + Dexterity damage. Monks also add Strength to the damage.",'dexterity')
+const unarmed = new Unarmed('Unarmed', 'N/A', 0, 'Flurry of Blows', 'Three quick attacks usings your fists and feet, each with a moderate chance of making contact. If it makes contact, each strike deals (1-2 + Dexterity) damage. Monks also add Strength to unarmed damage.', 'One-Two Punch', "The ol' one-two punch. Each punch has a relatively high chance of making contact, and deals (2-4 + Dexterity) damage. Monks also add Strength to unarmed damage.",'dexterity')
 
 export { valeGreatsword, slickDoubleDaggers, unarmed }
