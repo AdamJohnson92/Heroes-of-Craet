@@ -98,31 +98,46 @@ code {
 }
 
 .outer-border {
-  border: 10px ridge var(--gold);
+  border: 30px ridge var(--gold);
   border-radius: 7px;
   padding: 0px;
-  margin: 10px;
+  margin: 10px; 
+  background-image: radial-gradient(var(--grey) 0%, var(--grey) 50%, var(--grey)60%, var(--silver) 100%);
 }
 
 #page-title {
-  background-image: radial-gradient(var(--grey) 0%, var(--grey) 50%, var(--grey)60%, var(--silver) 100%);
-  text-decoration: underline overline rgb(46, 46, 228);
-  text-underline-offset: 25px;
-  border: 10px ridge var(--gold);
+  text-decoration: none;
+  border-bottom: 0px;
   padding: 20px;
   margin: 0px;
+  position: relative;
+  top: 10%;
 }
 
 header {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-bottom: 10px ridge var(--gold);
   padding: 0px;
   border-radius: 1px;
   width: 100vw;
-  background-image: radial-gradient(var(--grey) 0%, var(--grey) 50%, var(--grey)60%, var(--silver) 100%);
+  /* background-image: radial-gradient(var(--grey) 0%, var(--grey) 50%, var(--grey)60%, var(--silver) 100%); */
   margin: 0px;
+  position: relative;
+}
+
+.double-underline {
+  display: flex;
+  justify-content: center;
+  bottom: 50px;
+  position: relative;
+}
+
+.single-underline {
+  border-bottom: 7px solid blue;
+  border-radius: 20px;
+  width: 49%;
+  height: 40px;
 }
 
 nav {
@@ -924,6 +939,10 @@ footer {
     text-decoration: none;
   }
 
+  .double-underline {
+    bottom: 40px;
+  }
+
   #char-select-header {
     font-size: 40px;
     text-decoration: none;
@@ -953,6 +972,10 @@ footer {
   h1 {
     font-size: 35px;
     text-align: center;
+  }
+
+  #page-title {
+    font-size: 45px;
   }
 
   h2 {
