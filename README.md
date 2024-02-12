@@ -1,10 +1,32 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  # Heroes of Craet
+ 
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ 
+  ## Table of Contents
+  
+  [Description](#description)
 
-## Available Scripts
+  [Installation](#installation)
+  
+  [Usage](#usage)
 
-In the project directory, you can run:
+  [Contribute](#contribute)
+
+  [Test](#test)
+  
+  [Credits](#credits)
+  
+  [License](#license)
+
+  [Questions](#questions)
+  
+  ## Description
+  This application is a game built from scratch using React.js. The game exists in a fictional fantasy world called Craet, where there are monsters that need to be defeated. Users can select  a hero from a list of pre-made characters to use to defeat monsters. When fighting monsters, the combat is turn based. Defeating monsters earns each hero gold.
+
+  ## Installation
+
+  In the project directory, you can run:
 
 ### `npm start`
 
@@ -14,57 +36,39 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  You can also run the deployed application in any web browser using the link below:
 
-### `npm run build`
+   Deployed Application: https://adamjohnson92.github.io/Heroes-of-Craet/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ## Usage
+  Users can select a hero from the rost that is presented on the front page. Selecting a hero will pull up their character sheet with their stats and equipment. Once you have found a hero that you want to play as, click the red "Slay Monsters" button. This will take you into turn based combat with a randomly generated monster. Every time you use an action, you will deplete your green stamina bar. Once your character is out of stamina, it will be the monsters turn. Once the monster is out of stamina, it will return to being your turn. Your character will have two attack options, based on the weapon that they have equipped, each with varying chances to hit the enemy and deal various amounts of damage. Each character also has a special defensive ability that can make them more prepared for the monster's next attack. Each character also has a health potion bottle that they can drink to heal damage. Once a monster is defeated, the hero earns gold.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ![An image of the character selection screen.](./screenshots/heroes-screenshot-1.PNG)
+  ![An image of the hero, Vale, fighting a zombie.](./screenshots/heroes-screenshot-2.PNG)
+  
+  ## Contribute
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  [GitHub Repo: (https://github.com/AdamJohnson92/Heroes-of-Craet)]
 
-### `npm run eject`
+  
+  ## Credits
+  The pixel art for the monster Bad Frog was designed by my wife Anna Price. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ## License
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  
+  This project is licensed under the terms of the MIT license.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ## Questions?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  Contact me at:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  GitHub: https://github.com/AdamJohnson92
+  
+  email: adamgjohnson92@gmail.com
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
