@@ -47,7 +47,7 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
                     <div id="potion-juice" style={potionHeightStyle}></div>
                 </div>
             </div>
-            <img className={heroStaticDisplay} id="arena-hero-avatar" src={chosenCharacter.img} />
+            <img className={heroStaticDisplay} id="arena-hero-avatar" src={chosenCharacter.img} alt={chosenCharacter.staticAlt}/>
             <img className= {heroAttackDisplay} id="arena-hero-attack" src={chosenCharacter.attackImg} />
             <img className= {heroRetreatDisplay} id="arena-hero-retreat" src={chosenCharacter.retreatImg} />
             <div className={`mon-slash-class ${heroDmgSlash}`}></div>

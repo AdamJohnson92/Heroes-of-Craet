@@ -15,7 +15,9 @@ const undead = {
     currentHp: 30,
     hitChanceRate: 12,
     img: undeadStatic,
+    staticAlt: 'A zombie with red and brown rotten flesh, dragging it\'s left foot.',
     attackImg: undeadAttack,
+    attackAlt: 'The zombie lurches forward with both hands towards the player\'s character.',
     maxStaminaPoints: 1,
     currentStamPoints: 1,
 
@@ -49,7 +51,9 @@ const goblin = {
     currentHp: 30,
     hitChanceRate: 13,
     img: goblinStatic,
+    staticAlt: 'A goblin with green skin, hunched over wearing tattered clothes and weilding a wooden club.',
     attackImg: goblinAttack,
+    attackAlt: 'The goblin jumps forward, slamming the club down with both hands.',
     maxStaminaPoints: 1,
     currentStamPoints: 1,
 
@@ -84,7 +88,9 @@ const badFrog = {
     currentHp: 35,
     hitChanceRate: 11,
     img: badFrogStatic,
+    staticAlt: 'A big, purple toad.',
     attackImg: badFrogStatic,
+    attackAlt: 'A big, purple toad.',
     maxStaminaPoints: 1,
     currentStamPoints: 1,
     

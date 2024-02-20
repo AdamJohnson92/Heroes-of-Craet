@@ -233,7 +233,7 @@ export default function CombatDiv({ combatDisplay, setCombatDisplay, setSelectDi
                     <img className='shhImg' src={miss2}></img>
                     <img className='shhImg' src={miss3}></img>
                 </div>
-                <div className="background-img"></div>
+                <div className="background-img" alt='A battle field with a forest and mountains in the background.'></div>
                 <ArenaHero heroStaticDisplay={heroStaticDisplay} heroAttackDisplay={heroAttackDisplay} heroRetreatDisplay={heroRetreatDisplay} heroDmgSlash={heroDmgSlash} heroFullDisplay={heroFullDisplay} />
                 <ArenaMonster monster={monster} monDmgSlash={monDmgSlash} monStaticDisplay={monStaticDisplay} monAttackDisplay={monAttackDisplay} monRetreatDisplay={monRetreatDisplay} monFullDisplay={monFullDisplay} />
             </div>
