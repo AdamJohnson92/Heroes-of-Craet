@@ -48,8 +48,8 @@ export default function ArenaHero({ heroStaticDisplay, heroAttackDisplay, heroRe
                 </div>
             </div>
             <img className={heroStaticDisplay} id="arena-hero-avatar" src={chosenCharacter.img} alt={chosenCharacter.staticAlt}/>
-            <img className= {heroAttackDisplay} id="arena-hero-attack" src={chosenCharacter.attackImg} />
-            <img className= {heroRetreatDisplay} id="arena-hero-retreat" src={chosenCharacter.retreatImg} />
+            <img className= {heroAttackDisplay} id="arena-hero-attack" src={chosenCharacter.attackImg} alt={chosenCharacter.attackAlt}/>
+            <img className= {heroRetreatDisplay} id="arena-hero-retreat" src={chosenCharacter.retreatImg} alt={chosenCharacter.retreatAlt}/>
             <div className={`mon-slash-class ${heroDmgSlash}`}></div>
         </div>
     )

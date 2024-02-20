@@ -35,9 +35,9 @@ export default function ArenaMonster({monster, monDmgSlash, monStaticDisplay, mo
                     <div id="potion-juice"></div>
                 </div>
             </div>
-            <img className={monStaticDisplay} id="arena-monster-avatar" src={monster.img} />
-            <img className={monAttackDisplay} id="arena-monster-attack" src={monster.attackImg}/>
-            <img className= {monRetreatDisplay} id="arena-monster-retreat" src={monster.img} />
+            <img className={monStaticDisplay} id="arena-monster-avatar" src={monster.img} alt={monster.staticAlt} />
+            <img className={monAttackDisplay} id="arena-monster-attack" src={monster.attackImg} alt={monster.attackAlt}/>
+            <img className= {monRetreatDisplay} id="arena-monster-retreat" src={monster.img} alt={monster.staticAlt} />
             <div className={`mon-slash-class ${monDmgSlash}`}></div>
         </div>
     )
